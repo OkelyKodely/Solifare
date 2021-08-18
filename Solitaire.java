@@ -73,7 +73,7 @@ public class Solitaire {
     class ClickSystem implements MouseMotionListener, MouseListener {
         @Override
         public void mouseClicked(MouseEvent me) {
-            ///
+            //
         }
 
         @Override
@@ -92,10 +92,7 @@ public class Solitaire {
         public void mouseExited(MouseEvent me) {
         }
 
-        Clicker me1 = new Clicker(300, 100);
-        
-        Clicker me2 = new Clicker(400, 100);
-        Clicker me3 = new Clicker(400, 130);
+        Clicker m[] = new Clicker[28];
 
         public void mouseDragged(MouseEvent me) {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -106,23 +103,246 @@ public class Solitaire {
         }
 
         public ClickSystem() {
+            m[0] = new Clicker(200, 100, stack1);
 
+            m[1] = new Clicker(400, 100, stack2);
+            m[2] = new Clicker(400, 130, stack2);
+
+            m[3] = new Clicker(500, 100, stack3);
+            m[4] = new Clicker(500, 130, stack3);
+            m[5] = new Clicker(500, 160, stack3);
+
+            m[6] = new Clicker(600, 100, stack4);
+            m[7] = new Clicker(600, 130, stack4);
+            m[8] = new Clicker(600, 160, stack4);
+            m[9] = new Clicker(600, 190, stack4);
+
+            m[10] = new Clicker(700, 100, stack5);
+            m[11] = new Clicker(700, 130, stack5);
+            m[12] = new Clicker(700, 160, stack5);
+            m[13] = new Clicker(700, 190, stack5);
+            m[14] = new Clicker(700, 100, stack5);
+
+            m[15] = new Clicker(800, 130, stack6);
+            m[16] = new Clicker(800, 160, stack6);
+            m[17] = new Clicker(800, 190, stack6);
+            m[18] = new Clicker(800, 130, stack6);
+            m[19] = new Clicker(800, 160, stack6);
+            m[20] = new Clicker(800, 190, stack6);
+
+            m[21] = new Clicker(900, 130, stack7);
+            m[22] = new Clicker(900, 160, stack7);
+            m[23] = new Clicker(900, 190, stack7);
+            m[24] = new Clicker(900, 130, stack7);
+            m[25] = new Clicker(900, 160, stack7);
+            m[26] = new Clicker(900, 190, stack7);
+            m[27] = new Clicker(900, 220, stack7);
         }
         
         class Clicker {
             int x, y;
-            MouseEvent e = null;
-            long width = 60; long height = 120;
-            public void setEvent(MouseEvent e){
-                this.e = e;
+            long width = 60; long height = 30;
+            ArrayList<Card> stack;
+            MouseEvent e;
+            GroupCards gc = new GroupCards();
+            class GroupCards {
+                MouseEvent e;
+                ArrayList<Card> kards = new ArrayList<>();
+                public String getCondition() {
+                    if(isRegioned(this.e)) {
+                        return "NOT TO MOVE CARDS";
+                    }
+                    else {
+                        return "MOVE~";
+                    }
+                }
+                public ArrayList<Card> getCards() {
+                    return this.kards;
+                }
             }
-            public Clicker(int x, int y) {
+            public Clicker(int x, int y, ArrayList<Card> stack) {
                 this.x = x;
                 this.y = y;
+                this.stack = stack;
             }
-            public boolean isRegioned(int xsource, int ysource) {
-                if(xsource >= this.x && xsource <= this.x + this.width &&
-                    ysource >= this.y && ysource <= this.y + this.height) {
+            public String getCanonicalName() {
+                return this.stack.getClass().getCanonicalName();
+            }
+            public GroupCards getGroupCards() {
+                this.gc = new GroupCards();
+                this.gc.e = this.e;
+                if(this.gc.getCondition().equals("MOVE~")) {
+                    int x = this.gc.e.getX();
+                    int y = this.gc.e.getY();
+                    this.fillGroupCards(x,y);
+                }
+                return this.gc;
+            }
+            public void setGroupCards() {
+                this.gc = new GroupCards();
+                this.gc.e = this.e;
+                if(this.gc.getCondition().equals("MOVE~")) {
+                    int x = this.gc.e.getX();
+                    int y = this.gc.e.getY();
+                    this.fillStackCards(x,y);
+                }
+            }
+            public void fillGroupCards(int x, int y) {
+                if(x == 200 && y >= 100 && y <= 130) {
+                    this.gc.kards.add(stack1.remove(0));
+                }
+                else if(x == 300 && y >= 100 && y <= 130) {
+                    this.gc.kards.add(stack2.remove(0));
+                    this.gc.kards.add(stack2.remove(1));
+                }
+                else if(x == 300 && y >= 130 && y <= 160) {
+                    this.gc.kards.add(stack2.remove(1));
+                }
+                else if(x == 400 && y >= 100 && y <= 130) {
+                    this.gc.kards.add(stack3.remove(0));
+                    this.gc.kards.add(stack3.remove(1));
+                    this.gc.kards.add(stack3.remove(2));
+                }
+                else if(x == 400 && y >= 130 && y <= 160) {
+                    this.gc.kards.add(stack3.remove(1));
+                    this.gc.kards.add(stack3.remove(2));
+                }
+                else if(x == 400 && y >= 160 && y <= 190) {
+                    this.gc.kards.add(stack3.remove(2));
+                }
+                else if(x == 500 && y >= 100 && y <= 130) {
+                    this.gc.kards.add(stack4.remove(0));
+                    this.gc.kards.add(stack4.remove(1));
+                    this.gc.kards.add(stack4.remove(2));
+                    this.gc.kards.add(stack4.remove(3));
+                }
+                else if(x == 500 && y >= 130 && y <= 160) {
+                    this.gc.kards.add(stack4.remove(1));
+                    this.gc.kards.add(stack4.remove(2));
+                    this.gc.kards.add(stack4.remove(3));
+                }
+                else if(x == 500 && y >= 160 && y <= 190) {
+                    this.gc.kards.add(stack4.remove(2));
+                    this.gc.kards.add(stack4.remove(3));
+                }
+                else if(x == 500 && y >= 190 && y <= 220) {
+                    this.gc.kards.add(stack4.remove(3));
+                }
+                else if(x == 600 && y >= 100 && y <= 130) {
+                    this.gc.kards.add(stack5.remove(0));
+                    this.gc.kards.add(stack5.remove(1));
+                    this.gc.kards.add(stack5.remove(2));
+                    this.gc.kards.add(stack5.remove(3));
+                    this.gc.kards.add(stack5.remove(4));
+                }
+                else if(x == 600 && y >= 130 && y <= 160) {
+                    this.gc.kards.add(stack5.remove(1));
+                    this.gc.kards.add(stack5.remove(2));
+                    this.gc.kards.add(stack5.remove(3));
+                    this.gc.kards.add(stack5.remove(4));
+                }
+                else if(x == 600 && y >= 160 && y <= 190) {
+                    this.gc.kards.add(stack5.remove(2));
+                    this.gc.kards.add(stack5.remove(3));
+                    this.gc.kards.add(stack5.remove(4));
+                }
+                else if(x == 600 && y >= 190 && y <= 220) {
+                    this.gc.kards.add(stack5.remove(3));
+                    this.gc.kards.add(stack5.remove(4));
+                }
+                else if(x == 600 && y >= 190 && y <= 220) {
+                    this.gc.kards.add(stack5.remove(4));
+                }
+            }
+            public void fillStackCards(int x, int y) {
+                if(x == 200 && y >= 100 && y <= 130) {
+                    for(int i=0; i<this.gc.kards.size(); i++) {
+                        stack1.add(this.gc.kards.remove(i));
+                    }
+                }
+                else if(x == 300 && y >= 100 && y <= 130) {
+                    if(stack2.size() == 1 || stack2.size() == 0) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack2.add(this.gc.kards.remove(i));
+                        }
+                    }
+                    else if(stack2.size() == 2) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack2.add(1, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x == 300 && y >= 130 && y <= 160) {
+                    for(int i=0; i<this.gc.kards.size(); i++) {
+                        stack2.add(this.gc.kards.remove(i));
+                    }
+                }
+                else if(x == 400 && y >= 100 && y <= 130) {
+                    if()
+                    this.gc.kards.add(stack3.remove(0));
+                    this.gc.kards.add(stack3.remove(1));
+                    this.gc.kards.add(stack3.remove(2));
+                }
+                else if(x == 400 && y >= 130 && y <= 160) {
+                    this.gc.kards.add(stack3.remove(1));
+                    this.gc.kards.add(stack3.remove(2));
+                }
+                else if(x == 400 && y >= 160 && y <= 190) {
+                    for(int i=0; i<this.gc.kards.size(); i++) {
+                        stack3.add(this.gc.kards.remove(i));
+                    }
+                }
+                else if(x == 500 && y >= 100 && y <= 130) {
+                    this.gc.kards.add(stack4.remove(0));
+                    this.gc.kards.add(stack4.remove(1));
+                    this.gc.kards.add(stack4.remove(2));
+                    this.gc.kards.add(stack4.remove(3));
+                }
+                else if(x == 500 && y >= 130 && y <= 160) {
+                    this.gc.kards.add(stack4.remove(1));
+                    this.gc.kards.add(stack4.remove(2));
+                    this.gc.kards.add(stack4.remove(3));
+                }
+                else if(x == 500 && y >= 160 && y <= 190) {
+                    this.gc.kards.add(stack4.remove(2));
+                    this.gc.kards.add(stack4.remove(3));
+                }
+                else if(x == 500 && y >= 190 && y <= 220) {
+                    this.gc.kards.add(stack4.remove(3));
+                }
+                else if(x == 600 && y >= 100 && y <= 130) {
+                    this.gc.kards.add(stack5.remove(0));
+                    this.gc.kards.add(stack5.remove(1));
+                    this.gc.kards.add(stack5.remove(2));
+                    this.gc.kards.add(stack5.remove(3));
+                    this.gc.kards.add(stack5.remove(4));
+                }
+                else if(x == 600 && y >= 130 && y <= 160) {
+                    this.gc.kards.add(stack5.remove(1));
+                    this.gc.kards.add(stack5.remove(2));
+                    this.gc.kards.add(stack5.remove(3));
+                    this.gc.kards.add(stack5.remove(4));
+                }
+                else if(x == 600 && y >= 160 && y <= 190) {
+                    this.gc.kards.add(stack5.remove(2));
+                    this.gc.kards.add(stack5.remove(3));
+                    this.gc.kards.add(stack5.remove(4));
+                }
+                else if(x == 600 && y >= 190 && y <= 220) {
+                    this.gc.kards.add(stack5.remove(3));
+                    this.gc.kards.add(stack5.remove(4));
+                }
+                else if(x == 600 && y >= 190 && y <= 220) {
+                    this.gc.kards.add(stack5.remove(4));
+                }
+            }
+            public boolean isRegioned(MouseEvent e) {
+                if(e == null) {
+                    return false ;
+                }
+                if(e.getX() >= this.x && e.getX() <= this.x + this.width &&
+                    e.getY() >= this.y && e.getY() <= this.y + this.height) {
+                    this.e = e;
                     return true;
                 }
                 return false;
@@ -182,147 +402,142 @@ public class Solitaire {
         }
     }
     
+    ArrayList<Card> stack1 = new ArrayList<>();
+    ArrayList<Card> stack2 = new ArrayList<>();
+    ArrayList<Card> stack3 = new ArrayList<>();
+    ArrayList<Card> stack4 = new ArrayList<>();
+    ArrayList<Card> stack5 = new ArrayList<>();
+    ArrayList<Card> stack6 = new ArrayList<>();
+    ArrayList<Card> stack7 = new ArrayList<>();
+    
     public void deal() {
 
         ArrayList<Card> c = cas.crs;
-        int y = 100;
-        {
-        Card cd = c.get(cursorForPlayCards-1);
-        int x = 200+126;
-        System.out.println(cd.number + " " + cd.suit);
-        cd.drawCardAtLocation(x, y);
-        }
-        
-        {
-        cursorForPlayCards++;
-        Card cd = c.get(cursorForPlayCards-1);
-        int x = 300+126;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        }
-
-        {
-        cursorForPlayCards++;
-        Card cd = c.get(cursorForPlayCards-1);
-        int x = 400+126;
-         y = 100;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        }
-
-        {
-        cursorForPlayCards++;
-        Card cd = c.get(cursorForPlayCards-1);
-        int x = 500+126;
-         y = 100;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        }
-
-        {
-        cursorForPlayCards++;
-        Card cd = c.get(cursorForPlayCards-1);
-        int x = 600+126;
-         y = 100;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        }
-
-        {
-        cursorForPlayCards++;
-        Card cd = c.get(cursorForPlayCards-1);
-        int x = 700+126;
-         y = 100;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        }
-
-        {
-        cursorForPlayCards++;
-        Card cd = c.get(cursorForPlayCards-1);
-        int x = 800+126;
-         y = 100;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        cursorForPlayCards++;
-        cd = c.get(cursorForPlayCards-1);
-        y = y + 24;
-        cd.drawCardAtLocation(x, y);
-        }
+        System.out.println(c.size());
+        int count = 1;
+        ArrayList<Card> controller = new ArrayList<>();
+        if(c.size() == 28 || 12 == 12)
+            for(int i=24; i<c.size(); i++) {
+                if(count == 1) {
+                    controller = stack1;
+                    Card cd = c.get(i);
+                    controller.add(cd);
+                    int x = 200+126;
+                    int y = 100;
+                    cd.x = x;
+                    cd.y = y;
+                    count++;
+                    cd.drawCardAtLocation(cd.x, cd.y);
+                }
+                else if(count >= 2 && count <= 3) {
+                    controller = stack2;
+                    Card cd = c.get(i);
+                    controller.add(cd);
+                    int x = 300+126;
+                    int y = 100;
+                    if(count > 2)
+                        y = y + 30;
+                    cd.x = x;
+                    cd.y = y;
+                    count++;
+                    cd.drawCardAtLocation(cd.x, cd.y);
+                }
+                else if(count >= 4 && count <= 6) {
+                    controller = stack3;
+                    Card cd = c.get(i);
+                    controller.add(cd);
+                    int x = 400+126;
+                    int y = 100;
+                    if(count > 4)
+                        y = y + 30;
+                    if(count > 5)
+                        y = y + 30;
+                    cd.x = x;
+                    cd.y = y;
+                    count++;
+                    cd.drawCardAtLocation(cd.x, cd.y);
+                }
+                else if(count >= 7 && count <= 10) {
+                    controller = stack4;
+                    Card cd = c.get(i);
+                    controller.add(cd);
+                    int x = 500+126;
+                    int y = 100;
+                    if(count > 7)
+                        y = y + 30;
+                    if(count > 8)
+                        y = y + 30;
+                    if(count > 9)
+                        y = y + 30;
+                    cd.x = x;
+                    cd.y = y;
+                    count++;
+                    cd.drawCardAtLocation(cd.x, cd.y);
+                }
+                else if(count >= 11 && count <= 15) {
+                    controller = stack5;
+                    Card cd = c.get(i);
+                    controller.add(cd);
+                    int x = 600+126;
+                    int y = 100;
+                    if(count > 11)
+                        y = y + 30;
+                    if(count > 12)
+                        y = y + 30;
+                    if(count > 13)
+                        y = y + 30;
+                    if(count > 14)
+                        y = y + 30;
+                    cd.x = x;
+                    cd.y = y;
+                    count++;
+                    cd.drawCardAtLocation(cd.x, cd.y);
+                }
+                else if(count >= 16 && count <= 21) {
+                    controller = stack6;
+                    Card cd = c.get(i);
+                    controller.add(cd);
+                    int x = 700+126;
+                    int y = 100;
+                    if(count > 16)
+                        y = y + 30;
+                    if(count > 17)
+                        y = y + 30;
+                    if(count > 18)
+                        y = y + 30;
+                    if(count > 19)
+                        y = y + 30;
+                    if(count > 20)
+                        y = y + 30;
+                    cd.x = x;
+                    cd.y = y;
+                    count++;
+                    cd.drawCardAtLocation(cd.x, cd.y);
+                }
+                else if(count >= 22 && count <= 28) {
+                    controller = stack7;
+                    Card cd = c.get(i);
+                    controller.add(cd);
+                    int x = 800+126;
+                    int y = 100;
+                    if(count > 22)
+                        y = y + 30;
+                    if(count > 23)
+                        y = y + 30;
+                    if(count > 24)
+                        y = y + 30;
+                    if(count > 25)
+                        y = y + 30;
+                    if(count > 26)
+                        y = y + 30;
+                    if(count > 27)
+                        y = y + 30;
+                    cd.x = x;
+                    cd.y = y;
+                    count++;
+                    cd.drawCardAtLocation(cd.x, cd.y);
+                }
+            }
     }
     
     class Logo {
