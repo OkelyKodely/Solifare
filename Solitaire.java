@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
 // www.github.com/okelykodely
 
 public class Solitaire {
+
     class Stacker {
         public void executeDrawing() {
             Stack1 q = new Stack1();
@@ -71,85 +72,181 @@ public class Solitaire {
     }
     
     class ClickSystem implements MouseMotionListener, MouseListener {
-        @Override
+
+        Clicker m[] = new Clicker[28];
+boolean tr = false;
         public void mouseClicked(MouseEvent me) {
-            //
         }
 
-        @Override
         public void mousePressed(MouseEvent me) {
+            tr = true;
+//            for(int i=0; i<m.length; i++) {
+//                if(m[i].isRegioned(me)) {
+//                    Clicker.GroupCards gc = m[i].getGroupCards();
+//                    if(m[i].getCanonicalName().equals("stack1")) {
+//                        //stack1 = gc.getCards();
+//                        //m[i].fillGroupCards(me.getX(), me.getY());
+//                    } else if(m[i].getCanonicalName().equals("stack2")) {
+//                        stack2 = gc.getCards();
+//                        m[i].fillGroupCards(me.getX(), me.getY());
+//                    } else if(m[i].getCanonicalName().equals("stack3")) {
+//                        stack3 = gc.getCards();
+//                        m[i].fillGroupCards(me.getX(), me.getY());
+//                    } else if(m[i].getCanonicalName().equals("stack4")) {
+//                        stack4 = gc.getCards();
+//                        m[i].fillGroupCards(me.getX(), me.getY());
+//                    } else if(m[i].getCanonicalName().equals("stack5")) {
+//                        stack5 = gc.getCards();
+//                        m[i].fillGroupCards(me.getX(), me.getY());
+//                    } else if(m[i].getCanonicalName().equals("stack6")) {
+//                        stack6 = gc.getCards();
+//                        m[i].fillGroupCards(me.getX(), me.getY());
+//                    } else if(m[i].getCanonicalName().equals("stack7")) {
+//                        stack7 = gc.getCards();
+//                        m[i].fillGroupCards(me.getX(), me.getY());
+//                    }
+//                }
+//            }
         }
 
-        @Override
         public void mouseReleased(MouseEvent me) {
+            tr = false;
+//            for(int i=0; i<m.length; i++) {
+//                if(m[i].isRegioned(me)) {
+//                    Clicker.GroupCards gc = m[i].getGroupCards();
+//                    if(m[i].getCanonicalName().equals("stack1")) {
+//                        stack1 = gc.getCards();
+//                        m[i].fillStackCards(me.getX(), me.getY());
+//                    } else if(m[i].getCanonicalName().equals("stack2")) {
+//                        stack2 = gc.getCards();
+//                        m[i].fillStackCards(me.getX(), me.getY());
+//                    } else if(m[i].getCanonicalName().equals("stack3")) {
+//                        stack3 = gc.getCards();
+//                        m[i].fillStackCards(me.getX(), me.getY());
+//                    } else if(m[i].getCanonicalName().equals("stack4")) {
+//                        stack4 = gc.getCards();
+//                        m[i].fillStackCards(me.getX(), me.getY());
+//                    } else if(m[i].getCanonicalName().equals("stack5")) {
+//                        stack5 = gc.getCards();
+//                        m[i].fillStackCards(me.getX(), me.getY());
+//                    } else if(m[i].getCanonicalName().equals("stack6")) {
+//                        stack6 = gc.getCards();
+//                        m[i].fillStackCards(me.getX(), me.getY());
+//                    } else if(m[i].getCanonicalName().equals("stack7")) {
+//                        stack7 = gc.getCards();
+//                        m[i].fillStackCards(me.getX(), me.getY());
+//                    }
+//                }
+//            }
         }
 
-        @Override
         public void mouseEntered(MouseEvent me) {
         }
 
-        @Override
         public void mouseExited(MouseEvent me) {
         }
 
-        Clicker m[] = new Clicker[28];
-
-        public void mouseDragged(MouseEvent me) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        public void mouseMoved(MouseEvent me) {
         }
 
-        public void mouseMoved(MouseEvent me) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        public void mouseDragged(MouseEvent me) {
+            if(!tr)
+                return;
+            gr.setColor(new Color(63, 197, 111));
+            gr.fillRect(0, 0, 1070, 800);
+            logo.drawLogoMiddle();
+            cas.draw_All_TopOfStack();
+            deal();
+            for(int i=0; i<m.length; i++) {
+                if(m[i].isRegioned(me)) {
+                    Clicker.GroupCards gc = m[i].getGroupCards(i);
+                    if(m[i].getCanonicalName().equals("stack1")) {
+                        ArrayList<Card> stack = gc.getCards();
+                        for(int ii=0; ii<stack.size(); ii++) {
+                            System.out.println(stack.get(ii).x + ", " + stack.get(ii).y);
+                            stack.get(ii).drawCardAtLocation(stack.get(ii).x, stack.get(ii).y);
+                        }
+                    } else if(m[i].getCanonicalName().equals("stack2")) {
+                        ArrayList<Card> stack = gc.getCards();
+                        for(int ii=0; ii<stack.size(); ii++) {
+                            System.out.println(stack.get(ii).x + ", " + stack.get(ii).y);
+                            stack.get(ii).drawCardAtLocation(stack.get(ii).x, stack.get(ii).y);
+                        }
+                    } else if(m[i].getCanonicalName().equals("stack3")) {
+                        stack3 = gc.getCards();
+                        for(int ii=0; ii<stack3.size(); ii++)
+                            stack3.get(ii).drawCardAtLocation(stack3.get(ii).x, stack3.get(ii).y);
+                    } else if(m[i].getCanonicalName().equals("stack4")) {
+                        stack4 = gc.getCards();
+                        for(int ii=0; ii<stack4.size(); ii++)
+                            stack4.get(ii).drawCardAtLocation(stack4.get(ii).x, stack4.get(ii).y);
+                    } else if(m[i].getCanonicalName().equals("stack5")) {
+                        stack5 = gc.getCards();
+                        for(int ii=0; ii<stack5.size(); ii++)
+                            stack5.get(ii).drawCardAtLocation(stack5.get(ii).x, stack5.get(ii).y);
+                    } else if(m[i].getCanonicalName().equals("stack6")) {
+                        stack6 = gc.getCards();
+                        for(int ii=0; ii<stack6.size(); ii++)
+                            stack6.get(ii).drawCardAtLocation(stack6.get(ii).x, stack6.get(ii).y);
+                    } else if(m[i].getCanonicalName().equals("stack7")) {
+                        stack7 = gc.getCards();
+                        for(int ii=0; ii<stack7.size(); ii++)
+                            stack7.get(ii).drawCardAtLocation(stack7.get(ii).x, stack7.get(ii).y);
+                    }
+                }
+            }
         }
 
         public ClickSystem() {
-            m[0] = new Clicker(200, 100, stack1);
+            m[0] = new Clicker(200, 100, stack1, "stack1");
 
-            m[1] = new Clicker(400, 100, stack2);
-            m[2] = new Clicker(400, 130, stack2);
+            m[1] = new Clicker(300, 100, stack2, "stack2");
+            m[2] = new Clicker(300, 130, stack2, "stack2");
 
-            m[3] = new Clicker(500, 100, stack3);
-            m[4] = new Clicker(500, 130, stack3);
-            m[5] = new Clicker(500, 160, stack3);
+            m[3] = new Clicker(400, 100, stack3, "stack3");
+            m[4] = new Clicker(400, 130, stack3, "stack3");
+            m[5] = new Clicker(400, 160, stack3, "stack3");
 
-            m[6] = new Clicker(600, 100, stack4);
-            m[7] = new Clicker(600, 130, stack4);
-            m[8] = new Clicker(600, 160, stack4);
-            m[9] = new Clicker(600, 190, stack4);
+            m[6] = new Clicker(500, 100, stack4, "stack4");
+            m[7] = new Clicker(500, 130, stack4, "stack4");
+            m[8] = new Clicker(500, 160, stack4, "stack4");
+            m[9] = new Clicker(500, 190, stack4, "stack4");
 
-            m[10] = new Clicker(700, 100, stack5);
-            m[11] = new Clicker(700, 130, stack5);
-            m[12] = new Clicker(700, 160, stack5);
-            m[13] = new Clicker(700, 190, stack5);
-            m[14] = new Clicker(700, 100, stack5);
+            m[10] = new Clicker(600, 100, stack5, "stack5");
+            m[11] = new Clicker(600, 130, stack5, "stack5");
+            m[12] = new Clicker(600, 160, stack5, "stack5");
+            m[13] = new Clicker(600, 190, stack5, "stack5");
+            m[14] = new Clicker(600, 220, stack5, "stack5");
 
-            m[15] = new Clicker(800, 130, stack6);
-            m[16] = new Clicker(800, 160, stack6);
-            m[17] = new Clicker(800, 190, stack6);
-            m[18] = new Clicker(800, 130, stack6);
-            m[19] = new Clicker(800, 160, stack6);
-            m[20] = new Clicker(800, 190, stack6);
+            m[15] = new Clicker(700, 100, stack6, "stack6");
+            m[16] = new Clicker(700, 130, stack6, "stack6");
+            m[17] = new Clicker(700, 160, stack6, "stack6");
+            m[18] = new Clicker(700, 190, stack6, "stack6");
+            m[19] = new Clicker(700, 220, stack6, "stack6");
+            m[20] = new Clicker(700, 250, stack6, "stack6");
 
-            m[21] = new Clicker(900, 130, stack7);
-            m[22] = new Clicker(900, 160, stack7);
-            m[23] = new Clicker(900, 190, stack7);
-            m[24] = new Clicker(900, 130, stack7);
-            m[25] = new Clicker(900, 160, stack7);
-            m[26] = new Clicker(900, 190, stack7);
-            m[27] = new Clicker(900, 220, stack7);
+            m[21] = new Clicker(800, 100, stack7, "stack7");
+            m[22] = new Clicker(800, 130, stack7, "stack7");
+            m[23] = new Clicker(800, 160, stack7, "stack7");
+            m[24] = new Clicker(800, 190, stack7, "stack7");
+            m[25] = new Clicker(800, 220, stack7, "stack7");
+            m[26] = new Clicker(800, 250, stack7, "stack7");
+            m[27] = new Clicker(800, 280, stack7, "stack7");
         }
         
         class Clicker {
             int x, y;
             long width = 60; long height = 30;
             ArrayList<Card> stack;
+            ArrayList<Card> kards = new ArrayList<>();
+            String name;
             MouseEvent e;
             GroupCards gc = new GroupCards();
             class GroupCards {
                 MouseEvent e;
                 ArrayList<Card> kards = new ArrayList<>();
                 public String getCondition() {
-                    if(isRegioned(this.e)) {
+                    if(!isRegioned(this.e)) {
                         return "NOT TO MOVE CARDS";
                     }
                     else {
@@ -157,29 +254,129 @@ public class Solitaire {
                     }
                 }
                 public ArrayList<Card> getCards() {
-                    return this.kards;
+                    return Clicker.this.kards;
                 }
             }
-            public Clicker(int x, int y, ArrayList<Card> stack) {
+            public Clicker(int x, int y, ArrayList<Card> stack, String stackString) {
                 this.x = x;
                 this.y = y;
                 this.stack = stack;
+                this.name = stackString;
             }
             public String getCanonicalName() {
-                return this.stack.getClass().getCanonicalName();
+                return this.name;
             }
-            public GroupCards getGroupCards() {
-                this.gc = new GroupCards();
+            public GroupCards getGroupCards(int i) {
                 this.gc.e = this.e;
-                if(this.gc.getCondition().equals("MOVE~")) {
-                    int x = this.gc.e.getX();
-                    int y = this.gc.e.getY();
-                    this.fillGroupCards(x,y);
+                if(1==1||this.gc.getCondition().equals("MOVE~")) {
+                    int xx = this.gc.e.getX();
+                    int yy = this.gc.e.getY();
+                    
+                    int id = 0;
+
+                    if(xx >= 100 + 200 && xx <= 100 + 200 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                        id = 0;
+                    }
+                    else if(xx >= 100 + 300 && xx <= 100 + 300 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                        id = 0;
+                    }
+                    else if(xx >= 100 + 300 && xx <= 100 + 300 + 60 && yy >= 100 + 130 && yy <= 100 + 160) {
+                        id = 1;
+                    }
+                    else if(xx >= 100 + 400 && xx <= 100 + 400 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                        id = 0;
+                    }
+                    else if(xx >= 100 + 400 && xx <= 100 + 400 + 60 && yy >= 100 + 130 && yy <= 100 + 160) {
+                        id = 1;
+                    }
+                    else if(xx >= 100 + 400 && xx <= 100 + 400 + 60 && yy >= 100 + 160 && yy <= 100 + 190) {
+                        id = 2;
+                    }
+                    else if(xx >= 100 + 500 && xx <= 100 + 500 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                        id = 0;
+                    }
+                    else if(xx >= 100 + 500 && xx <= 100 + 500 + 60 && yy >= 100 + 130 && yy <= 100 + 160) {
+                        id = 1;
+                    }
+                    else if(xx >= 100 + 500 && xx <= 100 + 500 + 60 && yy >= 100 + 160 && yy <= 100 + 190) {
+                        id = 2;
+                    }
+                    else if(xx >= 100 + 500 && xx <= 100 + 500 + 60 && yy >= 100 + 190 && yy <= 100 + 220) {
+                        id = 3;
+                    }
+                    else if(xx >= 100 + 600 && xx <= 100 + 600 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                        id = 0;
+                    }
+                    else if(xx >= 100 + 600 && xx <= 100 + 600 + 60 && yy >= 100 + 130 && yy <= 100 + 160) {
+                        id = 1;
+                    }
+                    else if(xx >= 100 + 600 && xx <= 100 + 600 + 60 && yy >= 100 + 160 && yy <= 100 + 190) {
+                        id = 2;
+                    }
+                    else if(xx >= 100 + 600 && xx <= 100 + 600 + 60 && yy >= 100 + 190 && yy <= 100 + 220) {
+                        id = 3;
+                    }
+                    else if(xx >= 100 + 600 && xx <= 100 + 600 + 60 && yy >= 100 + 220 && yy <= 100 + 250) {
+                        id = 4;
+                    }
+                    else if(xx >= 100 + 700 && xx <= 100 + 700 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                        id = 0;
+                    }
+                    else if(xx >= 100 + 700 && xx <= 100 + 700 + 60 && yy >= 100 + 130 && yy <= 100 + 160) {
+                        id = 1;
+                    }
+                    else if(xx >= 100 + 700 && xx <= 100 + 700 + 60 && yy >= 100 + 160 && yy <= 100 + 190) {
+                        id = 2;
+                    }
+                    else if(xx >= 100 + 700 && xx <= 100 + 700 + 60 && yy >= 100 + 190 && yy <= 100 + 220) {
+                        id = 3;
+                    }
+                    else if(xx >= 100 + 700 && xx <= 100 + 700 + 60 && yy >= 100 + 220 && yy <= 100 + 250) {
+                        id = 4;
+                    }
+                    else if(xx >= 100 + 700 && xx <= 100 + 700 + 60 && yy >= 100 + 250 && yy <= 100 + 280) {
+                        id = 5;
+                    }
+                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                        id = 0;
+                    }
+                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && yy >= 100 + 130 && yy <= 100 + 160) {
+                        id = 1;
+                    }
+                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && yy >= 100 + 160 && yy <= 100 + 190) {
+                        id = 2;
+                    }
+                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && xx <= 100 + 800 + 60 && yy >= 100 + 190 && yy <= 100 + 220) {
+                        id = 3;
+                    }
+                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && yy >= 100 + 220 && yy <= 100 + 250) {
+                        id = 4;
+                    }
+                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && yy >= 100 + 250 && yy <= 100 + 280) {
+                        id = 5;
+                    }
+                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && yy >= 100 + 280 && yy <= 100 + 310) {
+                        id = 6;
+                    }
+
+                    if(i == 0)
+                        this.fillGroupCards(stack1, 1, id, xx, yy);
+                    else if(i == 1)
+                        this.fillGroupCards(stack2, 2, id, xx, yy);
+                    else if(i == 2)
+                        this.fillGroupCards(stack3, 3, id, xx, yy);
+                    else if(i == 3)
+                        this.fillGroupCards(stack4, 4, id, xx, yy);
+                    else if(i == 4)
+                        this.fillGroupCards(stack5, 5, id, xx, yy);
+                    else if(i == 5)
+                        this.fillGroupCards(stack6, 6, id, xx, yy);
+                    else if(i == 6)
+                        this.fillGroupCards(stack7, 7, id, xx, yy);
                 }
                 return this.gc;
             }
             public void setGroupCards() {
-                this.gc = new GroupCards();
                 this.gc.e = this.e;
                 if(this.gc.getCondition().equals("MOVE~")) {
                     int x = this.gc.e.getX();
@@ -187,160 +384,511 @@ public class Solitaire {
                     this.fillStackCards(x,y);
                 }
             }
-            public void fillGroupCards(int x, int y) {
-                if(x == 200 && y >= 100 && y <= 130) {
-                    this.gc.kards.add(stack1.remove(0));
+            int countt;
+            public void fillGroupCards(ArrayList<Card> stck, int stackPos, int id, int xx, int yy) {
+                this.kards.clear();
+                if(stackPos == 1) {
+                    for(int i=0; i<stck.size(); i++) {
+                        stck.get(i).x = xx;
+                        stck.get(i).y = yy;
+                        if(i!=0)
+                            stck.get(i).y += 30;
+                        this.kards.add(stck.get(i));
+                        stck.remove(stck.get(i));
+                    }
                 }
-                else if(x == 300 && y >= 100 && y <= 130) {
-                    this.gc.kards.add(stack2.remove(0));
-                    this.gc.kards.add(stack2.remove(1));
+                else if(stackPos == 2) {
+                    if (id == 0) {
+                        for(int i=0; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=0)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 1) {
+                        for(int i=1; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=1)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
                 }
-                else if(x == 300 && y >= 130 && y <= 160) {
-                    this.gc.kards.add(stack2.remove(1));
+                else if(stackPos == 3) {
+                    if (id == 0) {
+                        for(int i=0; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=0)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 1) {
+                        for(int i=1; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=1)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 2) {
+                        for(int i=2; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=2)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
                 }
-                else if(x == 400 && y >= 100 && y <= 130) {
-                    this.gc.kards.add(stack3.remove(0));
-                    this.gc.kards.add(stack3.remove(1));
-                    this.gc.kards.add(stack3.remove(2));
+                else if(stackPos == 4) {
+                    if (id == 0) {
+                        for(int i=0; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=0)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 1) {
+                        for(int i=1; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=1)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 2) {
+                        for(int i=2; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=2)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 3) {
+                        for(int i=3; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=3)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
                 }
-                else if(x == 400 && y >= 130 && y <= 160) {
-                    this.gc.kards.add(stack3.remove(1));
-                    this.gc.kards.add(stack3.remove(2));
+                else if(stackPos == 5) {
+                    if (id == 0) {
+                        for(int i=0; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=0)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 1) {
+                        for(int i=1; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=1)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 2) {
+                        for(int i=2; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=2)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 3) {
+                        for(int i=3; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=3)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 4) {
+                        for(int i=4; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=4)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
                 }
-                else if(x == 400 && y >= 160 && y <= 190) {
-                    this.gc.kards.add(stack3.remove(2));
+                else if(stackPos == 6) {
+                    if (id == 0) {
+                        for(int i=0; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=0)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 1) {
+                        for(int i=1; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=1)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 2) {
+                        for(int i=2; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=2)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 3) {
+                        for(int i=3; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=3)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 4) {
+                        for(int i=4; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=4)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 5) {
+                        for(int i=5; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=5)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
                 }
-                else if(x == 500 && y >= 100 && y <= 130) {
-                    this.gc.kards.add(stack4.remove(0));
-                    this.gc.kards.add(stack4.remove(1));
-                    this.gc.kards.add(stack4.remove(2));
-                    this.gc.kards.add(stack4.remove(3));
-                }
-                else if(x == 500 && y >= 130 && y <= 160) {
-                    this.gc.kards.add(stack4.remove(1));
-                    this.gc.kards.add(stack4.remove(2));
-                    this.gc.kards.add(stack4.remove(3));
-                }
-                else if(x == 500 && y >= 160 && y <= 190) {
-                    this.gc.kards.add(stack4.remove(2));
-                    this.gc.kards.add(stack4.remove(3));
-                }
-                else if(x == 500 && y >= 190 && y <= 220) {
-                    this.gc.kards.add(stack4.remove(3));
-                }
-                else if(x == 600 && y >= 100 && y <= 130) {
-                    this.gc.kards.add(stack5.remove(0));
-                    this.gc.kards.add(stack5.remove(1));
-                    this.gc.kards.add(stack5.remove(2));
-                    this.gc.kards.add(stack5.remove(3));
-                    this.gc.kards.add(stack5.remove(4));
-                }
-                else if(x == 600 && y >= 130 && y <= 160) {
-                    this.gc.kards.add(stack5.remove(1));
-                    this.gc.kards.add(stack5.remove(2));
-                    this.gc.kards.add(stack5.remove(3));
-                    this.gc.kards.add(stack5.remove(4));
-                }
-                else if(x == 600 && y >= 160 && y <= 190) {
-                    this.gc.kards.add(stack5.remove(2));
-                    this.gc.kards.add(stack5.remove(3));
-                    this.gc.kards.add(stack5.remove(4));
-                }
-                else if(x == 600 && y >= 190 && y <= 220) {
-                    this.gc.kards.add(stack5.remove(3));
-                    this.gc.kards.add(stack5.remove(4));
-                }
-                else if(x == 600 && y >= 190 && y <= 220) {
-                    this.gc.kards.add(stack5.remove(4));
+                else if(stackPos == 7) {
+                    if (id == 0) {
+                        for(int i=0; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=0)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 1) {
+                        for(int i=1; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=1)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 2) {
+                        for(int i=2; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=2)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 3) {
+                        for(int i=3; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=3)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 4) {
+                        for(int i=4; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=4)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 5) {
+                        for(int i=5; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=5)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
+                    if (id == 6) {
+                        for(int i=6; i<stck.size(); i++) {
+                            stck.get(i).x = xx;
+                            stck.get(i).y = yy;
+                            if(i!=6)
+                                stck.get(i).y += 30;
+                            this.kards.add(stck.get(i));
+                            stck.remove(stck.get(i));
+                        }
+                    }
                 }
             }
             public void fillStackCards(int x, int y) {
-                if(x == 200 && y >= 100 && y <= 130) {
-                    for(int i=0; i<this.gc.kards.size(); i++) {
-                        stack1.add(this.gc.kards.remove(i));
+                if(x >= 100 + 200 && y >= 100 + 100 && y <= 100 + 130) {
+                    if(stack1.size() == 0) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack1.add(this.gc.kards.remove(i));
+                        }
                     }
                 }
-                else if(x == 300 && y >= 100 && y <= 130) {
-                    if(stack2.size() == 1 || stack2.size() == 0) {
+                else if(x >= 100 + 300 && y >= 100 + 100 && y <= 100 + 130) {
+                    if(stack2.size() == 0) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack2.add(this.gc.kards.remove(i));
                         }
                     }
-                    else if(stack2.size() == 2) {
+                }
+                else if(x >= 100 + 300 && y >= 100 + 130 && y <= 100 + 160) {
+                    if(stack2.size() >= 1) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack2.add(1, this.gc.kards.remove(i));
+                            stack2.add(i+1, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x == 300 && y >= 130 && y <= 160) {
-                    for(int i=0; i<this.gc.kards.size(); i++) {
-                        stack2.add(this.gc.kards.remove(i));
+                else if(x >= 100 + 300 && y >= 100 + 160 && y <= 100 + 190) {
+                    if(stack2.size() >= 2) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack2.add(this.gc.kards.remove(i));
+                        }
                     }
                 }
-                else if(x == 400 && y >= 100 && y <= 130) {
-                    if()
-                    this.gc.kards.add(stack3.remove(0));
-                    this.gc.kards.add(stack3.remove(1));
-                    this.gc.kards.add(stack3.remove(2));
-                }
-                else if(x == 400 && y >= 130 && y <= 160) {
-                    this.gc.kards.add(stack3.remove(1));
-                    this.gc.kards.add(stack3.remove(2));
-                }
-                else if(x == 400 && y >= 160 && y <= 190) {
-                    for(int i=0; i<this.gc.kards.size(); i++) {
-                        stack3.add(this.gc.kards.remove(i));
+                else if(x >= 100 + 400 && y >= 100 + 100 && y <= 100 + 130) {
+                    if(stack3.size() == 0) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack3.add(this.gc.kards.remove(i));
+                        }
                     }
                 }
-                else if(x == 500 && y >= 100 && y <= 130) {
-                    this.gc.kards.add(stack4.remove(0));
-                    this.gc.kards.add(stack4.remove(1));
-                    this.gc.kards.add(stack4.remove(2));
-                    this.gc.kards.add(stack4.remove(3));
+                else if(x >= 100 + 400 && y >= 100 + 130 && y <= 100 + 160) {
+                    if(stack3.size() >= 1) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack3.add(i+1, this.gc.kards.remove(i));
+                        }
+                    }
                 }
-                else if(x == 500 && y >= 130 && y <= 160) {
-                    this.gc.kards.add(stack4.remove(1));
-                    this.gc.kards.add(stack4.remove(2));
-                    this.gc.kards.add(stack4.remove(3));
+                else if(x >= 100 + 400 && y >= 100 + 160 && y <= 100 + 190) {
+                    if(stack3.size() >= 2) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack3.add(i+2, this.gc.kards.remove(i));
+                        }
+                    }
                 }
-                else if(x == 500 && y >= 160 && y <= 190) {
-                    this.gc.kards.add(stack4.remove(2));
-                    this.gc.kards.add(stack4.remove(3));
+                else if(x >= 100 + 500 && y >= 100 + 100 && y <= 100 + 130) {
+                    if(stack4.size() == 0) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack4.add(this.gc.kards.remove(i));
+                        }
+                    }
                 }
-                else if(x == 500 && y >= 190 && y <= 220) {
-                    this.gc.kards.add(stack4.remove(3));
+                else if(x >= 100 + 500 && y >= 100 + 130 && y <= 100 + 160) {
+                    if(stack4.size() >= 1) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack4.add(i+2, this.gc.kards.remove(i));
+                        }
+                    }
                 }
-                else if(x == 600 && y >= 100 && y <= 130) {
-                    this.gc.kards.add(stack5.remove(0));
-                    this.gc.kards.add(stack5.remove(1));
-                    this.gc.kards.add(stack5.remove(2));
-                    this.gc.kards.add(stack5.remove(3));
-                    this.gc.kards.add(stack5.remove(4));
+                else if(x >= 100 + 500 && y >= 100 + 160 && y <= 100 + 190) {
+                    if(stack4.size() >= 2) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack4.add(i+2, this.gc.kards.remove(i));
+                        }
+                    }
                 }
-                else if(x == 600 && y >= 130 && y <= 160) {
-                    this.gc.kards.add(stack5.remove(1));
-                    this.gc.kards.add(stack5.remove(2));
-                    this.gc.kards.add(stack5.remove(3));
-                    this.gc.kards.add(stack5.remove(4));
+                else if(x >= 100 + 500 && y >= 100 + 190 && y <= 100 + 220) {
+                    if(stack4.size() >= 3) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack4.add(i+3, this.gc.kards.remove(i));
+                        }
+                    }
                 }
-                else if(x == 600 && y >= 160 && y <= 190) {
-                    this.gc.kards.add(stack5.remove(2));
-                    this.gc.kards.add(stack5.remove(3));
-                    this.gc.kards.add(stack5.remove(4));
+                else if(x >= 100 + 600 && y >= 100 + 100 && y <= 100 + 130) {
+                    if(stack5.size() == 0) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack5.add(this.gc.kards.remove(i));
+                        }
+                    }
                 }
-                else if(x == 600 && y >= 190 && y <= 220) {
-                    this.gc.kards.add(stack5.remove(3));
-                    this.gc.kards.add(stack5.remove(4));
+                else if(x >= 100 + 600 && y >= 100 + 130 && y <= 100 + 160) {
+                    if(stack5.size() >= 1) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack5.add(i+1, this.gc.kards.remove(i));
+                        }
+                    }
                 }
-                else if(x == 600 && y >= 190 && y <= 220) {
-                    this.gc.kards.add(stack5.remove(4));
+                else if(x >= 100 + 600 && y >= 100 + 160 && y <= 100 + 190) {
+                    if(stack5.size() >= 2) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack5.add(i+2, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 600 && y >= 100 + 190 && y <= 100 + 220) {
+                    if(stack5.size() >= 3) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack5.add(i+3, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 600 && y >= 100 + 220 && y <= 100 + 250) {
+                    if(stack5.size() >= 4) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack5.add(i+4, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 700 && y >= 100 + 100 && y <= 100 + 130) {
+                    if(stack6.size() >= 0) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack6.add(i, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 700 && y >= 100 + 130 && y <= 100 + 160) {
+                    if(stack6.size() >= 1) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack6.add(i+1, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 700 && y >= 100 + 160 && y <= 100 + 190) {
+                    if(stack6.size() >= 2) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack6.add(i+2, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 700 && y >= 100 + 190 && y <= 100 + 220) {
+                    if(stack6.size() >= 3) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack6.add(i+3, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 700 && y >= 100 + 190 && y <= 100 + 220) {
+                    if(stack6.size() >= 4) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack6.add(i+4, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 700 && y >= 100 + 220 && y <= 100 + 250) {
+                    if(stack6.size() >= 5) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack6.add(i+5, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 800 && y >= 100 + 100 && y <= 100 + 130) {
+                    if(stack7.size() >= 0) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack7.add(i, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 800 && y >= 100 + 130 && y <= 100 + 160) {
+                    if(stack7.size() >= 1) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack7.add(i+1, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 800 && y >= 100 + 160 && y <= 100 + 190) {
+                    if(stack7.size() >= 2) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack7.add(i+2, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 800 && y >= 100 + 190 && y <= 100 + 220) {
+                    if(stack7.size() >= 3) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack7.add(i+3, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 800 && y >= 100 + 220 && y <= 100 + 250) {
+                    if(stack7.size() >= 4) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack7.add(i+4, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 800 && y >= 100 + 250 && y <= 100 + 280) {
+                    if(stack7.size() >= 5) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack7.add(i+5, this.gc.kards.remove(i));
+                        }
+                    }
+                }
+                else if(x >= 100 + 800 && y >= 100 + 280 && y <= 100 + 310) {
+                    if(stack7.size() >= 6) {
+                        for(int i=0; i<this.gc.kards.size(); i++) {
+                            stack7.add(i+6, this.gc.kards.remove(i));
+                        }
+                    }
                 }
             }
             public boolean isRegioned(MouseEvent e) {
-                if(e == null) {
-                    return false ;
-                }
-                if(e.getX() >= this.x && e.getX() <= this.x + this.width &&
+                System.out.print("~~%EEEEEEEEEEEEEEEEEE"+" " + e.getX() + ";" + e.getY());
+
+                if(1==1||e.getX() >= this.x && e.getX() <= this.x + this.width &&
                     e.getY() >= this.y && e.getY() <= this.y + this.height) {
                     this.e = e;
                     return true;
@@ -368,6 +916,14 @@ public class Solitaire {
     JPanel jpanel = new JPanel();
     
     Graphics gr = null;
+
+    ArrayList<Card> stack1 = new ArrayList<>();
+    ArrayList<Card> stack2 = new ArrayList<>();
+    ArrayList<Card> stack3 = new ArrayList<>();
+    ArrayList<Card> stack4 = new ArrayList<>();
+    ArrayList<Card> stack5 = new ArrayList<>();
+    ArrayList<Card> stack6 = new ArrayList<>();
+    ArrayList<Card> stack7 = new ArrayList<>();
 
     class Cards {
         ArrayList<Card> cars = new ArrayList<>();
@@ -402,16 +958,14 @@ public class Solitaire {
         }
     }
     
-    ArrayList<Card> stack1 = new ArrayList<>();
-    ArrayList<Card> stack2 = new ArrayList<>();
-    ArrayList<Card> stack3 = new ArrayList<>();
-    ArrayList<Card> stack4 = new ArrayList<>();
-    ArrayList<Card> stack5 = new ArrayList<>();
-    ArrayList<Card> stack6 = new ArrayList<>();
-    ArrayList<Card> stack7 = new ArrayList<>();
-    
     public void deal() {
-
+        stack1.clear();
+        stack2.clear();
+        stack3.clear();
+        stack4.clear();
+        stack5.clear();
+        stack6.clear();
+        stack7.clear();
         ArrayList<Card> c = cas.crs;
         System.out.println(c.size());
         int count = 1;
@@ -421,8 +975,8 @@ public class Solitaire {
                 if(count == 1) {
                     controller = stack1;
                     Card cd = c.get(i);
-                    controller.add(cd);
-                    int x = 200+126;
+                    stack1.add(cd);
+                    int x = 200+0;
                     int y = 100;
                     cd.x = x;
                     cd.y = y;
@@ -432,8 +986,8 @@ public class Solitaire {
                 else if(count >= 2 && count <= 3) {
                     controller = stack2;
                     Card cd = c.get(i);
-                    controller.add(cd);
-                    int x = 300+126;
+                    stack2.add(cd);
+                    int x = 300+0;
                     int y = 100;
                     if(count > 2)
                         y = y + 30;
@@ -445,8 +999,8 @@ public class Solitaire {
                 else if(count >= 4 && count <= 6) {
                     controller = stack3;
                     Card cd = c.get(i);
-                    controller.add(cd);
-                    int x = 400+126;
+                    stack3.add(cd);
+                    int x = 400+0;
                     int y = 100;
                     if(count > 4)
                         y = y + 30;
@@ -460,8 +1014,8 @@ public class Solitaire {
                 else if(count >= 7 && count <= 10) {
                     controller = stack4;
                     Card cd = c.get(i);
-                    controller.add(cd);
-                    int x = 500+126;
+                    stack4.add(cd);
+                    int x = 500+0;
                     int y = 100;
                     if(count > 7)
                         y = y + 30;
@@ -477,8 +1031,8 @@ public class Solitaire {
                 else if(count >= 11 && count <= 15) {
                     controller = stack5;
                     Card cd = c.get(i);
-                    controller.add(cd);
-                    int x = 600+126;
+                    stack5.add(cd);
+                    int x = 600+0;
                     int y = 100;
                     if(count > 11)
                         y = y + 30;
@@ -496,8 +1050,8 @@ public class Solitaire {
                 else if(count >= 16 && count <= 21) {
                     controller = stack6;
                     Card cd = c.get(i);
-                    controller.add(cd);
-                    int x = 700+126;
+                    stack6.add(cd);
+                    int x = 700+0;
                     int y = 100;
                     if(count > 16)
                         y = y + 30;
@@ -517,8 +1071,8 @@ public class Solitaire {
                 else if(count >= 22 && count <= 28) {
                     controller = stack7;
                     Card cd = c.get(i);
-                    controller.add(cd);
-                    int x = 800+126;
+                    stack7.add(cd);
+                    int x = 800+0;
                     int y = 100;
                     if(count > 22)
                         y = y + 30;
@@ -553,7 +1107,6 @@ public class Solitaire {
     }
     
     class Card {
-        
         int id;
         int x;
         int y;
@@ -909,7 +1462,6 @@ public class Solitaire {
         }
     
         public void drawCardAtLocation(int x, int  y) {
-            System.out.println(number + ", " + suit);
             switch(number) {
                 case 1:
                     switch(suit) {
@@ -1131,7 +1683,6 @@ public class Solitaire {
         jpanel.setBounds(0, 0, 1070, 800);
         
         jframe.add(jpanel);
-        jpanel.setBackground(new Color(63, 197, 111));
         
         jframe.setVisible(true);
         
@@ -1195,25 +1746,24 @@ public class Solitaire {
     }
     
     void startGameplay() {
+        Solitaire.ClickSystem cs = new Solitaire.ClickSystem();
+        jframe.addMouseMotionListener(cs);
+        jframe.addMouseListener(cs);
+        gr.setColor(new Color(63, 197, 111));
+        gr.fillRect(0, 0, 1070, 800);
         Thread thr = new Thread() {
             public void run() {
                 while(true) {
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(1400);
                         logo.drawLogoMiddle();
                         cas.draw_All_TopOfStack();   
                         stacker.executeDrawing();
                         if(play) {
                             play = false;
-                            cursorForPlayCards = 1;
-                            
-                            initCards(); // alsoShuffles , also.
-                      
-                            
+                            initCards();
                         }
-                        cursorForPlayCards = 1;
                         deal();
-                        jframe.requestFocus();
                     } catch(Exception e) {}
                 }
             }
@@ -1221,49 +1771,14 @@ public class Solitaire {
         thr.start();
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public static void main(String[] args) {
         try {
             SwingUtilities.invokeLater(new Runnable() {
                 @Override
                 public void run() {
-                    Solitaire solitaire = new Solitaire();
+                    new Solitaire();
                 }
             });
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        } catch(Exception e) {}
     }
 }
