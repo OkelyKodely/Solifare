@@ -159,8 +159,14 @@ boolean tr = false;
             deal();
             for(int i=0; i<m.length; i++) {
                 if(m[i].isRegioned(me)) {
-                    Clicker.GroupCards gc = m[i].getGroupCards(i);
-                    if(m[i].getCanonicalName().equals("stack1")) {
+                    Clicker.GroupCards gc = m[i].getGroupCards(m[i].getCanonicalName());
+                    System.out.println(m[i].getSetName()+"nnnnn");
+                    System.out.println(m[i].getCanonicalName()+"nnnnn");
+                    if(m[i].getCanonicalName().equals("stack1") || m[i].getSetName().equals("stack1")) {
+                        gc = m[i].getGroupCards("stack1");
+                        for(int j=0; j<m.length; j++) {
+                            m[j].name1 = "stack1";
+                        }
                         ArrayList<Card> stack = gc.getCards();
                         for(int ii=0; ii<stack.size(); ii++) {
                             System.out.println(stack.get(ii).x + ", " + stack.get(ii).y);
@@ -240,6 +246,7 @@ boolean tr = false;
             ArrayList<Card> stack;
             ArrayList<Card> kards = new ArrayList<>();
             String name;
+            String name1;
             MouseEvent e;
             GroupCards gc = new GroupCards();
             class GroupCards {
@@ -258,6 +265,7 @@ boolean tr = false;
                 }
             }
             public Clicker(int x, int y, ArrayList<Card> stack, String stackString) {
+                this.name1 = "";
                 this.x = x;
                 this.y = y;
                 this.stack = stack;
@@ -266,7 +274,10 @@ boolean tr = false;
             public String getCanonicalName() {
                 return this.name;
             }
-            public GroupCards getGroupCards(int i) {
+            public String getSetName() {
+                return this.name1;
+            }
+            public GroupCards getGroupCards(String stackName) {
                 this.gc.e = this.e;
                 if(1==1||this.gc.getCondition().equals("MOVE~")) {
                     int xx = this.gc.e.getX();
@@ -274,104 +285,104 @@ boolean tr = false;
                     
                     int id = 0;
 
-                    if(xx >= 100 + 200 && xx <= 100 + 200 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                    if(xx >= 0 + 200 && xx <= 0 + 200 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                         id = 0;
                     }
-                    else if(xx >= 100 + 300 && xx <= 100 + 300 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                    else if(xx >= 0 + 300 && xx <= 0 + 300 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                         id = 0;
                     }
-                    else if(xx >= 100 + 300 && xx <= 100 + 300 + 60 && yy >= 100 + 130 && yy <= 100 + 160) {
+                    else if(xx >= 0 + 300 && xx <= 0 + 300 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
                         id = 1;
                     }
-                    else if(xx >= 100 + 400 && xx <= 100 + 400 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                    else if(xx >= 0 + 400 && xx <= 0 + 400 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                         id = 0;
                     }
-                    else if(xx >= 100 + 400 && xx <= 100 + 400 + 60 && yy >= 100 + 130 && yy <= 100 + 160) {
+                    else if(xx >= 0 + 400 && xx <= 0 + 400 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
                         id = 1;
                     }
-                    else if(xx >= 100 + 400 && xx <= 100 + 400 + 60 && yy >= 100 + 160 && yy <= 100 + 190) {
+                    else if(xx >= 0 + 400 && xx <= 0 + 400 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
                         id = 2;
                     }
-                    else if(xx >= 100 + 500 && xx <= 100 + 500 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                    else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                         id = 0;
                     }
-                    else if(xx >= 100 + 500 && xx <= 100 + 500 + 60 && yy >= 100 + 130 && yy <= 100 + 160) {
+                    else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
                         id = 1;
                     }
-                    else if(xx >= 100 + 500 && xx <= 100 + 500 + 60 && yy >= 100 + 160 && yy <= 100 + 190) {
+                    else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
                         id = 2;
                     }
-                    else if(xx >= 100 + 500 && xx <= 100 + 500 + 60 && yy >= 100 + 190 && yy <= 100 + 220) {
+                    else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
                         id = 3;
                     }
-                    else if(xx >= 100 + 600 && xx <= 100 + 600 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                    else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                         id = 0;
                     }
-                    else if(xx >= 100 + 600 && xx <= 100 + 600 + 60 && yy >= 100 + 130 && yy <= 100 + 160) {
+                    else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
                         id = 1;
                     }
-                    else if(xx >= 100 + 600 && xx <= 100 + 600 + 60 && yy >= 100 + 160 && yy <= 100 + 190) {
+                    else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
                         id = 2;
                     }
-                    else if(xx >= 100 + 600 && xx <= 100 + 600 + 60 && yy >= 100 + 190 && yy <= 100 + 220) {
+                    else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
                         id = 3;
                     }
-                    else if(xx >= 100 + 600 && xx <= 100 + 600 + 60 && yy >= 100 + 220 && yy <= 100 + 250) {
+                    else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 220 && yy <= 0 + 250) {
                         id = 4;
                     }
-                    else if(xx >= 100 + 700 && xx <= 100 + 700 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                    else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                         id = 0;
                     }
-                    else if(xx >= 100 + 700 && xx <= 100 + 700 + 60 && yy >= 100 + 130 && yy <= 100 + 160) {
+                    else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
                         id = 1;
                     }
-                    else if(xx >= 100 + 700 && xx <= 100 + 700 + 60 && yy >= 100 + 160 && yy <= 100 + 190) {
+                    else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
                         id = 2;
                     }
-                    else if(xx >= 100 + 700 && xx <= 100 + 700 + 60 && yy >= 100 + 190 && yy <= 100 + 220) {
+                    else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
                         id = 3;
                     }
-                    else if(xx >= 100 + 700 && xx <= 100 + 700 + 60 && yy >= 100 + 220 && yy <= 100 + 250) {
+                    else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 220 && yy <= 0 + 250) {
                         id = 4;
                     }
-                    else if(xx >= 100 + 700 && xx <= 100 + 700 + 60 && yy >= 100 + 250 && yy <= 100 + 280) {
+                    else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 250 && yy <= 0 + 280) {
                         id = 5;
                     }
-                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && yy >= 100 + 100 && yy <= 100 + 130) {
+                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                         id = 0;
                     }
-                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && yy >= 100 + 130 && yy <= 100 + 160) {
+                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
                         id = 1;
                     }
-                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && yy >= 100 + 160 && yy <= 100 + 190) {
+                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
                         id = 2;
                     }
-                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && xx <= 100 + 800 + 60 && yy >= 100 + 190 && yy <= 100 + 220) {
+                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && xx <= 0 + 800 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
                         id = 3;
                     }
-                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && yy >= 100 + 220 && yy <= 100 + 250) {
+                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 220 && yy <= 0 + 250) {
                         id = 4;
                     }
-                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && yy >= 100 + 250 && yy <= 100 + 280) {
+                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 250 && yy <= 0 + 280) {
                         id = 5;
                     }
-                    else if(xx >= 100 + 800 && xx <= 100 + 800 + 60 && yy >= 100 + 280 && yy <= 100 + 310) {
+                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 280 && yy <= 0 + 310) {
                         id = 6;
                     }
 
-                    if(i == 0)
+                    if(stackName.equals("stack1"))
                         this.fillGroupCards(stack1, 1, id, xx, yy);
-                    else if(i == 1)
+                    else if(stackName.equals("stack2"))
                         this.fillGroupCards(stack2, 2, id, xx, yy);
-                    else if(i == 2)
+                    else if(stackName.equals("stack3"))
                         this.fillGroupCards(stack3, 3, id, xx, yy);
-                    else if(i == 3)
+                    else if(stackName.equals("stack4"))
                         this.fillGroupCards(stack4, 4, id, xx, yy);
-                    else if(i == 4)
+                    else if(stackName.equals("stack5"))
                         this.fillGroupCards(stack5, 5, id, xx, yy);
-                    else if(i == 5)
+                    else if(stackName.equals("stack6"))
                         this.fillGroupCards(stack6, 6, id, xx, yy);
-                    else if(i == 6)
+                    else if(stackName.equals("stack7"))
                         this.fillGroupCards(stack7, 7, id, xx, yy);
                 }
                 return this.gc;
@@ -394,7 +405,7 @@ boolean tr = false;
                         if(i!=0)
                             stck.get(i).y += 30;
                         this.kards.add(stck.get(i));
-                        stck.remove(stck.get(i));
+                        //stck.remove(stck.get(i));
                     }
                 }
                 else if(stackPos == 2) {
@@ -405,7 +416,7 @@ boolean tr = false;
                             if(i!=0)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 1) {
@@ -415,7 +426,7 @@ boolean tr = false;
                             if(i!=1)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                 }
@@ -427,7 +438,7 @@ boolean tr = false;
                             if(i!=0)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 1) {
@@ -437,7 +448,7 @@ boolean tr = false;
                             if(i!=1)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 2) {
@@ -447,7 +458,7 @@ boolean tr = false;
                             if(i!=2)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                 }
@@ -459,7 +470,7 @@ boolean tr = false;
                             if(i!=0)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 1) {
@@ -469,7 +480,7 @@ boolean tr = false;
                             if(i!=1)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 2) {
@@ -479,7 +490,7 @@ boolean tr = false;
                             if(i!=2)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 3) {
@@ -489,7 +500,7 @@ boolean tr = false;
                             if(i!=3)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                 }
@@ -501,7 +512,7 @@ boolean tr = false;
                             if(i!=0)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 1) {
@@ -511,7 +522,7 @@ boolean tr = false;
                             if(i!=1)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 2) {
@@ -521,7 +532,7 @@ boolean tr = false;
                             if(i!=2)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 3) {
@@ -531,7 +542,7 @@ boolean tr = false;
                             if(i!=3)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 4) {
@@ -541,7 +552,7 @@ boolean tr = false;
                             if(i!=4)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                 }
@@ -553,7 +564,7 @@ boolean tr = false;
                             if(i!=0)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 1) {
@@ -563,7 +574,7 @@ boolean tr = false;
                             if(i!=1)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 2) {
@@ -573,7 +584,7 @@ boolean tr = false;
                             if(i!=2)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 3) {
@@ -583,7 +594,7 @@ boolean tr = false;
                             if(i!=3)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 4) {
@@ -593,7 +604,7 @@ boolean tr = false;
                             if(i!=4)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 5) {
@@ -603,7 +614,7 @@ boolean tr = false;
                             if(i!=5)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                 }
@@ -615,7 +626,7 @@ boolean tr = false;
                             if(i!=0)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 1) {
@@ -625,7 +636,7 @@ boolean tr = false;
                             if(i!=1)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 2) {
@@ -635,7 +646,7 @@ boolean tr = false;
                             if(i!=2)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 3) {
@@ -645,7 +656,7 @@ boolean tr = false;
                             if(i!=3)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 4) {
@@ -655,7 +666,7 @@ boolean tr = false;
                             if(i!=4)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 5) {
@@ -665,7 +676,7 @@ boolean tr = false;
                             if(i!=5)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                     if (id == 6) {
@@ -675,209 +686,209 @@ boolean tr = false;
                             if(i!=6)
                                 stck.get(i).y += 30;
                             this.kards.add(stck.get(i));
-                            stck.remove(stck.get(i));
+                            //stck.remove(stck.get(i));
                         }
                     }
                 }
             }
             public void fillStackCards(int x, int y) {
-                if(x >= 100 + 200 && y >= 100 + 100 && y <= 100 + 130) {
+                if(x >= 0 + 200 && y >= 0 + 100 && y <= 0 + 130) {
                     if(stack1.size() == 0) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack1.add(this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 300 && y >= 100 + 100 && y <= 100 + 130) {
+                else if(x >= 0 + 300 && y >= 0 + 100 && y <= 0 + 130) {
                     if(stack2.size() == 0) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack2.add(this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 300 && y >= 100 + 130 && y <= 100 + 160) {
+                else if(x >= 0 + 300 && y >= 0 + 130 && y <= 0 + 160) {
                     if(stack2.size() >= 1) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack2.add(i+1, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 300 && y >= 100 + 160 && y <= 100 + 190) {
+                else if(x >= 0 + 300 && y >= 0 + 160 && y <= 0 + 190) {
                     if(stack2.size() >= 2) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack2.add(this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 400 && y >= 100 + 100 && y <= 100 + 130) {
+                else if(x >= 0 + 400 && y >= 0 + 100 && y <= 0 + 130) {
                     if(stack3.size() == 0) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack3.add(this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 400 && y >= 100 + 130 && y <= 100 + 160) {
+                else if(x >= 0 + 400 && y >= 0 + 130 && y <= 0 + 160) {
                     if(stack3.size() >= 1) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack3.add(i+1, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 400 && y >= 100 + 160 && y <= 100 + 190) {
+                else if(x >= 0 + 400 && y >= 0 + 160 && y <= 0 + 190) {
                     if(stack3.size() >= 2) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack3.add(i+2, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 500 && y >= 100 + 100 && y <= 100 + 130) {
+                else if(x >= 0 + 500 && y >= 0 + 100 && y <= 0 + 130) {
                     if(stack4.size() == 0) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack4.add(this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 500 && y >= 100 + 130 && y <= 100 + 160) {
+                else if(x >= 0 + 500 && y >= 0 + 130 && y <= 0 + 160) {
                     if(stack4.size() >= 1) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack4.add(i+2, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 500 && y >= 100 + 160 && y <= 100 + 190) {
+                else if(x >= 0 + 500 && y >= 0 + 160 && y <= 0 + 190) {
                     if(stack4.size() >= 2) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack4.add(i+2, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 500 && y >= 100 + 190 && y <= 100 + 220) {
+                else if(x >= 0 + 500 && y >= 0 + 190 && y <= 0 + 220) {
                     if(stack4.size() >= 3) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack4.add(i+3, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 600 && y >= 100 + 100 && y <= 100 + 130) {
+                else if(x >= 0 + 600 && y >= 0 + 100 && y <= 0 + 130) {
                     if(stack5.size() == 0) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack5.add(this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 600 && y >= 100 + 130 && y <= 100 + 160) {
+                else if(x >= 0 + 600 && y >= 0 + 130 && y <= 0 + 160) {
                     if(stack5.size() >= 1) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack5.add(i+1, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 600 && y >= 100 + 160 && y <= 100 + 190) {
+                else if(x >= 0 + 600 && y >= 0 + 160 && y <= 0 + 190) {
                     if(stack5.size() >= 2) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack5.add(i+2, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 600 && y >= 100 + 190 && y <= 100 + 220) {
+                else if(x >= 0 + 600 && y >= 0 + 190 && y <= 0 + 220) {
                     if(stack5.size() >= 3) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack5.add(i+3, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 600 && y >= 100 + 220 && y <= 100 + 250) {
+                else if(x >= 0 + 600 && y >= 0 + 220 && y <= 0 + 250) {
                     if(stack5.size() >= 4) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack5.add(i+4, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 700 && y >= 100 + 100 && y <= 100 + 130) {
+                else if(x >= 0 + 700 && y >= 0 + 100 && y <= 0 + 130) {
                     if(stack6.size() >= 0) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack6.add(i, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 700 && y >= 100 + 130 && y <= 100 + 160) {
+                else if(x >= 0 + 700 && y >= 0 + 130 && y <= 0 + 160) {
                     if(stack6.size() >= 1) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack6.add(i+1, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 700 && y >= 100 + 160 && y <= 100 + 190) {
+                else if(x >= 0 + 700 && y >= 0 + 160 && y <= 0 + 190) {
                     if(stack6.size() >= 2) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack6.add(i+2, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 700 && y >= 100 + 190 && y <= 100 + 220) {
+                else if(x >= 0 + 700 && y >= 0 + 190 && y <= 0 + 220) {
                     if(stack6.size() >= 3) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack6.add(i+3, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 700 && y >= 100 + 190 && y <= 100 + 220) {
+                else if(x >= 0 + 700 && y >= 0 + 190 && y <= 0 + 220) {
                     if(stack6.size() >= 4) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack6.add(i+4, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 700 && y >= 100 + 220 && y <= 100 + 250) {
+                else if(x >= 0 + 700 && y >= 0 + 220 && y <= 0 + 250) {
                     if(stack6.size() >= 5) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack6.add(i+5, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 800 && y >= 100 + 100 && y <= 100 + 130) {
+                else if(x >= 0 + 800 && y >= 0 + 100 && y <= 0 + 130) {
                     if(stack7.size() >= 0) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack7.add(i, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 800 && y >= 100 + 130 && y <= 100 + 160) {
+                else if(x >= 0 + 800 && y >= 0 + 130 && y <= 0 + 160) {
                     if(stack7.size() >= 1) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack7.add(i+1, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 800 && y >= 100 + 160 && y <= 100 + 190) {
+                else if(x >= 0 + 800 && y >= 0 + 160 && y <= 0 + 190) {
                     if(stack7.size() >= 2) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack7.add(i+2, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 800 && y >= 100 + 190 && y <= 100 + 220) {
+                else if(x >= 0 + 800 && y >= 0 + 190 && y <= 0 + 220) {
                     if(stack7.size() >= 3) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack7.add(i+3, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 800 && y >= 100 + 220 && y <= 100 + 250) {
+                else if(x >= 0 + 800 && y >= 0 + 220 && y <= 0 + 250) {
                     if(stack7.size() >= 4) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack7.add(i+4, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 800 && y >= 100 + 250 && y <= 100 + 280) {
+                else if(x >= 0 + 800 && y >= 0 + 250 && y <= 0 + 280) {
                     if(stack7.size() >= 5) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack7.add(i+5, this.gc.kards.remove(i));
                         }
                     }
                 }
-                else if(x >= 100 + 800 && y >= 100 + 280 && y <= 100 + 310) {
+                else if(x >= 0 + 800 && y >= 0 + 280 && y <= 0 + 310) {
                     if(stack7.size() >= 6) {
                         for(int i=0; i<this.gc.kards.size(); i++) {
                             stack7.add(i+6, this.gc.kards.remove(i));
@@ -888,7 +899,7 @@ boolean tr = false;
             public boolean isRegioned(MouseEvent e) {
                 System.out.print("~~%EEEEEEEEEEEEEEEEEE"+" " + e.getX() + ";" + e.getY());
 
-                if(1==1||e.getX() >= this.x && e.getX() <= this.x + this.width &&
+                if(e.getX() >= this.x && e.getX() <= this.x + this.width &&
                     e.getY() >= this.y && e.getY() <= this.y + this.height) {
                     this.e = e;
                     return true;
@@ -905,12 +916,9 @@ boolean tr = false;
     Stacker stacker = new Stacker();
     Logo logo = new Logo();
     
-    int cursorForPlayCards = 1; // first card on play-cards;
-    
     Cards cas = new Cards();
     ArrayList<Card> shuffledDeck;
     ArrayList<Card> cards = new ArrayList<>();
-    
     
     JFrame jframe = new JFrame("Solitaire");
     JPanel jpanel = new JPanel();
@@ -1095,7 +1103,7 @@ boolean tr = false;
     }
     
     class Logo {
-        int x = 297, y = 375;
+        int x = 293, y = 425;
         public void drawLogoMiddle() {
             try {
                 Image ima = ImageIO.read(this.getClass().getResource("logo.png"));
@@ -1749,6 +1757,7 @@ boolean tr = false;
         Solitaire.ClickSystem cs = new Solitaire.ClickSystem();
         jframe.addMouseMotionListener(cs);
         jframe.addMouseListener(cs);
+        jpanel.setBackground(new Color(63, 197, 111));
         gr.setColor(new Color(63, 197, 111));
         gr.fillRect(0, 0, 1070, 800);
         Thread thr = new Thread() {
