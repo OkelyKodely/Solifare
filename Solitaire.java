@@ -1,23 +1,47 @@
-import java.awt.Color;
-import java.awt.Graphics;
+import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 import java.awt.Image;
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.util.ArrayList;
-import javax.imageio.ImageIO;
+import java.awt.event.MouseEvent;
+import javax.swing.SwingUtilities;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
+import java.util.ArrayList;
+import java.awt.Color;
+import java.awt.Graphics;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
-
-// author - Daniel Cho
-
+// Author - Daniel Cho
 // www.github.com/okelykodely
 
 public class Solitaire {
 
+    boolean play = true;
+    Stacker stacker = new Stacker();
+    Logo logo = new Logo();
+    
+    Cards cas = new Cards();
+    ArrayList<Card> shuffledDeck;
+    ArrayList<Card> cards = new ArrayList<>();
+    
+    JFrame jframe = new JFrame("Solitaire");
+    JPanel jpanel = new JPanel();
+    
+    Graphics gr = null;
+
+    ArrayList<Card> stack1 = new ArrayList<>();
+    ArrayList<Card> stack2 = new ArrayList<>();
+    ArrayList<Card> stack3 = new ArrayList<>();
+    ArrayList<Card> stack4 = new ArrayList<>();
+    ArrayList<Card> stack5 = new ArrayList<>();
+    ArrayList<Card> stack6 = new ArrayList<>();
+    ArrayList<Card> stack7 = new ArrayList<>();
+
     class Stacker {
+        
         public void executeDrawing() {
             Stack1 q = new Stack1();
             Stack2 r = new Stack2();
@@ -32,41 +56,57 @@ public class Solitaire {
         class Stack1 {
             int x = 250;
             int y = 560;
-            int width = 110;
-            int height = 131;
+            int width = 105;
+            int height = 151;
             public void drawIt() {
                 gr.setColor(Color.WHITE) ;
                 gr.drawRect(x, y, width, height);
+                try {
+                    Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
+                    gr.drawImage(potImg, 251, 561, 80, 80, null);
+                } catch(Exception e) {}
             }
         }
         class Stack2 {
             int x = 450;
             int y = 560;
-            int width = 110;
-            int height = 131;
+            int width = 105;
+            int height = 151;
             public void drawIt() {
                 gr.setColor(Color.WHITE) ;
                 gr.drawRect(x, y, width, height);
+                try {
+                    Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
+                    gr.drawImage(potImg, 451, 561, 80, 80, null);
+                } catch(Exception e) {}
             }
         }
         class Stack3 {
             int x = 650;
             int y = 560;
-            int width = 110;
-            int height = 131;
+            int width = 105;
+            int height = 151;
             public void drawIt() {
                 gr.setColor(Color.WHITE) ;
                 gr.drawRect(x, y, width, height);
+                try {
+                    Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
+                    gr.drawImage(potImg, 651, 561, 80, 80, null);
+                } catch(Exception e) {}
             }
         }
         class Stack4 {
             int x = 850;
             int y = 560;
-            int width = 110;
-            int height = 131;
+            int width = 105;
+            int height = 151;
             public void drawIt() {
                 gr.setColor(Color.WHITE) ;
                 gr.drawRect(x, y, width, height);
+                try {
+                    Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
+                    gr.drawImage(potImg, 851, 561, 80, 80, null);
+                } catch(Exception e) {}
             }
         }
     }
@@ -74,70 +114,62 @@ public class Solitaire {
     class ClickSystem implements MouseMotionListener, MouseListener {
 
         Clicker m[] = new Clicker[28];
-boolean tr = false;
+        boolean tr = false;
+        int cunt;
+        int currentcunt;
+        String pressed = "";
+        int pressed_id;
+        int pressed_two;
+        int pressed_xx;
+        int pressed_yy;
+
         public void mouseClicked(MouseEvent me) {
         }
 
         public void mousePressed(MouseEvent me) {
             tr = true;
-//            for(int i=0; i<m.length; i++) {
-//                if(m[i].isRegioned(me)) {
-//                    Clicker.GroupCards gc = m[i].getGroupCards();
-//                    if(m[i].getCanonicalName().equals("stack1")) {
-//                        //stack1 = gc.getCards();
-//                        //m[i].fillGroupCards(me.getX(), me.getY());
-//                    } else if(m[i].getCanonicalName().equals("stack2")) {
-//                        stack2 = gc.getCards();
-//                        m[i].fillGroupCards(me.getX(), me.getY());
-//                    } else if(m[i].getCanonicalName().equals("stack3")) {
-//                        stack3 = gc.getCards();
-//                        m[i].fillGroupCards(me.getX(), me.getY());
-//                    } else if(m[i].getCanonicalName().equals("stack4")) {
-//                        stack4 = gc.getCards();
-//                        m[i].fillGroupCards(me.getX(), me.getY());
-//                    } else if(m[i].getCanonicalName().equals("stack5")) {
-//                        stack5 = gc.getCards();
-//                        m[i].fillGroupCards(me.getX(), me.getY());
-//                    } else if(m[i].getCanonicalName().equals("stack6")) {
-//                        stack6 = gc.getCards();
-//                        m[i].fillGroupCards(me.getX(), me.getY());
-//                    } else if(m[i].getCanonicalName().equals("stack7")) {
-//                        stack7 = gc.getCards();
-//                        m[i].fillGroupCards(me.getX(), me.getY());
-//                    }
-//                }
-//            }
+            cunt++;
         }
 
         public void mouseReleased(MouseEvent me) {
             tr = false;
-//            for(int i=0; i<m.length; i++) {
-//                if(m[i].isRegioned(me)) {
-//                    Clicker.GroupCards gc = m[i].getGroupCards();
-//                    if(m[i].getCanonicalName().equals("stack1")) {
-//                        stack1 = gc.getCards();
-//                        m[i].fillStackCards(me.getX(), me.getY());
-//                    } else if(m[i].getCanonicalName().equals("stack2")) {
-//                        stack2 = gc.getCards();
-//                        m[i].fillStackCards(me.getX(), me.getY());
-//                    } else if(m[i].getCanonicalName().equals("stack3")) {
-//                        stack3 = gc.getCards();
-//                        m[i].fillStackCards(me.getX(), me.getY());
-//                    } else if(m[i].getCanonicalName().equals("stack4")) {
-//                        stack4 = gc.getCards();
-//                        m[i].fillStackCards(me.getX(), me.getY());
-//                    } else if(m[i].getCanonicalName().equals("stack5")) {
-//                        stack5 = gc.getCards();
-//                        m[i].fillStackCards(me.getX(), me.getY());
-//                    } else if(m[i].getCanonicalName().equals("stack6")) {
-//                        stack6 = gc.getCards();
-//                        m[i].fillStackCards(me.getX(), me.getY());
-//                    } else if(m[i].getCanonicalName().equals("stack7")) {
-//                        stack7 = gc.getCards();
-//                        m[i].fillStackCards(me.getX(), me.getY());
-//                    }
-//                }
-//            }
+            pressed = "";
+            pressed_id=0;
+            pressed_two=0;
+            pressed_xx=0;
+            pressed_yy = 0;
+            for(int j=0; j<m.length; j++) {
+                int xx = m[j].x;
+                int yy = m[j].y;
+                if(xx >= 0 + 200 && xx <= 0 + 200 + 60) {
+                    m[j].name = "stack1";
+                    m[j].name1 = "stack1";
+                }
+                if(xx >= 100 + 200 && xx <= 100 + 200 + 60) {
+                    m[j].name = "stack2";
+                    m[j].name1 = "stack2";
+                }
+                if(xx >= 200 + 200 && xx <= 200 + 200 + 60) {
+                    m[j].name = "stack3";
+                    m[j].name1 = "stack3";
+                }
+                if(xx >= 300 + 200 && xx <= 300 + 200 + 60) {
+                    m[j].name = "stack4";
+                    m[j].name1 = "stack4";
+                }
+                if(xx >= 400 + 200 && xx <= 400 + 200 + 60) {
+                    m[j].name = "stack5";
+                    m[j].name1 = "stack5";
+                }
+                if(xx >= 500 + 200 && xx <= 500 + 200 + 60) {
+                    m[j].name = "stack6";
+                    m[j].name1 = "stack6";
+                }
+                if(xx >= 600 + 200 && xx <= 600 + 200 + 60) {
+                    m[j].name = "stack7";
+                    m[j].name1 = "stack7";
+                }
+            }
         }
 
         public void mouseEntered(MouseEvent me) {
@@ -149,19 +181,55 @@ boolean tr = false;
         public void mouseMoved(MouseEvent me) {
         }
 
+        private void drawStackCards() {
+            for(int ii=0; ii<stack1.size(); ii++) {
+                stack1.get(ii).drawCardAtLocation(stack1.get(ii).x, stack1.get(ii).y);
+            }
+            for(int ii=0; ii<stack2.size(); ii++) {
+                stack2.get(ii).drawCardAtLocation(stack2.get(ii).x, stack2.get(ii).y);
+            }
+            for(int ii=0; ii<stack3.size(); ii++) {
+                stack3.get(ii).drawCardAtLocation(stack3.get(ii).x, stack3.get(ii).y);
+            }
+            for(int ii=0; ii<stack4.size(); ii++) {
+                stack4.get(ii).drawCardAtLocation(stack4.get(ii).x, stack4.get(ii).y);
+            }
+            for(int ii=0; ii<stack5.size(); ii++) {
+                stack5.get(ii).drawCardAtLocation(stack5.get(ii).x, stack5.get(ii).y);
+            }
+            for(int ii=0; ii<stack6.size(); ii++) {
+                stack6.get(ii).drawCardAtLocation(stack6.get(ii).x, stack6.get(ii).y);
+            }
+            for(int ii=0; ii<stack7.size(); ii++) {
+                System.out.println("ii: " + ii + "--" + stack7.get(ii).x + "===" + stack7.get(ii).y);
+                stack7.get(ii).drawCardAtLocation(stack7.get(ii).x, stack7.get(ii).y);
+            }
+            System.out.println(stack7.size() + " sevensize..");
+        }
+        
         public void mouseDragged(MouseEvent me) {
             if(!tr)
                 return;
-            gr.setColor(new Color(63, 197, 111));
+            gr.setColor(new Color(123, 197, 31));
             gr.fillRect(0, 0, 1070, 800);
             logo.drawLogoMiddle();
             cas.draw_All_TopOfStack();
-            deal();
+            drawStackCards();
+            boolean safe = false;
+            cunt++;
+            if(cunt == currentcunt + 1) {
+                currentcunt = cunt;
+                safe = true;
+            }
             for(int i=0; i<m.length; i++) {
                 if(m[i].isRegioned(me)) {
-                    Clicker.GroupCards gc = m[i].getGroupCards(m[i].getCanonicalName());
-                    System.out.println(m[i].getSetName()+"nnnnn");
-                    System.out.println(m[i].getCanonicalName()+"nnnnn");
+                    Clicker.GroupCards gc = null;//m[i].getGroupCards(m[i].getCanonicalName());
+                    if(!safe && !m[i].getSetName().equals("")) {
+                        for(int j=0; j<m.length; j++) {
+                            m[j].name = m[i].getSetName();
+                            m[j].name1= m[i].getSetName();
+                        }
+                    }
                     if(m[i].getCanonicalName().equals("stack1") || m[i].getSetName().equals("stack1")) {
                         gc = m[i].getGroupCards("stack1");
                         for(int j=0; j<m.length; j++) {
@@ -172,38 +240,79 @@ boolean tr = false;
                             System.out.println(stack.get(ii).x + ", " + stack.get(ii).y);
                             stack.get(ii).drawCardAtLocation(stack.get(ii).x, stack.get(ii).y);
                         }
-                    } else if(m[i].getCanonicalName().equals("stack2")) {
+                    }
+                    else if(m[i].getCanonicalName().equals("stack2") || m[i].getSetName().equals("stack2")) {
+                        gc = m[i].getGroupCards("stack2");
+                        for(int j=0; j<m.length; j++) {
+                            m[j].name1 = "stack2";
+                        }
                         ArrayList<Card> stack = gc.getCards();
                         for(int ii=0; ii<stack.size(); ii++) {
                             System.out.println(stack.get(ii).x + ", " + stack.get(ii).y);
                             stack.get(ii).drawCardAtLocation(stack.get(ii).x, stack.get(ii).y);
                         }
-                    } else if(m[i].getCanonicalName().equals("stack3")) {
-                        stack3 = gc.getCards();
-                        for(int ii=0; ii<stack3.size(); ii++)
-                            stack3.get(ii).drawCardAtLocation(stack3.get(ii).x, stack3.get(ii).y);
-                    } else if(m[i].getCanonicalName().equals("stack4")) {
-                        stack4 = gc.getCards();
-                        for(int ii=0; ii<stack4.size(); ii++)
-                            stack4.get(ii).drawCardAtLocation(stack4.get(ii).x, stack4.get(ii).y);
-                    } else if(m[i].getCanonicalName().equals("stack5")) {
-                        stack5 = gc.getCards();
-                        for(int ii=0; ii<stack5.size(); ii++)
-                            stack5.get(ii).drawCardAtLocation(stack5.get(ii).x, stack5.get(ii).y);
-                    } else if(m[i].getCanonicalName().equals("stack6")) {
-                        stack6 = gc.getCards();
-                        for(int ii=0; ii<stack6.size(); ii++)
-                            stack6.get(ii).drawCardAtLocation(stack6.get(ii).x, stack6.get(ii).y);
-                    } else if(m[i].getCanonicalName().equals("stack7")) {
-                        stack7 = gc.getCards();
-                        for(int ii=0; ii<stack7.size(); ii++)
-                            stack7.get(ii).drawCardAtLocation(stack7.get(ii).x, stack7.get(ii).y);
+                    }
+                    else if(m[i].getCanonicalName().equals("stack3") || m[i].getSetName().equals("stack3")) {
+                        gc = m[i].getGroupCards("stack3");
+                        for(int j=0; j<m.length; j++) {
+                            m[j].name1 = "stack3";
+                        }
+                        ArrayList<Card> stack = gc.getCards();
+                        for(int ii=0; ii<stack.size(); ii++) {
+                            System.out.println(stack.get(ii).x + ", " + stack.get(ii).y);
+                            stack.get(ii).drawCardAtLocation(stack.get(ii).x, stack.get(ii).y);
+                        }
+                    }
+                    else if(m[i].getCanonicalName().equals("stack4") || m[i].getSetName().equals("stack4")) {
+                        gc = m[i].getGroupCards("stack4");
+                        for(int j=0; j<m.length; j++) {
+                            m[j].name1 = "stack4";
+                        }
+                        ArrayList<Card> stack = gc.getCards();
+                        for(int ii=0; ii<stack.size(); ii++) {
+                            System.out.println(stack.get(ii).x + ", " + stack.get(ii).y);
+                            stack.get(ii).drawCardAtLocation(stack.get(ii).x, stack.get(ii).y);
+                        }
+                    }
+                    else if(m[i].getCanonicalName().equals("stack5") || m[i].getSetName().equals("stack5")) {
+                        gc = m[i].getGroupCards("stack5");
+                        for(int j=0; j<m.length; j++) {
+                            m[j].name1 = "stack5";
+                        }
+                        ArrayList<Card> stack = gc.getCards();
+                        for(int ii=0; ii<stack.size(); ii++) {
+                            System.out.println(stack.get(ii).x + ", " + stack.get(ii).y);
+                            stack.get(ii).drawCardAtLocation(stack.get(ii).x, stack.get(ii).y);
+                        }
+                    }
+                    else if(m[i].getCanonicalName().equals("stack6") || m[i].getSetName().equals("stack6")) {
+                        gc = m[i].getGroupCards("stack6");
+                        for(int j=0; j<m.length; j++) {
+                            m[j].name1 = "stack6";
+                        }
+                        ArrayList<Card> stack = gc.getCards();
+                        for(int ii=0; ii<stack.size(); ii++) {
+                            System.out.println(stack.get(ii).x + ", " + stack.get(ii).y);
+                            stack.get(ii).drawCardAtLocation(stack.get(ii).x, stack.get(ii).y);
+                        }
+                    }
+                    else if(m[i].getCanonicalName().equals("stack7") || m[i].getSetName().equals("stack7")) {
+                        gc = m[i].getGroupCards("stack7");
+                        for(int j=0; j<m.length; j++) {
+                            m[j].name1 = "stack7";
+                        }
+                        ArrayList<Card> stack = gc.getCards();
+                        for(int ii=0; ii<stack.size(); ii++) {
+                            System.out.println(stack.get(ii).x + ", " + stack.get(ii).y);
+                            stack.get(ii).drawCardAtLocation(stack.get(ii).x, stack.get(ii).y);
+                        }
                     }
                 }
             }
         }
 
         public ClickSystem() {
+            
             m[0] = new Clicker(200, 100, stack1, "stack1");
 
             m[1] = new Clicker(300, 100, stack2, "stack2");
@@ -241,34 +350,28 @@ boolean tr = false;
         }
         
         class Clicker {
-            int x, y;
-            long width = 60; long height = 30;
-            ArrayList<Card> stack;
+            
+            int x;
+            int y;
+            long width = 60;
+            long height = 30;
             ArrayList<Card> kards = new ArrayList<>();
             String name;
             String name1;
             MouseEvent e;
             GroupCards gc = new GroupCards();
+            int countt;
+            
             class GroupCards {
                 MouseEvent e;
-                ArrayList<Card> kards = new ArrayList<>();
-                public String getCondition() {
-                    if(!isRegioned(this.e)) {
-                        return "NOT TO MOVE CARDS";
-                    }
-                    else {
-                        return "MOVE~";
-                    }
-                }
                 public ArrayList<Card> getCards() {
-                    return Clicker.this.kards;
+                    return kards;
                 }
             }
             public Clicker(int x, int y, ArrayList<Card> stack, String stackString) {
                 this.name1 = "";
                 this.x = x;
                 this.y = y;
-                this.stack = stack;
                 this.name = stackString;
             }
             public String getCanonicalName() {
@@ -279,626 +382,325 @@ boolean tr = false;
             }
             public GroupCards getGroupCards(String stackName) {
                 this.gc.e = this.e;
-                if(1==1||this.gc.getCondition().equals("MOVE~")) {
-                    int xx = this.gc.e.getX();
-                    int yy = this.gc.e.getY();
-                    
-                    int id = 0;
+                int xx = this.gc.e.getX();
+                int yy = this.gc.e.getY();
 
-                    if(xx >= 0 + 200 && xx <= 0 + 200 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
-                        id = 0;
-                    }
-                    else if(xx >= 0 + 300 && xx <= 0 + 300 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
-                        id = 0;
-                    }
-                    else if(xx >= 0 + 300 && xx <= 0 + 300 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
-                        id = 1;
-                    }
-                    else if(xx >= 0 + 400 && xx <= 0 + 400 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
-                        id = 0;
-                    }
-                    else if(xx >= 0 + 400 && xx <= 0 + 400 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
-                        id = 1;
-                    }
-                    else if(xx >= 0 + 400 && xx <= 0 + 400 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
-                        id = 2;
-                    }
-                    else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
-                        id = 0;
-                    }
-                    else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
-                        id = 1;
-                    }
-                    else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
-                        id = 2;
-                    }
-                    else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
-                        id = 3;
-                    }
-                    else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
-                        id = 0;
-                    }
-                    else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
-                        id = 1;
-                    }
-                    else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
-                        id = 2;
-                    }
-                    else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
-                        id = 3;
-                    }
-                    else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 220 && yy <= 0 + 250) {
-                        id = 4;
-                    }
-                    else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
-                        id = 0;
-                    }
-                    else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
-                        id = 1;
-                    }
-                    else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
-                        id = 2;
-                    }
-                    else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
-                        id = 3;
-                    }
-                    else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 220 && yy <= 0 + 250) {
-                        id = 4;
-                    }
-                    else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 250 && yy <= 0 + 280) {
-                        id = 5;
-                    }
-                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
-                        id = 0;
-                    }
-                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
-                        id = 1;
-                    }
-                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
-                        id = 2;
-                    }
-                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && xx <= 0 + 800 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
-                        id = 3;
-                    }
-                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 220 && yy <= 0 + 250) {
-                        id = 4;
-                    }
-                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 250 && yy <= 0 + 280) {
-                        id = 5;
-                    }
-                    else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 280 && yy <= 0 + 310) {
-                        id = 6;
-                    }
+                int id = 0;
 
-                    if(stackName.equals("stack1"))
-                        this.fillGroupCards(stack1, 1, id, xx, yy);
-                    else if(stackName.equals("stack2"))
-                        this.fillGroupCards(stack2, 2, id, xx, yy);
-                    else if(stackName.equals("stack3"))
-                        this.fillGroupCards(stack3, 3, id, xx, yy);
-                    else if(stackName.equals("stack4"))
-                        this.fillGroupCards(stack4, 4, id, xx, yy);
-                    else if(stackName.equals("stack5"))
-                        this.fillGroupCards(stack5, 5, id, xx, yy);
-                    else if(stackName.equals("stack6"))
-                        this.fillGroupCards(stack6, 6, id, xx, yy);
-                    else if(stackName.equals("stack7"))
-                        this.fillGroupCards(stack7, 7, id, xx, yy);
+                if(xx >= 0 + 200 && xx <= 0 + 200 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
+                    id = 0;
                 }
+                else if(xx >= 0 + 300 && xx <= 0 + 300 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
+                    id = 0;
+                }
+                else if(xx >= 0 + 300 && xx <= 0 + 300 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
+                    id = 1;
+                }
+                else if(xx >= 0 + 400 && xx <= 0 + 400 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
+                    id = 0;
+                }
+                else if(xx >= 0 + 400 && xx <= 0 + 400 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
+                    id = 1;
+                }
+                else if(xx >= 0 + 400 && xx <= 0 + 400 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
+                    id = 2;
+                }
+                else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
+                    id = 0;
+                }
+                else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
+                    id = 1;
+                }
+                else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
+                    id = 2;
+                }
+                else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
+                    id = 3;
+                }
+                else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
+                    id = 0;
+                }
+                else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
+                    id = 1;
+                }
+                else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
+                    id = 2;
+                }
+                else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
+                    id = 3;
+                }
+                else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 220 && yy <= 0 + 250) {
+                    id = 4;
+                }
+                else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
+                    id = 0;
+                }
+                else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
+                    id = 1;
+                }
+                else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
+                    id = 2;
+                }
+                else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
+                    id = 3;
+                }
+                else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 220 && yy <= 0 + 250) {
+                    id = 4;
+                }
+                else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 250 && yy <= 0 + 280) {
+                    id = 5;
+                }
+                else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
+                    id = 0;
+                }
+                else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
+                    id = 1;
+                }
+                else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
+                    id = 2;
+                }
+                else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
+                    id = 3;
+                }
+                else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 220 && yy <= 0 + 250) {
+                    id = 4;
+                }
+                else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 250 && yy <= 0 + 280) {
+                    id = 5;
+                }
+                else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 280 && yy <= 0 + 310) {
+                    id = 6;
+                }
+
+                if(pressed.equals("")) {
+                    pressed = stackName;
+                    pressed_id = id;
+                    pressed_xx = xx;
+                    pressed_yy = yy;
+                    if(pressed == "stack1") {
+                        pressed_two = 1;
+                    }
+                    if(pressed == "stack2") {
+                        pressed_two = 2;
+                    }
+                    if(pressed == "stack3") {
+                        pressed_two = 3;
+                    }
+                    if(pressed == "stack4") {
+                        pressed_two = 4;
+                    }
+                    if(pressed == "stack5") {
+                        pressed_two = 5;
+                    }
+                    if(pressed == "stack6") {
+                        pressed_two = 6;
+                    }
+                    if(pressed == "stack7") {
+                        pressed_two = 7;
+                    }
+                }
+
+                if(pressed.equals("stack1"))
+                    this.fillGroupCards(stack1, 1, pressed_id, xx, yy);
+                else if(pressed.equals("stack2"))
+                    this.fillGroupCards(stack2, 2, pressed_id, xx, yy);
+                else if(pressed.equals("stack3"))
+                    this.fillGroupCards(stack3, 3, pressed_id, xx, yy);
+                else if(pressed.equals("stack4"))
+                    this.fillGroupCards(stack4, 4, pressed_id, xx, yy);
+                else if(pressed.equals("stack5"))
+                    this.fillGroupCards(stack5, 5, pressed_id, xx, yy);
+                else if(pressed.equals("stack6"))
+                    this.fillGroupCards(stack6, 6, pressed_id, xx, yy);
+                else if(pressed.equals("stack7"))
+                    this.fillGroupCards(stack7, 7, pressed_id, xx, yy);
+
                 return this.gc;
             }
             public void setGroupCards() {
                 this.gc.e = this.e;
-                if(this.gc.getCondition().equals("MOVE~")) {
-                    int x = this.gc.e.getX();
-                    int y = this.gc.e.getY();
-                    this.fillStackCards(x,y);
-                }
+                int x = this.gc.e.getX();
+                int y = this.gc.e.getY();
+                this.fillStackCards(x,y);
             }
-            int countt;
             public void fillGroupCards(ArrayList<Card> stck, int stackPos, int id, int xx, int yy) {
                 this.kards.clear();
-                if(stackPos == 1) {
-                    for(int i=0; i<stck.size(); i++) {
-                        stck.get(i).x = xx;
-                        stck.get(i).y = yy;
-                        if(i!=0)
-                            stck.get(i).y += 30;
-                        this.kards.add(stck.get(i));
-                        //stck.remove(stck.get(i));
-                    }
-                }
-                else if(stackPos == 2) {
-                    if (id == 0) {
-                        for(int i=0; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=0)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 1) {
-                        for(int i=1; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=1)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
+                if(stackPos == 1 || pressed.equals("stack1")) {
+                    for(int i=0; i<stack1.size(); i++) {
+                        if(id <= i) {
+                            stack1.get(i).x = xx;
+                            stack1.get(i).y = yy;
+                            if(i!=id)
+                                stack1.get(i).y += 30;
+                            for(int a=0; a<kards.size(); a++) {
+                                if(!(kards.get(a).suit == stack1.get(a).suit &&
+                                        kards.get(a).number == stack1.get(a).number)) {
+                                    this.kards.add(stack1.get(i));
+                                }
+                            }
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack1.get(a).suit &&
+                                        kards.get(a).number == stack1.get(a).number) {
+                                    stack1.remove(kards.get(a));
+                                }
+                            }
                         }
                     }
                 }
-                else if(stackPos == 3) {
-                    if (id == 0) {
-                        for(int i=0; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=0)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 1) {
-                        for(int i=1; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=1)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 2) {
-                        for(int i=2; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=2)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
+                else if(stackPos == 2 || pressed.equals("stack2")) {
+                    for(int i=0; i<stack2.size(); i++) {
+                        if(id <= i) {
+                            stack2.get(i).x = xx;
+                            stack2.get(i).y = yy;
+                            if(i!=id)
+                                stack2.get(i).y += 30;
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack2.get(a).suit &&
+                                        kards.get(a).number == stack2.get(a).number) {
+
+                                } else {
+                                    this.kards.add(stack2.get(a));
+                                }
+                            }
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack2.get(a).suit &&
+                                        kards.get(a).number == stack2.get(a).number) {
+                                    stack2.remove(kards.get(a));
+                                } else {
+                                }
+                            }
                         }
                     }
                 }
-                else if(stackPos == 4) {
-                    if (id == 0) {
-                        for(int i=0; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=0)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 1) {
-                        for(int i=1; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=1)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 2) {
-                        for(int i=2; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=2)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 3) {
-                        for(int i=3; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=3)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
+                else if(stackPos == 3 || pressed.equals("stack3")) {
+                    for(int i=0; i<stack3.size(); i++) {
+                        if(id <= i) {
+                            stack3.get(i).x = xx;
+                            stack3.get(i).y = yy;
+                            if(i!=id)
+                                stack3.get(i).y += 30;
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack3.get(a).suit &&
+                                        kards.get(a).number == stack3.get(a).number) {
+
+                                } else {
+                                    this.kards.add(stack3.get(a));
+                                }
+                            }
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack3.get(a).suit &&
+                                        kards.get(a).number == stack3.get(a).number) {
+                                    stack3.remove(kards.get(a));
+                                } else {
+                                }
+                            }
                         }
                     }
                 }
-                else if(stackPos == 5) {
-                    if (id == 0) {
-                        for(int i=0; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=0)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 1) {
-                        for(int i=1; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=1)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 2) {
-                        for(int i=2; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=2)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 3) {
-                        for(int i=3; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=3)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 4) {
-                        for(int i=4; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=4)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
+                else if(stackPos == 4 || pressed.equals("stack4")) {
+                    for(int i=0; i<stack4.size(); i++) {
+                        if(id <= i) {
+                            stack4.get(i).x = xx;
+                            stack4.get(i).y = yy;
+                            if(i!=id)
+                                stack4.get(i).y += 30;
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack4.get(a).suit &&
+                                        kards.get(a).number == stack4.get(a).number) {
+
+                                } else {
+                                    this.kards.add(stack4.get(a));
+                                }
+                            }
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack4.get(a).suit &&
+                                        kards.get(a).number == stack4.get(a).number) {
+                                    stack4.remove(kards.get(a));
+                                } else {
+                                }
+                            }
                         }
                     }
                 }
-                else if(stackPos == 6) {
-                    if (id == 0) {
-                        for(int i=0; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=0)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 1) {
-                        for(int i=1; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=1)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 2) {
-                        for(int i=2; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=2)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 3) {
-                        for(int i=3; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=3)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 4) {
-                        for(int i=4; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=4)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 5) {
-                        for(int i=5; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=5)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
+                else if(stackPos == 5 || pressed.equals("stack5")) {
+                    for(int i=0; i<stack5.size(); i++) {
+                        if(id <= i) {
+                            stack5.get(i).x = xx;
+                            stack5.get(i).y = yy;
+                            if(i!=id)
+                                stack5.get(i).y += 30;
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack5.get(a).suit &&
+                                        kards.get(a).number == stack5.get(a).number) {
+
+                                } else {
+                                    this.kards.add(stack5.get(a));
+                                }
+                            }
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack5.get(a).suit &&
+                                        kards.get(a).number == stack5.get(a).number) {
+                                    stack5.remove(kards.get(a));
+                                } else {
+                                }
+                            }
                         }
                     }
                 }
-                else if(stackPos == 7) {
-                    if (id == 0) {
-                        for(int i=0; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=0)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
+                else if(stackPos == 6 || pressed.equals("stack6")) {
+                    for(int i=0; i<stack6.size(); i++) {
+                        if(id <= i) {
+                            stack6.get(i).x = xx;
+                            stack6.get(i).y = yy;
+                            if(i!=id)
+                                stack6.get(i).y += 30;
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack6.get(a).suit &&
+                                        kards.get(a).number == stack6.get(a).number) {
+
+                                } else {
+                                    this.kards.add(stack6.get(a));
+                                }
+                            }
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack6.get(a).suit &&
+                                        kards.get(a).number == stack6.get(a).number) {
+                                    stack6.remove(kards.get(a));
+                                } else {
+                                }
+                            }
                         }
                     }
-                    if (id == 1) {
-                        for(int i=1; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=1)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 2) {
-                        for(int i=2; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=2)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 3) {
-                        for(int i=3; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=3)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 4) {
-                        for(int i=4; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=4)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 5) {
-                        for(int i=5; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=5)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
-                        }
-                    }
-                    if (id == 6) {
-                        for(int i=6; i<stck.size(); i++) {
-                            stck.get(i).x = xx;
-                            stck.get(i).y = yy;
-                            if(i!=6)
-                                stck.get(i).y += 30;
-                            this.kards.add(stck.get(i));
-                            //stck.remove(stck.get(i));
+                }
+                else if(stackPos == 7 || pressed.equals("stack7")) {
+                    for(int i=0; i<stack7.size(); i++) {
+                        if(id <= i) {
+                            stack7.get(i).x = xx;
+                            stack7.get(i).y = yy;
+                            if(i!=id)
+                                stack7.get(i).y += 30;
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack7.get(a).suit &&
+                                        kards.get(a).number == stack7.get(a).number) {
+
+                                } else {
+                                    this.kards.add(stack7.get(a));
+                                }
+                            }
+                            for(int a=0; a<kards.size(); a++) {
+                                if(kards.get(a).suit == stack7.get(a).suit &&
+                                        kards.get(a).number == stack7.get(a).number) {
+                                    stack7.remove(kards.get(a));
+                                } else {
+                                }
+                            }
                         }
                     }
                 }
             }
             public void fillStackCards(int x, int y) {
-                if(x >= 0 + 200 && y >= 0 + 100 && y <= 0 + 130) {
-                    if(stack1.size() == 0) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack1.add(this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 300 && y >= 0 + 100 && y <= 0 + 130) {
-                    if(stack2.size() == 0) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack2.add(this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 300 && y >= 0 + 130 && y <= 0 + 160) {
-                    if(stack2.size() >= 1) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack2.add(i+1, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 300 && y >= 0 + 160 && y <= 0 + 190) {
-                    if(stack2.size() >= 2) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack2.add(this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 400 && y >= 0 + 100 && y <= 0 + 130) {
-                    if(stack3.size() == 0) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack3.add(this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 400 && y >= 0 + 130 && y <= 0 + 160) {
-                    if(stack3.size() >= 1) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack3.add(i+1, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 400 && y >= 0 + 160 && y <= 0 + 190) {
-                    if(stack3.size() >= 2) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack3.add(i+2, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 500 && y >= 0 + 100 && y <= 0 + 130) {
-                    if(stack4.size() == 0) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack4.add(this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 500 && y >= 0 + 130 && y <= 0 + 160) {
-                    if(stack4.size() >= 1) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack4.add(i+2, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 500 && y >= 0 + 160 && y <= 0 + 190) {
-                    if(stack4.size() >= 2) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack4.add(i+2, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 500 && y >= 0 + 190 && y <= 0 + 220) {
-                    if(stack4.size() >= 3) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack4.add(i+3, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 600 && y >= 0 + 100 && y <= 0 + 130) {
-                    if(stack5.size() == 0) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack5.add(this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 600 && y >= 0 + 130 && y <= 0 + 160) {
-                    if(stack5.size() >= 1) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack5.add(i+1, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 600 && y >= 0 + 160 && y <= 0 + 190) {
-                    if(stack5.size() >= 2) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack5.add(i+2, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 600 && y >= 0 + 190 && y <= 0 + 220) {
-                    if(stack5.size() >= 3) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack5.add(i+3, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 600 && y >= 0 + 220 && y <= 0 + 250) {
-                    if(stack5.size() >= 4) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack5.add(i+4, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 700 && y >= 0 + 100 && y <= 0 + 130) {
-                    if(stack6.size() >= 0) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack6.add(i, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 700 && y >= 0 + 130 && y <= 0 + 160) {
-                    if(stack6.size() >= 1) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack6.add(i+1, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 700 && y >= 0 + 160 && y <= 0 + 190) {
-                    if(stack6.size() >= 2) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack6.add(i+2, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 700 && y >= 0 + 190 && y <= 0 + 220) {
-                    if(stack6.size() >= 3) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack6.add(i+3, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 700 && y >= 0 + 190 && y <= 0 + 220) {
-                    if(stack6.size() >= 4) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack6.add(i+4, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 700 && y >= 0 + 220 && y <= 0 + 250) {
-                    if(stack6.size() >= 5) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack6.add(i+5, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 800 && y >= 0 + 100 && y <= 0 + 130) {
-                    if(stack7.size() >= 0) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack7.add(i, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 800 && y >= 0 + 130 && y <= 0 + 160) {
-                    if(stack7.size() >= 1) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack7.add(i+1, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 800 && y >= 0 + 160 && y <= 0 + 190) {
-                    if(stack7.size() >= 2) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack7.add(i+2, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 800 && y >= 0 + 190 && y <= 0 + 220) {
-                    if(stack7.size() >= 3) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack7.add(i+3, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 800 && y >= 0 + 220 && y <= 0 + 250) {
-                    if(stack7.size() >= 4) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack7.add(i+4, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 800 && y >= 0 + 250 && y <= 0 + 280) {
-                    if(stack7.size() >= 5) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack7.add(i+5, this.gc.kards.remove(i));
-                        }
-                    }
-                }
-                else if(x >= 0 + 800 && y >= 0 + 280 && y <= 0 + 310) {
-                    if(stack7.size() >= 6) {
-                        for(int i=0; i<this.gc.kards.size(); i++) {
-                            stack7.add(i+6, this.gc.kards.remove(i));
-                        }
-                    }
-                }
             }
             public boolean isRegioned(MouseEvent e) {
-                System.out.print("~~%EEEEEEEEEEEEEEEEEE"+" " + e.getX() + ";" + e.getY());
-
                 if(e.getX() >= this.x && e.getX() <= this.x + this.width &&
                     e.getY() >= this.y && e.getY() <= this.y + this.height) {
                     this.e = e;
@@ -909,30 +711,6 @@ boolean tr = false;
         }
     }    
     
-    ClickSystem clocker =null;// new Clicker();///Clockernew();;
-
-    boolean play = true;
-
-    Stacker stacker = new Stacker();
-    Logo logo = new Logo();
-    
-    Cards cas = new Cards();
-    ArrayList<Card> shuffledDeck;
-    ArrayList<Card> cards = new ArrayList<>();
-    
-    JFrame jframe = new JFrame("Solitaire");
-    JPanel jpanel = new JPanel();
-    
-    Graphics gr = null;
-
-    ArrayList<Card> stack1 = new ArrayList<>();
-    ArrayList<Card> stack2 = new ArrayList<>();
-    ArrayList<Card> stack3 = new ArrayList<>();
-    ArrayList<Card> stack4 = new ArrayList<>();
-    ArrayList<Card> stack5 = new ArrayList<>();
-    ArrayList<Card> stack6 = new ArrayList<>();
-    ArrayList<Card> stack7 = new ArrayList<>();
-
     class Cards {
         ArrayList<Card> cars = new ArrayList<>();
         ArrayList<Card> crs = new ArrayList<>();
@@ -949,7 +727,7 @@ boolean tr = false;
         public void draw_All_TopOfStack() {
             try {
                 Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
-                gr.drawImage(potImg, 90, 90, null);
+                gr.drawImage(potImg, 80, 85, null);
             } catch(Exception e) {}
             for(int i=0; i<cars.size(); i++) {
                 cars.get(i).drawTopOfStack();
@@ -1255,214 +1033,212 @@ boolean tr = false;
             } catch(Exception e) {}
         }
         public void drawTopOfStack() {
-            x = 100;
-            y = 100;
             switch(number) {
                 case 1:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_1, x, y, 60, 120, null);
+                            gr.drawImage(image1_1, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_1, x, y, 60, 120, null);
+                            gr.drawImage(image2_1, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_1, x, y, 60, 120, null);
+                            gr.drawImage(image3_1, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_1, x, y, 60, 120, null);
+                            gr.drawImage(image4_1, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
                 case 2:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_2, x, y, 60, 120, null);
+                            gr.drawImage(image1_2, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_2, x, y, 60, 120, null);
+                            gr.drawImage(image2_2, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_2, x, y, 60, 120, null);
+                            gr.drawImage(image3_2, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_2, x, y, 60, 120, null);
+                            gr.drawImage(image4_2, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
                 case 3:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_3, x, y, 60, 120, null);
+                            gr.drawImage(image1_3, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_3, x, y, 60, 120, null);
+                            gr.drawImage(image2_3, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_3, x, y, 60, 120, null);
+                            gr.drawImage(image3_3, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_3, x, y, 60, 120, null);
+                            gr.drawImage(image4_3, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
                 case 4:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_4, x, y, 60, 120, null);
+                            gr.drawImage(image1_4, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_4, x, y, 60, 120, null);
+                            gr.drawImage(image2_4, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_4, x, y, 60, 120, null);
+                            gr.drawImage(image3_4, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_4, x, y, 60, 120, null);
+                            gr.drawImage(image4_4, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
                 case 5:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_5, x, y, 60, 120, null);
+                            gr.drawImage(image1_5, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_5, x, y, 60, 120, null);
+                            gr.drawImage(image2_5, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_5, x, y, 60, 120, null);
+                            gr.drawImage(image3_5, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_5, x, y, 60, 120, null);
+                            gr.drawImage(image4_5, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
                 case 6:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_6, x, y, 60, 120, null);
+                            gr.drawImage(image1_6, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_6, x, y, 60, 120, null);
+                            gr.drawImage(image2_6, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_6, x, y, 60, 120, null);
+                            gr.drawImage(image3_6, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_6, x, y, 60, 120, null);
+                            gr.drawImage(image4_6, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
                 case 7:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_7, x, y, 60, 120, null);
+                            gr.drawImage(image1_7, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_7, x, y, 60, 120, null);
+                            gr.drawImage(image2_7, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_7, x, y, 60, 120, null);
+                            gr.drawImage(image3_7, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_7, x, y, 60, 120, null);
+                            gr.drawImage(image4_7, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
                 case 8:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_8, x, y, 60, 120, null);
+                            gr.drawImage(image1_8, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_8, x, y, 60, 120, null);
+                            gr.drawImage(image2_8, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_8, x, y, 60, 120, null);
+                            gr.drawImage(image3_8, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_8, x, y, 60, 120, null);
+                            gr.drawImage(image4_8, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
                 case 9:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_9, x, y, 60, 120, null);
+                            gr.drawImage(image1_9, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_9, x, y, 60, 120, null);
+                            gr.drawImage(image2_9, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_9, x, y, 60, 120, null);
+                            gr.drawImage(image3_9, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_9, x, y, 60, 120, null);
+                            gr.drawImage(image4_9, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
                 case 10:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_10, x, y, 60, 120, null);
+                            gr.drawImage(image1_10, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_10, x, y, 60, 120, null);
+                            gr.drawImage(image2_10, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_10, x, y, 60, 120, null);
+                            gr.drawImage(image3_10, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_10, x, y, 60, 120, null);
+                            gr.drawImage(image4_10, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
                 case 11:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_11, x, y, 60, 120, null);
+                            gr.drawImage(image1_11, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_11, x, y, 60, 120, null);
+                            gr.drawImage(image2_11, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_11, x, y, 60, 120, null);
+                            gr.drawImage(image3_11, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_11, x, y, 60, 120, null);
+                            gr.drawImage(image4_11, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
                 case 12:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_12, x, y, 60, 120, null);
+                            gr.drawImage(image1_12, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_12, x, y, 60, 120, null);
+                            gr.drawImage(image2_12, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_12, x, y, 60, 120, null);
+                            gr.drawImage(image3_12, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_12, x, y, 60, 120, null);
+                            gr.drawImage(image4_12, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
                 case 13:
                     switch(suit) {
                         case 1:
-                            gr.drawImage(image1_13, x, y, 60, 120, null);
+                            gr.drawImage(image1_13, 100, 100, 60, 120, null);
                             break;
                         case 2:
-                            gr.drawImage(image2_13, x, y, 60, 120, null);
+                            gr.drawImage(image2_13, 100, 100, 60, 120, null);
                             break;
                         case 3:
-                            gr.drawImage(image3_13, x, y, 60, 120, null);
+                            gr.drawImage(image3_13, 100, 100, 60, 120, null);
                             break;
                         case 4:
-                            gr.drawImage(image4_13, x, y, 60, 120, null);
+                            gr.drawImage(image4_13, 100, 100, 60, 120, null);
                             break;
                     }
                     break;
@@ -1684,6 +1460,7 @@ boolean tr = false;
     }
 
     Solitaire() {
+
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.setLayout(null);
         
@@ -1691,17 +1468,18 @@ boolean tr = false;
         jpanel.setBounds(0, 0, 1070, 800);
         
         jframe.add(jpanel);
-        
         jframe.setVisible(true);
-        
         gr = jpanel.getGraphics();
-        
+
         initCards();
-        
+
         startGameplay();        
     }
     
     void initCards() {
+ 
+        //cas.cars.clear();
+ 
         int DECK_SIZE = 52;
 
         ArrayList<Integer> deck = new ArrayList<Integer>();
@@ -1739,7 +1517,9 @@ boolean tr = false;
             shuffledDeck.add(cc);
         } 
         cas.cars = shuffledDeck;
-        
+ 
+        //cas.crs.clear();
+
         for(int i=24; i<52; i++) {
             cas.crs.add(cas.cars.get(i));
         }
@@ -1757,23 +1537,47 @@ boolean tr = false;
         Solitaire.ClickSystem cs = new Solitaire.ClickSystem();
         jframe.addMouseMotionListener(cs);
         jframe.addMouseListener(cs);
-        jpanel.setBackground(new Color(63, 197, 111));
-        gr.setColor(new Color(63, 197, 111));
-        gr.fillRect(0, 0, 1070, 800);
+        jpanel.setBackground(new Color(123, 197, 31));
+        Thread t = new Thread() {
+            public void run() {
+                while(true) {
+                    try {
+                        ImageIcon i = new ImageIcon(getClass().getResource("loading-bar.gif"));
+                        gr.drawImage(i.getImage(), 0, 0, 1070, 800, null);
+                        Thread.sleep(100);
+                    } catch(Exception e) {
+                        e.printStackTrace();
+                    }
+                    if(!play) {
+                        return;
+                    }
+                }
+            }
+        };
+        t.start();
         Thread thr = new Thread() {
             public void run() {
                 while(true) {
                     try {
-                        Thread.sleep(1400);
+                        if(play) {
+                            gr.setColor(new Color(123, 197, 31));
+                            gr.fillRect(0, 0, 1070, 800);
+                            initCards();
+                            gr.setColor(new Color(123, 197, 31));
+                            gr.fillRect(0, 0, 1070, 800);
+                            deal();
+                            gr.setColor(new Color(123, 197, 31));
+                            gr.fillRect(0, 0, 1070, 800);
+                            cs.drawStackCards();
+                            play = false;
+                        }
                         logo.drawLogoMiddle();
                         cas.draw_All_TopOfStack();   
                         stacker.executeDrawing();
-                        if(play) {
-                            play = false;
-                            initCards();
-                        }
-                        deal();
-                    } catch(Exception e) {}
+                        Thread.sleep(1000);
+                    } catch(Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         };
@@ -1783,11 +1587,24 @@ boolean tr = false;
     public static void main(String[] args) {
         try {
             SwingUtilities.invokeLater(new Runnable() {
+                
                 @Override
                 public void run() {
+                    try {
+                        Clip clip;
+                        AudioInputStream audioInputStream;
+                        audioInputStream =
+                            AudioSystem.getAudioInputStream(
+                                getClass().getResource("thre.wav"));
+                        clip = AudioSystem.getClip();
+                        clip.open(audioInputStream);
+                        clip.loop(Clip.LOOP_CONTINUOUSLY);
+                    } catch(Exception e) {}
                     new Solitaire();
                 }
             });
-        } catch(Exception e) {}
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }
