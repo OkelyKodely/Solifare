@@ -22,7 +22,8 @@ import java.util.ArrayList;
  */
 public class ClickSystem implements MouseMotionListener, MouseListener {
 
-    Clicker m[] = new Clicker[28];
+    String st = "";
+    ArrayList<Clicker> m = new ArrayList<>();
     ArrayList<Card> k = new ArrayList<>();
     boolean tr = false;
     int rt;
@@ -38,13 +39,12 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
     }
 
     public void mousePressed(MouseEvent me) {
-        tr = true;
         cunt++;
     }
 
     public void mouseReleased(MouseEvent me) {
         rt = 0;
-
+        
         int id = 0;
         String stackn = "stac1";
         {
@@ -163,14 +163,194 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                 id = 6;
                 stackn = "stack7";
             }
+            else {
+                if(st.equals("stack1")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack1.size() == 0) {
+                        xxxx = 200;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack1.size() > 0) {
+                        xxxx = 200;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack1.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack1.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+                if(st.equals("stack2")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack2.size() == 0) {
+                        xxxx = 300;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack2.size() > 0) {
+                        xxxx = 300;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack2.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack2.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+                if(st.equals("stack3")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack3.size() == 0) {
+                        xxxx = 400;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack3.size() > 0) {
+                        xxxx = 400;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack3.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack3.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+                if(st.equals("stack4")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack4.size() == 0) {
+                        xxxx = 500;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack4.size() > 0) {
+                        xxxx = 500;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack4.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack4.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+                if(st.equals("stack5")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack5.size() == 0) {
+                        xxxx = 600;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack5.size() > 0) {
+                        xxxx = 600;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack5.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack5.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+                if(st.equals("stack6")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack6.size() == 0) {
+                        xxxx = 700;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack6.size() > 0) {
+                        xxxx = 700;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack6.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack6.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+                if(st.equals("stack7")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack7.size() == 0) {
+                        xxxx = 800;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack7.size() > 0) {
+                        xxxx = 800;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack7.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack7.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+            }
         }
+
+        st = "";
 
         System.out.println("sss:"+Singleton.getInstance().ka.size());
 
         if(Singleton.getInstance().ka != null)
         {
+            int xx = me.getX();
+            int yy = me.getY();
+            boolean retarn = false;
+            if(xx >= 0 + 50 && xx <= 0 + 50 + 60 && yy >= 0 + 660 && yy <= 0 + 860) {
+                id = 0;
+                System.out.println("qweqweqwe");
+                stackn = "tack1";
+                retarn = true;
+            }
+            else if(xx >= 0 + 190 && xx <= 0 + 190 + 60 && yy >= 0 + 660 && yy <= 0 + 860) {
+                id = 0;
+                System.out.println("sdadfaafd");
+                stackn = "tack2";
+                retarn = true;
+            }
+            else if(xx >= 0 + 330 && xx <= 0 + 330 + 60 && yy >= 0 + 660 && yy <= 0 + 860) {
+                id = 1;
+                System.out.println("zxvvzxcvzxc");
+                stackn = "tack2";
+                retarn = true;
+            }
+            else if(xx >= 0 + 470 && xx <= 0 + 470 + 60 && yy >= 0 + 660 && yy <= 0 + 860) {
+                id = 0;
+                System.out.println("aaaaaaaaaaaaaasssssssssssssssss");
+                stackn = "tack3";
+                retarn = true;
+            }
+
             int yay = 100;
             boolean ay = false;
+            if(!retarn)
             for(int i=0; i<Singleton.getInstance().ka.size(); i++)
             {
                 if(stackn.equals("stack1")) {
@@ -266,7 +446,57 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                 }
             }
 
-            Singleton.getInstance().ka.clear();
+            if(retarn){
+                for(int i=0; i<Singleton.getInstance().ka.size(); i++)
+                    Singleton.getInstance().k.add(Singleton.getInstance().ka.get(i));
+                try {
+                    if(Singleton.getInstance().bs.stackone.stack.size() > 0) {
+                        Singleton.getInstance().stack1.remove(Singleton.getInstance().bs.stackone.stack.get(Singleton.getInstance().bs.stackone.stack.size()-1));
+                        Singleton.getInstance().stack2.remove(Singleton.getInstance().bs.stackone.stack.get(Singleton.getInstance().bs.stackone.stack.size()-1));
+                        Singleton.getInstance().stack3.remove(Singleton.getInstance().bs.stackone.stack.get(Singleton.getInstance().bs.stackone.stack.size()-1));
+                        Singleton.getInstance().stack4.remove(Singleton.getInstance().bs.stackone.stack.get(Singleton.getInstance().bs.stackone.stack.size()-1));
+                        Singleton.getInstance().stack5.remove(Singleton.getInstance().bs.stackone.stack.get(Singleton.getInstance().bs.stackone.stack.size()-1));
+                        Singleton.getInstance().stack6.remove(Singleton.getInstance().bs.stackone.stack.get(Singleton.getInstance().bs.stackone.stack.size()-1));
+                        Singleton.getInstance().stack7.remove(Singleton.getInstance().bs.stackone.stack.get(Singleton.getInstance().bs.stackone.stack.size()-1));
+                    }
+                    
+                    if(Singleton.getInstance().bs.stacktwo.stack.size() > 0) {
+                        Singleton.getInstance().stack1.remove(Singleton.getInstance().bs.stacktwo.stack.get(Singleton.getInstance().bs.stacktwo.stack.size()-1));
+                        Singleton.getInstance().stack2.remove(Singleton.getInstance().bs.stacktwo.stack.get(Singleton.getInstance().bs.stacktwo.stack.size()-1));
+                        Singleton.getInstance().stack3.remove(Singleton.getInstance().bs.stacktwo.stack.get(Singleton.getInstance().bs.stacktwo.stack.size()-1));
+                        Singleton.getInstance().stack4.remove(Singleton.getInstance().bs.stacktwo.stack.get(Singleton.getInstance().bs.stacktwo.stack.size()-1));
+                        Singleton.getInstance().stack5.remove(Singleton.getInstance().bs.stacktwo.stack.get(Singleton.getInstance().bs.stacktwo.stack.size()-1));
+                        Singleton.getInstance().stack6.remove(Singleton.getInstance().bs.stacktwo.stack.get(Singleton.getInstance().bs.stacktwo.stack.size()-1));
+                        Singleton.getInstance().stack7.remove(Singleton.getInstance().bs.stacktwo.stack.get(Singleton.getInstance().bs.stacktwo.stack.size()-1));
+                    }
+                    
+                    if(Singleton.getInstance().bs.stackthree.stack.size() > 0) {
+                        Singleton.getInstance().stack1.remove(Singleton.getInstance().bs.stackthree.stack.get(Singleton.getInstance().bs.stackthree.stack.size()-1));
+                        Singleton.getInstance().stack2.remove(Singleton.getInstance().bs.stackthree.stack.get(Singleton.getInstance().bs.stackthree.stack.size()-1));
+                        Singleton.getInstance().stack3.remove(Singleton.getInstance().bs.stackthree.stack.get(Singleton.getInstance().bs.stackthree.stack.size()-1));
+                        Singleton.getInstance().stack4.remove(Singleton.getInstance().bs.stackthree.stack.get(Singleton.getInstance().bs.stackthree.stack.size()-1));
+                        Singleton.getInstance().stack5.remove(Singleton.getInstance().bs.stackthree.stack.get(Singleton.getInstance().bs.stackthree.stack.size()-1));
+                        Singleton.getInstance().stack6.remove(Singleton.getInstance().bs.stackthree.stack.get(Singleton.getInstance().bs.stackthree.stack.size()-1));
+                        Singleton.getInstance().stack7.remove(Singleton.getInstance().bs.stackthree.stack.get(Singleton.getInstance().bs.stackthree.stack.size()-1));
+                    }
+                    
+                    if(Singleton.getInstance().bs.stackfour.stack.size() > 0) {
+                        Singleton.getInstance().stack1.remove(Singleton.getInstance().bs.stackfour.stack.get(Singleton.getInstance().bs.stackfour.stack.size()-1));
+                        Singleton.getInstance().stack2.remove(Singleton.getInstance().bs.stackfour.stack.get(Singleton.getInstance().bs.stackfour.stack.size()-1));
+                        Singleton.getInstance().stack3.remove(Singleton.getInstance().bs.stackfour.stack.get(Singleton.getInstance().bs.stackfour.stack.size()-1));
+                        Singleton.getInstance().stack4.remove(Singleton.getInstance().bs.stackfour.stack.get(Singleton.getInstance().bs.stackfour.stack.size()-1));
+                        Singleton.getInstance().stack5.remove(Singleton.getInstance().bs.stackfour.stack.get(Singleton.getInstance().bs.stackfour.stack.size()-1));
+                        Singleton.getInstance().stack6.remove(Singleton.getInstance().bs.stackfour.stack.get(Singleton.getInstance().bs.stackfour.stack.size()-1));
+                        Singleton.getInstance().stack7.remove(Singleton.getInstance().bs.stackfour.stack.get(Singleton.getInstance().bs.stackfour.stack.size()-1));
+                    }
+                } catch(Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+            else if(!retarn) {
+                Singleton.getInstance().ka.clear();
+                Singleton.getInstance().k.clear();
+            }
         }
 
         {
@@ -276,42 +506,42 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             pressed_two=0;
             pressed_xx=0;
             pressed_yy = 0;
-            for(int j=0; j<m.length; j++) {
-                int xx = m[j].x;
-                int yy = m[j].y;
+            for(int j=0; j<m.size(); j++) {
+                int xx = m.get(j).x;
+                int yy = m.get(j).y;
                 if(xx >= 0 + 200 && xx <= 0 + 200 + 60) {
-                    m[j].name = "stack1";
-                    m[j].name1 = "stack1";
+                    m.get(j).name = "stack1";
+                    m.get(j).name1 = "stack1";
                 }
                 if(xx >= 100 + 200 && xx <= 100 + 200 + 60) {
-                    m[j].name = "stack2";
-                    m[j].name1 = "stack2";
+                    m.get(j).name = "stack2";
+                    m.get(j).name1 = "stack2";
                 }
                 if(xx >= 200 + 200 && xx <= 200 + 200 + 60) {
-                    m[j].name = "stack3";
-                    m[j].name1 = "stack3";
+                    m.get(j).name = "stack3";
+                    m.get(j).name1 = "stack3";
                 }
                 if(xx >= 300 + 200 && xx <= 300 + 200 + 60) {
-                    m[j].name = "stack4";
-                    m[j].name1 = "stack4";
+                    m.get(j).name = "stack4";
+                    m.get(j).name1 = "stack4";
                 }
                 if(xx >= 400 + 200 && xx <= 400 + 200 + 60) {
-                    m[j].name = "stack5";
-                    m[j].name1 = "stack5";
+                    m.get(j).name = "stack5";
+                    m.get(j).name1 = "stack5";
                 }
                 if(xx >= 500 + 200 && xx <= 500 + 200 + 60) {
-                    m[j].name = "stack6";
-                    m[j].name1 = "stack6";
+                    m.get(j).name = "stack6";
+                    m.get(j).name1 = "stack6";
                 }
                 if(xx >= 600 + 200 && xx <= 600 + 200 + 60) {
-                    m[j].name = "stack7";
-                    m[j].name1 = "stack7";
+                    m.get(j).name = "stack7";
+                    m.get(j).name1 = "stack7";
                 }
             }
         }
 
-        singleton.Singleton.getInstance().gr.setColor(new Color(123, 197, 31));
-        singleton.Singleton.getInstance().gr.fillRect(0, 0, 1070, 800);
+        singleton.Singleton.getInstance().gr.setColor(new Color(224, 197, 31));
+        singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 900);
         drawStackCards();
         Logo logo = new Logo();
         logo.drawLogoMiddle();
@@ -351,16 +581,15 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
         for(int ii=0; ii<Singleton.getInstance().stack7.size(); ii++) {
             Singleton.getInstance().stack7.get(ii).drawCardAtLocation(Singleton.getInstance().stack7.get(ii).x, Singleton.getInstance().stack7.get(ii).y);
         }
+        System.out.println("kakaka: " + Singleton.getInstance().ka.size());
         for(int ii=0; ii<Singleton.getInstance().ka.size(); ii++) {
-            Singleton.getInstance().ka.get(ii).drawCardAtLocation(Singleton.getInstance().ka.get(ii).x, Singleton.getInstance().ka.get(ii).y);
+//            Singleton.getInstance().ka.get(ii).drawCardAtLocation(Singleton.getInstance().ka.get(ii).x, Singleton.getInstance().ka.get(ii).y);
         }
     }
 
     public void mouseDragged(MouseEvent me) {
-        if(!tr)
-            return;
-        singleton.Singleton.getInstance().gr.setColor(new Color(123, 197, 31));
-        singleton.Singleton.getInstance().gr.fillRect(0, 0, 1070, 800);
+        singleton.Singleton.getInstance().gr.setColor(new Color(224, 197, 31));
+        singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 900);
         Logo logo = new Logo();
         logo.drawLogoMiddle();
         Singleton.getInstance().cas.draw_All_TopOfStack();
@@ -371,165 +600,291 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             currentcunt = cunt;
             safe = true;
         }
-        for(int i=0; i<m.length; i++) {
-            if(m[i].isRegioned(me)) {
-                Clicker.GroupCards gc = null;
-                if(!safe && !m[i].getSetName().equals("")) {
-                    for(int j=0; j<m.length; j++) {
-                        m[j].name = m[i].getSetName();
-
-                    }
+        for(int i=0; i<m.size(); i++) {
+            m.get(i).e = me;
+            if(st.equals("") && m.get(i).isRegioned(m.get(i).e)) {
+                st = m.get(i).name;
+                singleton.Singleton.getInstance().st = st;
+            }
+            Clicker.GroupCards gc = null;
+            if(st.equals("stack1")) {
+                gc = m.get(i).getGroupCards("stack1");
+                for(int j=0; j<m.size(); j++) {
+                    m.get(j).name1 = "stack1";
                 }
-                if(m[i].name.equals("stack1")) {
-                    gc = m[i].getGroupCards("stack1");
-                    for(int j=0; j<m.length; j++) {
-                        m[j].name1 = "stack1";
-                    }
-                    int yyy = 0;
-                    ArrayList<Card> stack = gc.getCards();
-                    for(int ii=0; ii<stack.size(); ii++) {
-                        if(ii == 0)
-                            yyy = stack.get(ii).y;
-                        else
-                            yyy += 30;
-                        stack.get(ii).drawCardAtLocation(me.getX(), yyy);
-                    }
+                int yyy = 0;
+                int xxx = 0;
+                ArrayList<Card> stack = gc.getCards();
+                for(int ii=0; ii<stack.size(); ii++) {
+                    if(ii == 0)
+                        yyy = me.getY();
+                    else
+                        yyy += 30;
+                    xxx = me.getX();
+                    stack.get(ii).drawCardAtLocation(xxx, yyy);
                 }
-                else if(m[i].name.equals("stack2")) {
-                    gc = m[i].getGroupCards("stack2");
-                    for(int j=0; j<m.length; j++) {
-                        m[j].name1 = "stack2";
-                    }
-                    int yyy = 0;
-                    ArrayList<Card> stack = gc.getCards();
-                    for(int ii=0; ii<stack.size(); ii++) {
-                        if(ii == 0)
-                            yyy = stack.get(ii).y;
-                        else
-                            yyy += 30;
-                        stack.get(ii).drawCardAtLocation(me.getX(), yyy);
-                    }
+            }
+            else if(st.equals("stack2")) {
+                gc = m.get(i).getGroupCards("stack2");
+                for(int j=0; j<m.size(); j++) {
+                    m.get(j).name1 = "stack2";
                 }
-                else if(m[i].name.equals("stack3")) {
-                    gc = m[i].getGroupCards("stack3");
-                    for(int j=0; j<m.length; j++) {
-                        m[j].name1 = "stack3";
-                    }
-                    int yyy = 0;
-                    ArrayList<Card> stack = gc.getCards();
-                    for(int ii=0; ii<stack.size(); ii++) {
-                        if(ii == 0)
-                            yyy = stack.get(ii).y;
-                        else
-                            yyy += 30;
-                        stack.get(ii).drawCardAtLocation(me.getX(), yyy);
-                    }
+                int yyy = 0;
+                int xxx = 0;
+                ArrayList<Card> stack = gc.getCards();
+                for(int ii=0; ii<stack.size(); ii++) {
+                    if(ii == 0)
+                        yyy = me.getY();
+                    else
+                        yyy += 30;
+                    xxx = me.getX();
+                    stack.get(ii).drawCardAtLocation(xxx, yyy);
                 }
-                else if(m[i].name.equals("stack4")) {
-                    gc = m[i].getGroupCards("stack4");
-                    for(int j=0; j<m.length; j++) {
-                        m[j].name1 = "stack4";
-                    }
-                    int yyy = 0;
-                    ArrayList<Card> stack = gc.getCards();
-                    for(int ii=0; ii<stack.size(); ii++) {
-                        if(ii == 0)
-                            yyy = stack.get(ii).y;
-                        else
-                            yyy += 30;
-                        stack.get(ii).drawCardAtLocation(me.getX(), yyy);
-                    }
+            }
+            else if(st.equals("stack3")) {
+                gc = m.get(i).getGroupCards("stack3");
+                for(int j=0; j<m.size(); j++) {
+                    m.get(j).name1 = "stack3";
                 }
-                else if(m[i].name.equals("stack5")) {
-                    gc = m[i].getGroupCards("stack5");
-                    for(int j=0; j<m.length; j++) {
-                        m[j].name1 = "stack5";
-                    }
-                    int yyy = 0;
-                    ArrayList<Card> stack = gc.getCards();
-                    for(int ii=0; ii<stack.size(); ii++) {
-                        if(ii == 0)
-                            yyy = stack.get(ii).y;
-                        else
-                            yyy += 30;
-                        stack.get(ii).drawCardAtLocation(me.getX(), yyy);
-                    }
+                int yyy = 0;
+                int xxx = 0;
+                ArrayList<Card> stack = gc.getCards();
+                for(int ii=0; ii<stack.size(); ii++) {
+                    if(ii == 0)
+                        yyy = me.getY();
+                    else
+                        yyy += 30;
+                    xxx = me.getX();
+                    stack.get(ii).drawCardAtLocation(xxx, yyy);
                 }
-                else if(m[i].name.equals("stack6")) {
-                    gc = m[i].getGroupCards("stack6");
-                    for(int j=0; j<m.length; j++) {
-                        m[j].name1 = "stack6";
-                    }
-                    int yyy = 0;
-                    ArrayList<Card> stack = gc.getCards();
-                    for(int ii=0; ii<stack.size(); ii++) {
-                        if(ii == 0)
-                            yyy = stack.get(ii).y;
-                        else
-                            yyy += 30;
-                        stack.get(ii).drawCardAtLocation(me.getX(), yyy);
-                    }
+            }
+            else if(st.equals("stack4")) {
+                gc = m.get(i).getGroupCards("stack4");
+                for(int j=0; j<m.size(); j++) {
+                    m.get(j).name1 = "stack4";
                 }
-                else if(m[i].name.equals("stack7")) {
-                    gc = m[i].getGroupCards("stack7");
-                    for(int j=0; j<m.length; j++) {
-                        m[j].name1 = "stack7";
-                    }
-                    int yyy = 0;
-                    ArrayList<Card> stack = gc.getCards();
-                    for(int ii=0; ii<stack.size(); ii++) {
-                        if(ii == 0)
-                            yyy = stack.get(ii).y;
-                        else
-                            yyy += 30;
-                        stack.get(ii).drawCardAtLocation(me.getX(), yyy);
-                    }
+                int yyy = 0;
+                int xxx = 0;
+                ArrayList<Card> stack = gc.getCards();
+                for(int ii=0; ii<stack.size(); ii++) {
+                    if(ii == 0)
+                        yyy = me.getY();
+                    else
+                        yyy += 30;
+                    xxx = me.getX();
+                    stack.get(ii).drawCardAtLocation(xxx, yyy);
                 }
-                System.out.println("gc.get:"+gc.getCards().size());
+            }
+            else if(st.equals("stack5")) {
+                gc = m.get(i).getGroupCards("stack5");
+                for(int j=0; j<m.size(); j++) {
+                    m.get(j).name1 = "stack5";
+                }
+                int yyy = 0;
+                int xxx = 0;
+                ArrayList<Card> stack = gc.getCards();
+                for(int ii=0; ii<stack.size(); ii++) {
+                    if(ii == 0)
+                        yyy = me.getY();
+                    else
+                        yyy += 30;
+                    xxx = me.getX();
+                    stack.get(ii).drawCardAtLocation(xxx, yyy);
+                }
+            }
+            else if(st.equals("stack6")) {
+                gc = m.get(i).getGroupCards("stack6");
+                for(int j=0; j<m.size(); j++) {
+                    m.get(j).name1 = "stack6";
+                }
+                int yyy = 0;
+                int xxx = 0;
+                ArrayList<Card> stack = gc.getCards();
+                for(int ii=0; ii<stack.size(); ii++) {
+                    if(ii == 0)
+                        yyy = me.getY();
+                    else
+                        yyy += 30;
+                    xxx = me.getX();
+                    stack.get(ii).drawCardAtLocation(xxx, yyy);
+                }
+            }
+            else if(st.equals("stack7")) {
+                gc = m.get(i).getGroupCards("stack7");
+                for(int j=0; j<m.size(); j++) {
+                    m.get(j).name1 = "stack7";
+                }
+                int yyy = 0;
+                int xxx = 0;
+                ArrayList<Card> stack = gc.getCards();
+                for(int ii=0; ii<stack.size(); ii++) {
+                    if(ii == 0)
+                        yyy = me.getY();
+                    else
+                        yyy += 30;
+                    xxx = me.getX();
+                    stack.get(ii).drawCardAtLocation(xxx, yyy);
+                }
             }
         }
     }
 
     public ClickSystem() {
 
-        m[0] = new Clicker(200, 100, Singleton.getInstance().stack1, "stack1");
+        k = new ArrayList<>();
+        Singleton.getInstance().k = k;
+        
+        {
+        Clicker n = new Clicker(200, 100, Singleton.getInstance().stack1, "stack1");
+        n.stackname = "stack1";
+        m.add(n);
+        }
 
-        m[1] = new Clicker(300, 100, Singleton.getInstance().stack2, "stack2");
-        m[2] = new Clicker(300, 130, Singleton.getInstance().stack2, "stack2");
+        {
+        Clicker n = new Clicker(300, 100, Singleton.getInstance().stack2, "stack2");
+        n.stackname = "stack2";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(300, 130, Singleton.getInstance().stack2, "stack2");
+        n.stackname = "stack2";
+        m.add(n);
+        }
+        
+        {
+        Clicker n = new Clicker(400, 100, Singleton.getInstance().stack3, "stack3");
+        n.stackname = "stack3";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(400, 130, Singleton.getInstance().stack3, "stack3");
+        n.stackname = "stack3";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(400, 160, Singleton.getInstance().stack3, "stack3");
+        n.stackname = "stack3";
+        m.add(n);
+        }
+        
+        {
+        Clicker n = new Clicker(500, 100, Singleton.getInstance().stack4, "stack4");
+        n.stackname = "stack4";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(500, 130, Singleton.getInstance().stack4, "stack4");
+        n.stackname = "stack4";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(500, 160, Singleton.getInstance().stack4, "stack4");
+        n.stackname = "stack4";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(500, 190, Singleton.getInstance().stack4, "stack4");
+        n.stackname = "stack4";
+        m.add(n);
+        }
 
-        m[3] = new Clicker(400, 100, Singleton.getInstance().stack3, "stack3");
-        m[4] = new Clicker(400, 130, Singleton.getInstance().stack3, "stack3");
-        m[5] = new Clicker(400, 160, Singleton.getInstance().stack3, "stack3");
+        {
+        Clicker n = new Clicker(600, 100, Singleton.getInstance().stack5, "stack5");
+        n.stackname = "stack5";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(600, 130, Singleton.getInstance().stack5, "stack5");
+        n.stackname = "stack5";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(600, 160, Singleton.getInstance().stack5, "stack5");
+        n.stackname = "stack5";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(600, 190, Singleton.getInstance().stack5, "stack5");
+        n.stackname = "stack5";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(600, 220, Singleton.getInstance().stack5, "stack5");
+        n.stackname = "stack5";
+        m.add(n);
+        }
 
-        m[6] = new Clicker(500, 100, Singleton.getInstance().stack4, "stack4");
-        m[7] = new Clicker(500, 130, Singleton.getInstance().stack4, "stack4");
-        m[8] = new Clicker(500, 160, Singleton.getInstance().stack4, "stack4");
-        m[9] = new Clicker(500, 190, Singleton.getInstance().stack4, "stack4");
+        {
+        Clicker n = new Clicker(700, 100, Singleton.getInstance().stack6, "stack6");
+        n.stackname = "stack6";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(700, 130, Singleton.getInstance().stack6, "stack6");
+        n.stackname = "stack6";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(700, 160, Singleton.getInstance().stack6, "stack6");
+        n.stackname = "stack6";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(700, 190, Singleton.getInstance().stack6, "stack6");
+        n.stackname = "stack6";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(700, 220, Singleton.getInstance().stack6, "stack6");
+        n.stackname = "stack6";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(700, 250, Singleton.getInstance().stack6, "stack6");
+        n.stackname = "stack6";
+        m.add(n);
+        }
 
-        m[10] = new Clicker(600, 100, Singleton.getInstance().stack5, "stack5");
-        m[11] = new Clicker(600, 130, Singleton.getInstance().stack5, "stack5");
-        m[12] = new Clicker(600, 160, Singleton.getInstance().stack5, "stack5");
-        m[13] = new Clicker(600, 190, Singleton.getInstance().stack5, "stack5");
-        m[14] = new Clicker(600, 220, Singleton.getInstance().stack5, "stack5");
-
-        m[15] = new Clicker(700, 100, Singleton.getInstance().stack6, "stack6");
-        m[16] = new Clicker(700, 130, Singleton.getInstance().stack6, "stack6");
-        m[17] = new Clicker(700, 160, Singleton.getInstance().stack6, "stack6");
-        m[18] = new Clicker(700, 190, Singleton.getInstance().stack6, "stack6");
-        m[19] = new Clicker(700, 220, Singleton.getInstance().stack6, "stack6");
-        m[20] = new Clicker(700, 250, Singleton.getInstance().stack6, "stack6");
-
-        m[21] = new Clicker(800, 100, Singleton.getInstance().stack7, "stack7");
-        m[22] = new Clicker(800, 130, Singleton.getInstance().stack7, "stack7");
-        m[23] = new Clicker(800, 160, Singleton.getInstance().stack7, "stack7");
-        m[24] = new Clicker(800, 190, Singleton.getInstance().stack7, "stack7");
-        m[25] = new Clicker(800, 220, Singleton.getInstance().stack7, "stack7");
-        m[26] = new Clicker(800, 250, Singleton.getInstance().stack7, "stack7");
-        m[27] = new Clicker(800, 280, Singleton.getInstance().stack7, "stack7");
+        {
+        Clicker n = new Clicker(800, 100, Singleton.getInstance().stack7, "stack7");
+        n.stackname = "stack7";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(800, 130, Singleton.getInstance().stack7, "stack7");
+        n.stackname = "stack7";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(800, 160, Singleton.getInstance().stack7, "stack7");
+        n.stackname = "stack7";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(800, 190, Singleton.getInstance().stack7, "stack7");
+        n.stackname = "stack7";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(800, 220, Singleton.getInstance().stack7, "stack7");
+        n.stackname = "stack7";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(800, 250, Singleton.getInstance().stack7, "stack7");
+        n.stackname = "stack7";
+        m.add(n);
+        }
+        {
+        Clicker n = new Clicker(800, 280, Singleton.getInstance().stack7, "stack7");
+        n.stackname = "stack7";
+        m.add(n);
+        }
     }
 
     class Clicker {
 
+        String stackname = "";
         int x;
         int y;
         long width = 60;
@@ -702,6 +1057,12 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                 //return;
             //Singleton.getInstance().ka.clear();
             if(stackPos == 1 || pressed.equals("stack1")) {
+                if(Singleton.getInstance().stack1.size() == 0) {
+                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
+                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                        yy+=30;
+                    }
+                }
                 for(int i=0; i<Singleton.getInstance().stack1.size(); i++) {
                     if(id <= i) {
                         for(int a=0; a<Singleton.getInstance().ka.size(); a++) {
@@ -713,21 +1074,32 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                                 break;
                             }
                         }
-                        yy += 30;
-                        if(Singleton.getInstance().ka.size() == 0)
+                        if(Singleton.getInstance().ka.size() == 0) {
                             Singleton.getInstance().ka.add(Singleton.getInstance().stack1.get(i));
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).x = xx;
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).y = yy;
+                        }
+                        yy += 30;
                         try {
+                            if(1==1)
                         for(int a=0; a<Singleton.getInstance().ka.size(); a++) {
                             if(Singleton.getInstance().ka.get(a).suit == Singleton.getInstance().stack1.get(i).suit &&
                                     Singleton.getInstance().ka.get(a).number == Singleton.getInstance().stack1.get(i).number) {
                                 Singleton.getInstance().stack1.remove(Singleton.getInstance().ka.get(a));
                             }
+                            Singleton.getInstance().ka.get(a).drawCardAtLocation(xx, yy);
                         }
                         } catch(Exception e) {}
                     }
                 }
             }
             else if(stackPos == 2 || pressed.equals("stack2")) {
+                if(Singleton.getInstance().stack2.size() == 0) {
+                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
+                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                        yy+=30;
+                    }
+                }
                 for(int i=0; i<Singleton.getInstance().stack2.size(); i++) {
                     if(id <= i) {
                         for(int a=0; a<Singleton.getInstance().ka.size(); a++) {
@@ -741,22 +1113,33 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                                 break;
                             }
                         }
-                        yy += 30;
-                        if(Singleton.getInstance().ka.size() == 0)
+                        if(Singleton.getInstance().ka.size() == 0) {
                             Singleton.getInstance().ka.add(Singleton.getInstance().stack2.get(i));
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).x = xx;
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).y = yy;
+                        }
+                        yy += 30;
                         try {
+                            if(1==1)
                         for(int a=0; a<Singleton.getInstance().ka.size(); a++) {
                             if(Singleton.getInstance().ka.get(a).suit == Singleton.getInstance().stack2.get(i).suit &&
                                     Singleton.getInstance().ka.get(a).number == Singleton.getInstance().stack2.get(i).number) {
                                 Singleton.getInstance().stack2.remove(Singleton.getInstance().ka.get(a));
                             } else {
                             }
+                            Singleton.getInstance().ka.get(a).drawCardAtLocation(xx, yy);
                         }
                         } catch(Exception e) {}
                     }
                 }
             }
             else if(stackPos == 3 || pressed.equals("stack3")) {
+                if(Singleton.getInstance().stack3.size() == 0) {
+                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
+                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                        yy+=30;
+                    }
+                }
                 for(int i=0; i<Singleton.getInstance().stack3.size(); i++) {
                     if(id <= i) {
                         Singleton.getInstance().stack3.get(i).x = xx;
@@ -773,9 +1156,13 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                                 break;
                             }
                         }
-                        yy += 30;
-                        if(Singleton.getInstance().ka.size() == 0)
+                        if(Singleton.getInstance().ka.size() == 0) {
                             Singleton.getInstance().ka.add(Singleton.getInstance().stack3.get(i));
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).x = xx;
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).y = yy;
+                        }
+                        yy += 30;
+                            if(1==1)
                         try {
                         for(int a=0; a<Singleton.getInstance().ka.size(); a++) {
                             if(Singleton.getInstance().ka.get(a).suit == Singleton.getInstance().stack3.get(i).suit &&
@@ -783,12 +1170,19 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                                 Singleton.getInstance().stack3.remove(Singleton.getInstance().ka.get(a));
                             } else {
                             }
+                            Singleton.getInstance().ka.get(a).drawCardAtLocation(xx, yy);
                         }
                         } catch(Exception e) {}
                     }
                 }
             }
             else if(stackPos == 4 || pressed.equals("stack4")) {
+                if(Singleton.getInstance().stack4.size() == 0) {
+                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
+                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                        yy+=30;
+                    }
+                }
                 for(int i=0; i<Singleton.getInstance().stack4.size(); i++) {
                     if(id <= i) {
                         Singleton.getInstance().stack4.get(i).x = xx;
@@ -805,9 +1199,13 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                                 break;
                             }
                         }
-                        yy += 30;
-                        if(Singleton.getInstance().ka.size() == 0)
+                        if(Singleton.getInstance().ka.size() == 0) {
                             Singleton.getInstance().ka.add(Singleton.getInstance().stack4.get(i));
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).x = xx;
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).y = yy;
+                        }
+                        yy += 30;
+                            if(1==1)
                         try {
                         for(int a=0; a<Singleton.getInstance().ka.size(); a++) {
                             if(Singleton.getInstance().ka.get(a).suit == Singleton.getInstance().stack4.get(i).suit &&
@@ -815,12 +1213,19 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                                 Singleton.getInstance().stack4.remove(Singleton.getInstance().ka.get(a));
                             } else {
                             }
+                            Singleton.getInstance().ka.get(a).drawCardAtLocation(xx, yy);
                         }
                         } catch(Exception e) {}
                     }
                 }
             }
             else if(stackPos == 5 || pressed.equals("stack5")) {
+                if(Singleton.getInstance().stack5.size() == 0) {
+                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
+                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                        yy+=30;
+                    }
+                }
                 for(int i=0; i<Singleton.getInstance().stack5.size(); i++) {
                     if(id <= i) {
                         Singleton.getInstance().stack5.get(i).x = xx;
@@ -837,9 +1242,13 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                                 break;
                             }
                         }
-                        yy += 30;
-                        if(Singleton.getInstance().ka.size() == 0)
+                        if(Singleton.getInstance().ka.size() == 0) {
                             Singleton.getInstance().ka.add(Singleton.getInstance().stack5.get(i));
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).x = xx;
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).y = yy;
+                        }
+                        yy += 30;
+                            if(1==1)
                         try {
                         for(int a=0; a<Singleton.getInstance().ka.size(); a++) {
                             if(Singleton.getInstance().ka.get(a).suit == Singleton.getInstance().stack5.get(i).suit &&
@@ -847,12 +1256,19 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                                 Singleton.getInstance().stack5.remove(Singleton.getInstance().ka.get(a));
                             } else {
                             }
+                            Singleton.getInstance().ka.get(a).drawCardAtLocation(xx, yy);
                         }
                         } catch(Exception e) {}
                     }
                 }
             }
             else if(stackPos == 6 || pressed.equals("stack6")) {
+                if(Singleton.getInstance().stack6.size() == 0) {
+                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
+                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                        yy+=30;
+                    }
+                }
                 for(int i=0; i<Singleton.getInstance().stack6.size(); i++) {
                     if(id <= i) {
                         Singleton.getInstance().stack6.get(i).x = xx;
@@ -869,9 +1285,13 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                                 break;
                             }
                         }
-                        yy += 30;
-                        if(Singleton.getInstance().ka.size() == 0)
+                        if(Singleton.getInstance().ka.size() == 0) {
                             Singleton.getInstance().ka.add(Singleton.getInstance().stack6.get(i));
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).x = xx;
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).y = yy;
+                        }
+                        yy += 30;
+                            if(1==1)
                         try {
                         for(int a=0; a<Singleton.getInstance().ka.size(); a++) {
                             if(Singleton.getInstance().ka.get(a).suit == Singleton.getInstance().stack6.get(i).suit &&
@@ -879,12 +1299,19 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                                 Singleton.getInstance().stack6.remove(Singleton.getInstance().ka.get(a));
                             } else {
                             }
+                            Singleton.getInstance().ka.get(a).drawCardAtLocation(xx, yy);
                         }
                         } catch(Exception e) {}
                     }
                 }
             }
             else if(stackPos == 7 || pressed.equals("stack7")) {
+                if(Singleton.getInstance().stack7.size() == 0) {
+                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
+                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                        yy+=30;
+                    }
+                }
                 for(int i=0; i<Singleton.getInstance().stack7.size(); i++) {
                     if(id <= i) {
                         Singleton.getInstance().stack7.get(i).x = xx;
@@ -901,9 +1328,13 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                                 break;
                             }
                         }
-                        yy += 30;
-                        if(Singleton.getInstance().ka.size() == 0)
+                        if(Singleton.getInstance().ka.size() == 0) {
                             Singleton.getInstance().ka.add(Singleton.getInstance().stack7.get(i));
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).x = xx;
+                            Singleton.getInstance().ka.get(Singleton.getInstance().ka.size()-1).y = yy;
+                        }
+                        yy += 30;
+                            if(1==1)
                         try {
                         for(int a=0; a<Singleton.getInstance().ka.size(); a++) {
                             if(Singleton.getInstance().ka.get(a).suit == Singleton.getInstance().stack7.get(i).suit &&
@@ -911,6 +1342,7 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                                 Singleton.getInstance().stack7.remove(Singleton.getInstance().ka.get(a));
                             } else {
                             }
+                            Singleton.getInstance().ka.get(a).drawCardAtLocation(xx, yy);
                         }
                         } catch(Exception e) {}
                     }
@@ -920,15 +1352,11 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             if(rt == 0)
                 rt = 1;
 
-//                if(Singleton.getInstance().ka.size() < 1)
-//                    for(int i=0; i<kards.size(); i++) {
-//                        Singleton.getInstance().ka.add(kards.get(i));
-//                    }
         }
         public boolean isRegioned(MouseEvent e) {
+            this.e = e;
             if(e.getX() >= this.x && e.getX() <= this.x + this.width &&
                 e.getY() >= this.y && e.getY() <= this.y + this.height) {
-                this.e = e;
                 return true;
             }
             return false;
