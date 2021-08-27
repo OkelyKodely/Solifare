@@ -181,6 +181,13 @@ Stacker stacker = new Stacker();
                     cd.drawCardAtLocation(cd.x, cd.y);
                 }
             }
+        Singleton.getInstance().stack1 = stack1;
+        Singleton.getInstance().stack2 = stack2;
+        Singleton.getInstance().stack3 = stack3;
+        Singleton.getInstance().stack4 = stack4;
+        Singleton.getInstance().stack5 = stack5;
+        Singleton.getInstance().stack6 = stack6;
+        Singleton.getInstance().stack7 = stack7;
     }
     
     Solitaire() {
@@ -300,7 +307,7 @@ Stacker stacker = new Stacker();
                     try {
                         ImageIcon i = new ImageIcon(getClass().getResource("loading-bar.gif"));
                         gr.drawImage(i.getImage(), 0, 0, 1370, 900, null);
-                        Thread.sleep(100);
+                        Thread.sleep(1000);
                     } catch(Exception e) {
                         e.printStackTrace();
                     }
@@ -311,6 +318,22 @@ Stacker stacker = new Stacker();
             }
         };
         t.start();
+        Thread B = new Thread() {
+            public void run() {
+                while(true) {
+                    try {
+                        Thread.sleep(10);
+                        ImageIcon ii = new ImageIcon(this.getClass().getResource("dealbtn.gif"));
+                        Image howtobtn = ii.getImage();
+                        if(!play)
+                            gr.drawImage(howtobtn, 50, 350, 134, 160, null);
+                    } catch(Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        B.start();
         Thread q = new Thread() {
             public void run() {
                 while(true) {
@@ -318,7 +341,8 @@ Stacker stacker = new Stacker();
                         Thread.sleep(10);
                         ImageIcon ii = new ImageIcon(this.getClass().getResource("howtobtn.gif"));
                         Image howtobtn = ii.getImage();
-                        gr.drawImage(howtobtn, 50, 270, 134, 60, null);
+                        if(!play)
+                            gr.drawImage(howtobtn, 50, 270, 134, 60, null);
                     } catch(Exception e) {
                         e.printStackTrace();
                     }
@@ -330,8 +354,43 @@ Stacker stacker = new Stacker();
             @Override
             public void mouseClicked(MouseEvent me) {
                 if(me.getX() > 50 && me.getX() < 184 &&
+                        me.getY() > 350 && me.getY() < 510) {
+                    gr.setColor(new Color(197, 143, 130));
+                    gr.fillRect(0, 0, 1370, 900);
+                    Singleton.getInstance().cas.cars.clear();
+                    initCards();
+                    gr.setColor(new Color(197, 143, 130));
+                    gr.fillRect(0, 0, 1370, 900);
+                    deal();
+                    gr.setColor(new Color(197, 143, 130));
+                    gr.fillRect(0, 0, 1370, 900);
+                    cs.drawStackCards();
+                    play = false;
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+            }
+        });
+        jframe.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                if(me.getX() > 50 && me.getX() < 184 &&
                         me.getY() > 270 && me.getY() < 330) {
-                    instruct = true;
+                    instruct = !instruct;
                 }
             }
 
@@ -355,8 +414,8 @@ Stacker stacker = new Stacker();
             @Override
             public void run() {
                 while(true) {
-                    
-                    stacker.executeDrawing();
+                    if(!play)
+                        stacker.executeDrawing();
                     
                     try {
                         Thread.sleep(600);
@@ -369,11 +428,14 @@ Stacker stacker = new Stacker();
             public void run() {
                 while(true) {
                     if(instruct) {
-                        gr.setColor(Color.WHITE);
-                        gr.setFont(new Font("arial", Font.PLAIN, 13));
-                        gr.drawString("PLAY NOW -- :", 660, 750);
-                        gr.drawString("Try to stack a card or group of cards from and to a top stack by dragging your mouse on the screen.", 660, 800);
-                        gr.drawString("Try to stack the bottom stacks with cards of each suit in ascending order (starting with Aces to Kings).", 660, 850);
+                        gr.setColor(Color.GRAY);
+                        gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
+                        gr.drawString("PLAY NOW", 600, 650);
+                        gr.drawString("-------------", 600, 670);
+                        gr.drawString("Try to stack a card or group of cards from and to a top stack by dragging your mouse on the screen.", 600, 700);
+                        gr.drawString("Try to stack the bottom stacks with cards of each suit in ascending order (starting with Aces to Kings).", 600, 750);
+                        gr.drawString("To stack a card on another stack it has to be opposite in suit and minus 1 in card value, for example, ", 600, 800);
+                        gr.drawString("to stack 4 of clubs to a 5 of diamonds.", 600, 850);
                     }
                 }
             }

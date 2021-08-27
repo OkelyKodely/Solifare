@@ -78,24 +78,27 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
             if(stackn.equals("tack1")) {
                 if(singleton.Singleton.getInstance().k.size() > 0) {
                     if(singleton.Singleton.getInstance().bs.stackone.stack.size() == 0) {
-                        singleton.Singleton.getInstance().bs.stackone.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
-                        singleton.Singleton.getInstance().k.remove(singleton.Singleton.getInstance().k.size() - 1);
-                        
-                    }                }
-                    else if(singleton.Singleton.getInstance().bs.stackone.stack.get(singleton.Singleton.getInstance().bs.stackone.stack.size() - 1).suit == 
-                            singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).suit && 
-                            singleton.Singleton.getInstance().bs.stackone.stack.get(singleton.Singleton.getInstance().bs.stackone.stack.size() - 1).number +1== 
-                            singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).number) {
-                        singleton.Singleton.getInstance().bs.stackone.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
-                        singleton.Singleton.getInstance().k.remove(singleton.Singleton.getInstance().k.size() - 1);
-                    }
+                        if(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).number == 1) {
+                            singleton.Singleton.getInstance().bs.stackone.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
+                            singleton.Singleton.getInstance().k.remove(singleton.Singleton.getInstance().k.size() - 1);
+                        }                        
+                    }    
+                }
+                else if(singleton.Singleton.getInstance().bs.stackone.stack.get(singleton.Singleton.getInstance().bs.stackone.stack.size() - 1).suit == 
+                        singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).suit && 
+                        singleton.Singleton.getInstance().bs.stackone.stack.get(singleton.Singleton.getInstance().bs.stackone.stack.size() - 1).number +1== 
+                        singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).number) {
+                    singleton.Singleton.getInstance().bs.stackone.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
+                    singleton.Singleton.getInstance().k.remove(singleton.Singleton.getInstance().k.size() - 1);
+                }
             }
             if(stackn.equals("tack2")) {
                 if(singleton.Singleton.getInstance().k.size() > 0) {
                     if(singleton.Singleton.getInstance().bs.stacktwo.stack.size() == 0) {
-                        singleton.Singleton.getInstance().bs.stacktwo.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
-                        singleton.Singleton.getInstance().k.remove(singleton.Singleton.getInstance().k.size() - 1);
-                        
+                        if(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).number == 1) {
+                            singleton.Singleton.getInstance().bs.stacktwo.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
+                            singleton.Singleton.getInstance().k.remove(singleton.Singleton.getInstance().k.size() - 1);
+                        }                        
                     }
                     else if(singleton.Singleton.getInstance().bs.stacktwo.stack.get(singleton.Singleton.getInstance().bs.stacktwo.stack.size() - 1).suit == 
                             singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).suit && 
@@ -110,8 +113,10 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
             if(stackn.equals("tack3")) {
                 if(singleton.Singleton.getInstance().k.size() > 0) {
                     if(singleton.Singleton.getInstance().bs.stackthree.stack.size() == 0) {
-                        singleton.Singleton.getInstance().bs.stackthree.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
-                        singleton.Singleton.getInstance().k.remove(singleton.Singleton.getInstance().k.size() - 1);
+                        if(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).number == 1) {
+                            singleton.Singleton.getInstance().bs.stackthree.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
+                            singleton.Singleton.getInstance().k.remove(singleton.Singleton.getInstance().k.size() - 1);
+                        }
                     }
                     else if(singleton.Singleton.getInstance().bs.stackthree.stack.get(singleton.Singleton.getInstance().bs.stackthree.stack.size() - 1).suit == 
                             singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).suit && 
@@ -125,8 +130,10 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
             if(stackn.equals("tack4")) {
                 if(singleton.Singleton.getInstance().k.size() > 0) {
                     if(singleton.Singleton.getInstance().bs.stackfour.stack.size() == 0) {
-                        singleton.Singleton.getInstance().bs.stackfour.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
-                        singleton.Singleton.getInstance().k.remove(singleton.Singleton.getInstance().k.size() - 1);
+                        if(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).number == 1) {
+                            singleton.Singleton.getInstance().bs.stackfour.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
+                            singleton.Singleton.getInstance().k.remove(singleton.Singleton.getInstance().k.size() - 1);
+                        }
                     }
                     else if(singleton.Singleton.getInstance().bs.stackfour.stack.get(singleton.Singleton.getInstance().bs.stackfour.stack.size() - 1).suit == 
                             singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).suit && 

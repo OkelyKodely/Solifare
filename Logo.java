@@ -14,7 +14,7 @@ public class Logo {
     public void drawLogoMiddle() {
         try {
             Image ima = ImageIO.read(this.getClass().getResource("../logo8.png"));
-            //Singleton.getInstance().gr.drawImage(ima, 0, 0, 1370, 900, null);
+            Singleton.getInstance().gr.drawImage(ima, 900, 10, 260, 260, null);
         } catch(Exception e) {
             e.printStackTrace();
         }

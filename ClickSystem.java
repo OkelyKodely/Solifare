@@ -22,7 +22,9 @@ import java.util.ArrayList;
  */
 public class ClickSystem implements MouseMotionListener, MouseListener {
 
+    boolean empty = false;
     String st = "";
+    String s= "";
     ArrayList<Clicker> m = new ArrayList<>();
     ArrayList<Card> k = new ArrayList<>();
     boolean tr = false;
@@ -54,114 +56,142 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             if(xx >= 0 + 200 && xx <= 0 + 200 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                 id = 0;
                 stackn = "stack1";
+                st = "";
             }
             else if(xx >= 0 + 300 && xx <= 0 + 300 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                 id = 0;
                 stackn = "stack2";
+                st = "";
             }
             else if(xx >= 0 + 300 && xx <= 0 + 300 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
                 id = 1;
                 stackn = "stack2";
+                st = "";
             }
             else if(xx >= 0 + 400 && xx <= 0 + 400 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                 id = 0;
                 stackn = "stack3";
+                st = "";
             }
             else if(xx >= 0 + 400 && xx <= 0 + 400 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
                 id = 1;
                 stackn = "stack3";
+                st = "";
             }
             else if(xx >= 0 + 400 && xx <= 0 + 400 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
                 id = 2;
                 stackn = "stack3";
+                st = "";
             }
             else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                 id = 0;
                 stackn = "stack4";
+                st = "";
             }
             else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
                 id = 1;
                 stackn = "stack4";
+                st = "";
             }
             else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
                 id = 2;
                 stackn = "stack4";
+                st = "";
             }
             else if(xx >= 0 + 500 && xx <= 0 + 500 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
                 id = 3;
                 stackn = "stack4";
+                st = "";
             }
             else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                 id = 0;
                 stackn = "stack5";
+                st = "";
             }
             else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
                 id = 1;
                 stackn = "stack5";
+                st = "";
             }
             else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
                 id = 2;
                 stackn = "stack5";
+                st = "";
             }
             else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
                 id = 3;
                 stackn = "stack5";
+                st = "";
             }
             else if(xx >= 0 + 600 && xx <= 0 + 600 + 60 && yy >= 0 + 220 && yy <= 0 + 250) {
                 id = 4;
                 stackn = "stack5";
+                st = "";
             }
             else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                 id = 0;
                 stackn = "stack6";
+                st = "";
             }
             else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
                 id = 1;
                 stackn = "stack6";
+                st = "";
             }
             else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
                 id = 2;
                 stackn = "stack6";
+                st = "";
             }
             else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
                 id = 3;
                 stackn = "stack6";
+                st = "";
             }
             else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 220 && yy <= 0 + 250) {
                 id = 4;
                 stackn = "stack6";
+                st = "";
             }
             else if(xx >= 0 + 700 && xx <= 0 + 700 + 60 && yy >= 0 + 250 && yy <= 0 + 280) {
                 id = 5;
                 stackn = "stack6";
+                st = "";
             }
             else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 100 && yy <= 0 + 130) {
                 id = 0;
                 stackn = "stack7";
+                st = "";
             }
             else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 130 && yy <= 0 + 160) {
                 id = 1;
                 stackn = "stack7";
+                st = "";
             }
             else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 160 && yy <= 0 + 190) {
                 id = 2;
                 stackn = "stack7";
+                st = "";
             }
             else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 190 && yy <= 0 + 220) {
                 id = 3;
                 stackn = "stack7";
+                st = "";
             }
             else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 220 && yy <= 0 + 250) {
                 id = 4;
                 stackn = "stack7";
+                st = "";
             }
             else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 250 && yy <= 0 + 280) {
                 id = 5;
                 stackn = "stack7";
+                st = "";
             }
             else if(xx >= 0 + 800 && xx <= 0 + 800 + 60 && yy >= 0 + 280 && yy <= 0 + 310) {
                 id = 6;
                 stackn = "stack7";
+                st = "";
             }
             else {
                 if(st.equals("stack1")) {
@@ -314,10 +344,10 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             }
         }
 
-        st = "";
-
         System.out.println("sss:"+Singleton.getInstance().ka.size());
 
+        String stacknn = "";
+        
         if(Singleton.getInstance().ka != null)
         {
             int xx = me.getX();
@@ -326,31 +356,35 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             if(xx >= 0 + 50 && xx <= 0 + 50 + 60 && yy >= 0 + 660 && yy <= 0 + 860) {
                 id = 0;
                 System.out.println("qweqweqwe");
-                stackn = "tack1";
+                stacknn = "tack1";
                 retarn = true;
             }
             else if(xx >= 0 + 190 && xx <= 0 + 190 + 60 && yy >= 0 + 660 && yy <= 0 + 860) {
                 id = 0;
                 System.out.println("sdadfaafd");
-                stackn = "tack2";
+                stacknn = "tack2";
                 retarn = true;
             }
             else if(xx >= 0 + 330 && xx <= 0 + 330 + 60 && yy >= 0 + 660 && yy <= 0 + 860) {
                 id = 1;
                 System.out.println("zxvvzxcvzxc");
-                stackn = "tack2";
+                stacknn = "tack2";
                 retarn = true;
             }
             else if(xx >= 0 + 470 && xx <= 0 + 470 + 60 && yy >= 0 + 660 && yy <= 0 + 860) {
                 id = 0;
                 System.out.println("aaaaaaaaaaaaaasssssssssssssssss");
-                stackn = "tack3";
+                stacknn = "tack3";
                 retarn = true;
             }
+            
+            System.out.println("this is the size 2: " + Singleton.getInstance().stack2.size());
+            System.out.println("thatttt: " + stackn);
 
+            boolean fag = true;
             int yay = 100;
             boolean ay = false;
-            if(!retarn)
+            if(!retarn && st.equals(""))
             for(int i=0; i<Singleton.getInstance().ka.size(); i++)
             {
                 if(stackn.equals("stack1")) {
@@ -364,7 +398,62 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                         Singleton.getInstance().ka.get(i).y = yay;
                         yay += 30;
                     }
-                    Singleton.getInstance().stack1.add(Singleton.getInstance().ka.get(i));
+                    if(Singleton.getInstance().stack1.size() == 0) {
+                        empty = true;
+                        if(Singleton.getInstance().ka.get(i).number == 13) {
+                            Singleton.getInstance().stack1.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else
+                            fag = false;
+                    } else {
+                        System.out.println("1it is ni,b 1afds:" + Singleton.getInstance().ka.size());
+                        if(empty) {
+                            System.out.println("someth ");
+                            Singleton.getInstance().stack1.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else {
+                            if(Singleton.getInstance().stack1.get(Singleton.getInstance().stack1.size()-1).number - 1 == 
+                                    Singleton.getInstance().ka.get(i).number) {
+                                System.out.println("it is ni,b 1");
+                                if(Singleton.getInstance().stack1.get(Singleton.getInstance().stack1.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    Singleton.getInstance().stack1.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack1.get(Singleton.getInstance().stack1.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    Singleton.getInstance().stack1.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack1.get(Singleton.getInstance().stack1.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    Singleton.getInstance().stack1.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack1.get(Singleton.getInstance().stack1.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    Singleton.getInstance().stack1.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack1.get(Singleton.getInstance().stack1.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    Singleton.getInstance().stack1.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack1.get(Singleton.getInstance().stack1.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    Singleton.getInstance().stack1.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack1.get(Singleton.getInstance().stack1.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    Singleton.getInstance().stack1.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack1.get(Singleton.getInstance().stack1.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    Singleton.getInstance().stack1.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else
+                                    fag = false;
+                            }
+                            else
+                                fag = false;
+                        }
+                    }
                 }
                 if(stackn.equals("stack2")) {
                     if(Singleton.getInstance().stack2.size() > 0 && !ay) {
@@ -377,7 +466,62 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                         Singleton.getInstance().ka.get(i).y = yay;
                         yay += 30;
                     }
-                    Singleton.getInstance().stack2.add(Singleton.getInstance().ka.get(i));
+                    if(Singleton.getInstance().stack2.size() == 0) {
+                        empty = true;
+                        if(Singleton.getInstance().ka.get(i).number == 13) {
+                            Singleton.getInstance().stack2.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else
+                            fag = false;
+                    } else {
+                        System.out.println("2it is ni,b 1afds:" + Singleton.getInstance().ka.size());
+                        if(empty) {
+                            System.out.println("someth 1111>");
+                            Singleton.getInstance().stack2.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else {
+                            if(Singleton.getInstance().stack2.get(Singleton.getInstance().stack2.size()-1).number - 1 == 
+                                    Singleton.getInstance().ka.get(i).number) {
+                                System.out.println("it is ni,b 2");
+                                if(Singleton.getInstance().stack2.get(Singleton.getInstance().stack2.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    Singleton.getInstance().stack2.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack2.get(Singleton.getInstance().stack2.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    Singleton.getInstance().stack2.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack2.get(Singleton.getInstance().stack2.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    Singleton.getInstance().stack2.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack2.get(Singleton.getInstance().stack2.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    Singleton.getInstance().stack2.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack2.get(Singleton.getInstance().stack2.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    Singleton.getInstance().stack2.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack2.get(Singleton.getInstance().stack2.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    Singleton.getInstance().stack2.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack2.get(Singleton.getInstance().stack2.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    Singleton.getInstance().stack2.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack2.get(Singleton.getInstance().stack2.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    Singleton.getInstance().stack2.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else
+                                    fag = false;
+                            }
+                            else
+                                fag = false;
+                        }
+                    }
                 }
                 if(stackn.equals("stack3")) {
                     if(Singleton.getInstance().stack3.size() > 0 && !ay) {
@@ -390,7 +534,61 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                         Singleton.getInstance().ka.get(i).y = yay;
                         yay += 30;
                     }
-                    Singleton.getInstance().stack3.add(Singleton.getInstance().ka.get(i));
+                    if(Singleton.getInstance().stack3.size() == 0) {
+                        empty = true;
+                        if(Singleton.getInstance().ka.get(i).number == 13) {
+                            Singleton.getInstance().stack3.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else
+                            fag = false;
+                    } else {
+                        if(empty) {
+                            Singleton.getInstance().stack3.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else {
+                            System.out.println("3it is ni,b 1afds:" + Singleton.getInstance().ka.size());
+                            if(Singleton.getInstance().stack3.get(Singleton.getInstance().stack3.size()-1).number - 1 == 
+                                    Singleton.getInstance().ka.get(i).number) {
+                                System.out.println("it is ni,b 3");
+                                if(Singleton.getInstance().stack3.get(Singleton.getInstance().stack3.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    Singleton.getInstance().stack3.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack3.get(Singleton.getInstance().stack3.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    Singleton.getInstance().stack3.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack3.get(Singleton.getInstance().stack3.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    Singleton.getInstance().stack3.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack3.get(Singleton.getInstance().stack3.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    Singleton.getInstance().stack3.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack3.get(Singleton.getInstance().stack3.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    Singleton.getInstance().stack3.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack3.get(Singleton.getInstance().stack3.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    Singleton.getInstance().stack3.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack3.get(Singleton.getInstance().stack3.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    Singleton.getInstance().stack3.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack3.get(Singleton.getInstance().stack3.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    Singleton.getInstance().stack3.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else
+                                    fag = false;
+                            }
+                            else
+                                fag = false;
+                        }
+                    }
                 }
                 if(stackn.equals("stack4")) {
                     if(Singleton.getInstance().stack4.size() > 0 && !ay) {
@@ -403,7 +601,69 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                         Singleton.getInstance().ka.get(i).y = yay;
                         yay += 30;
                     }
-                    Singleton.getInstance().stack4.add(Singleton.getInstance().ka.get(i));
+                    if(Singleton.getInstance().stack4.size() == 0) {
+                        empty = true;
+                        if(Singleton.getInstance().ka.get(i).number == 13) {
+                            Singleton.getInstance().stack4.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else
+                            fag = false;
+                    } else {
+                        if(empty) {
+                            Singleton.getInstance().stack4.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else {
+                            System.out.println("4it is ni,b 1afds:" + Singleton.getInstance().ka.size());
+                            if(Singleton.getInstance().stack4.get(Singleton.getInstance().stack4.size()-1).number - 1 == 
+                                    Singleton.getInstance().ka.get(i).number) {
+                                System.out.println("it is ni,b 4");
+                                if(Singleton.getInstance().stack4.get(Singleton.getInstance().stack4.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {
+                                    empty = true;
+                                    Singleton.getInstance().stack4.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack4.get(Singleton.getInstance().stack4.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack4.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack4.get(Singleton.getInstance().stack4.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack4.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack4.get(Singleton.getInstance().stack4.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack4.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack4.get(Singleton.getInstance().stack4.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack4.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack4.get(Singleton.getInstance().stack4.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack4.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack4.get(Singleton.getInstance().stack4.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack4.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack4.get(Singleton.getInstance().stack4.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack4.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else
+                                    fag = false;
+                            }
+                            else
+                                fag = false;
+                        }
+                    }
                 }
                 if(stackn.equals("stack5")) {
                     if(Singleton.getInstance().stack5.size() > 0 && !ay) {
@@ -416,7 +676,72 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                         Singleton.getInstance().ka.get(i).y = yay;
                         yay += 30;
                     }
-                    Singleton.getInstance().stack5.add(Singleton.getInstance().ka.get(i));
+                    System.out.println("nam:" + Singleton.getInstance().stack5.size());
+                    if(Singleton.getInstance().stack5.size() == 0) {
+                        empty = true;
+                        if(Singleton.getInstance().ka.get(i).number == 13) {
+                            Singleton.getInstance().stack5.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else
+                            fag = false;
+                    } else {
+                        if(empty) {
+                            Singleton.getInstance().stack5.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else {
+                            System.out.println("5it is ni,b 1afds:" + Singleton.getInstance().ka.size());
+                            System.out.print("adf34:");System.out.println(Singleton.getInstance().stack5.get(Singleton.getInstance().stack5.size()-1).number);
+                            System.out.print("adf34:");System.out.println(Singleton.getInstance().ka.get(i).number);
+                            if(Singleton.getInstance().stack5.get(Singleton.getInstance().stack5.size()-1).number - 1 == 
+                                    Singleton.getInstance().ka.get(i).number) {
+                                System.out.println("it is ni,b 5");
+                                if(Singleton.getInstance().stack5.get(Singleton.getInstance().stack5.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack5.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack5.get(Singleton.getInstance().stack5.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack5.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack5.get(Singleton.getInstance().stack5.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack5.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack5.get(Singleton.getInstance().stack5.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack5.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack5.get(Singleton.getInstance().stack5.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack5.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack5.get(Singleton.getInstance().stack5.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack5.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack5.get(Singleton.getInstance().stack5.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack5.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack5.get(Singleton.getInstance().stack5.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack5.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else
+                                    fag = false;
+                            }
+                            else
+                                fag = false;
+                        }
+                    }
                 }
                 if(stackn.equals("stack6")) {
                     if(Singleton.getInstance().stack6.size() > 0 && !ay) {
@@ -429,7 +754,69 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                         Singleton.getInstance().ka.get(i).y = yay;
                         yay += 30;
                     }
-                    Singleton.getInstance().stack6.add(Singleton.getInstance().ka.get(i));
+                    if(Singleton.getInstance().stack6.size() == 0) {
+                        empty = true;
+                        if(Singleton.getInstance().ka.get(i).number == 13) {
+                            Singleton.getInstance().stack6.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else
+                            fag = false;
+                    } else {
+                        if(empty) {
+                            Singleton.getInstance().stack6.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else {
+                            System.out.println("6it is ni,b 1afds:" + Singleton.getInstance().ka.size());
+                            if(Singleton.getInstance().stack6.get(Singleton.getInstance().stack6.size()-1).number - 1 == 
+                                    Singleton.getInstance().ka.get(i).number) {
+                                System.out.println("it is ni,b 6");
+                                if(Singleton.getInstance().stack6.get(Singleton.getInstance().stack6.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack6.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack6.get(Singleton.getInstance().stack6.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack6.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack6.get(Singleton.getInstance().stack6.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack6.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack6.get(Singleton.getInstance().stack6.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack6.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack6.get(Singleton.getInstance().stack6.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack6.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack6.get(Singleton.getInstance().stack6.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack6.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack6.get(Singleton.getInstance().stack6.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack6.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack6.get(Singleton.getInstance().stack6.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack6.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else
+                                    fag = false;
+                            }
+                            else
+                                fag = false;
+                        }
+                    }
                 }
                 if(stackn.equals("stack7")) {
                     if(Singleton.getInstance().stack7.size() > 0 && !ay) {
@@ -442,7 +829,219 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                         Singleton.getInstance().ka.get(i).y = yay;
                         yay += 30;
                     }
-                    Singleton.getInstance().stack7.add(Singleton.getInstance().ka.get(i));
+                    if(Singleton.getInstance().stack7.size() == 0) {
+                        empty = true;
+                        if(Singleton.getInstance().ka.get(i).number == 13) {
+                            Singleton.getInstance().stack7.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else
+                            fag = false;
+                    } else {
+                        if(empty) {
+                            Singleton.getInstance().stack7.add(Singleton.getInstance().ka.get(i));
+                        }
+                        else {
+                            System.out.println("7it is ni,b 1afds:" + Singleton.getInstance().ka.size());
+                            if(Singleton.getInstance().stack7.get(Singleton.getInstance().stack7.size()-1).number - 1 == 
+                                    Singleton.getInstance().ka.get(i).number) {
+                                System.out.println("it is ni,b 7");
+                                if(Singleton.getInstance().stack7.get(Singleton.getInstance().stack7.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack7.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack7.get(Singleton.getInstance().stack7.size()-1).suit == 1 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack7.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack7.get(Singleton.getInstance().stack7.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 3) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack7.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack7.get(Singleton.getInstance().stack7.size()-1).suit == 2 &&
+                                    Singleton.getInstance().ka.get(i).suit == 4) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack7.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack7.get(Singleton.getInstance().stack7.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack7.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack7.get(Singleton.getInstance().stack7.size()-1).suit == 3 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack7.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack7.get(Singleton.getInstance().stack7.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 1) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack7.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else if(Singleton.getInstance().stack7.get(Singleton.getInstance().stack7.size()-1).suit == 4 &&
+                                    Singleton.getInstance().ka.get(i).suit == 2) {       
+                                    empty = true;
+                                    Singleton.getInstance().stack7.add(Singleton.getInstance().ka.get(i));
+                                }
+                                else
+                                    fag = false;
+                            }
+                            else
+                                fag = false;
+                        }
+                    }
+                }
+            }
+            
+            if(fag == false) {
+                if(s.equals("stack1")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack1.size() == 0) {
+                        xxxx = 200;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack1.size() > 0) {
+                        xxxx = 200;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack1.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack1.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+                if(s.equals("stack2")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack2.size() == 0) {
+                        xxxx = 300;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack2.size() > 0) {
+                        xxxx = 300;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack2.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack2.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+                if(s.equals("stack3")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack3.size() == 0) {
+                        xxxx = 400;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack3.size() > 0) {
+                        xxxx = 400;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack3.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack3.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+                if(s.equals("stack4")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack4.size() == 0) {
+                        xxxx = 500;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack4.size() > 0) {
+                        xxxx = 500;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack4.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack4.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+                if(s.equals("stack5")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack5.size() == 0) {
+                        xxxx = 600;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack5.size() > 0) {
+                        xxxx = 600;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack5.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack5.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+                if(s.equals("stack6")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack6.size() == 0) {
+                        xxxx = 700;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack6.size() > 0) {
+                        xxxx = 700;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack6.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack6.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
+                }
+                if(s.equals("stack7")) {
+                    int xxxx = -1;
+                    int yyyy = -1;
+                    if(singleton.Singleton.getInstance().stack7.size() == 0) {
+                        xxxx = 800;
+                        yyyy = 130;
+                    }
+                    else if(singleton.Singleton.getInstance().stack7.size() > 0) {
+                        xxxx = 800;
+                        yyyy = 130;
+                        for(int i=0; i<singleton.Singleton.getInstance().stack7.size(); i++) {
+                            yyyy += 30;
+                        }
+                    }
+                    for(int i=0; i<singleton.Singleton.getInstance().ka.size(); i++) {
+                        singleton.Singleton.getInstance().ka.get(i).x = xxxx;
+                        singleton.Singleton.getInstance().ka.get(i).y = yyyy;
+                        singleton.Singleton.getInstance().stack7.add(singleton.Singleton.getInstance().ka.get(i));
+                        yyyy += 30;
+                    }
                 }
             }
 
@@ -499,8 +1098,11 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             }
         }
 
+        st = "";
+
         {
             tr = false;
+            empty = false;
             pressed = "";
             pressed_id=0;
             pressed_two=0;
@@ -604,6 +1206,7 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             m.get(i).e = me;
             if(st.equals("") && m.get(i).isRegioned(m.get(i).e)) {
                 st = m.get(i).name;
+                s = st;
                 singleton.Singleton.getInstance().st = st;
             }
             Clicker.GroupCards gc = null;
@@ -1052,18 +1655,16 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             return this.gc;
         }
         public void fillGroupCards(ArrayList<Card> stck, int stackPos, int id, int xx, int yy) {
-            //Singleton.getInstance().ka.clear();
-            //if(rt == 1)
-                //return;
-            //Singleton.getInstance().ka.clear();
+            int truey = yy - 130;
+            int ty = truey / 30;
             if(stackPos == 1 || pressed.equals("stack1")) {
                 if(Singleton.getInstance().stack1.size() == 0) {
-                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
-                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                    for(int i=ty; i<Singleton.getInstance().ka.size(); i++) {
+                        //Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
                         yy+=30;
                     }
                 }
-                for(int i=0; i<Singleton.getInstance().stack1.size(); i++) {
+                for(int i=ty; i<Singleton.getInstance().stack1.size(); i++) {
                     if(id <= i) {
                         for(int a=0; a<Singleton.getInstance().ka.size(); a++) {
                             if(!(Singleton.getInstance().ka.get(a).suit == Singleton.getInstance().stack1.get(i).suit &&
@@ -1095,12 +1696,12 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             }
             else if(stackPos == 2 || pressed.equals("stack2")) {
                 if(Singleton.getInstance().stack2.size() == 0) {
-                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
-                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                    for(int i=ty; i<Singleton.getInstance().ka.size(); i++) {
+                        //Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
                         yy+=30;
                     }
                 }
-                for(int i=0; i<Singleton.getInstance().stack2.size(); i++) {
+                for(int i=ty; i<Singleton.getInstance().stack2.size(); i++) {
                     if(id <= i) {
                         for(int a=0; a<Singleton.getInstance().ka.size(); a++) {
                             if(Singleton.getInstance().ka.get(a).suit == Singleton.getInstance().stack2.get(i).suit &&
@@ -1135,12 +1736,12 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             }
             else if(stackPos == 3 || pressed.equals("stack3")) {
                 if(Singleton.getInstance().stack3.size() == 0) {
-                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
-                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                    for(int i=ty; i<Singleton.getInstance().ka.size(); i++) {
+                        //Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
                         yy+=30;
                     }
                 }
-                for(int i=0; i<Singleton.getInstance().stack3.size(); i++) {
+                for(int i=ty; i<Singleton.getInstance().stack3.size(); i++) {
                     if(id <= i) {
                         Singleton.getInstance().stack3.get(i).x = xx;
                         Singleton.getInstance().stack3.get(i).y = yy;
@@ -1178,12 +1779,12 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             }
             else if(stackPos == 4 || pressed.equals("stack4")) {
                 if(Singleton.getInstance().stack4.size() == 0) {
-                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
-                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                    for(int i=ty; i<Singleton.getInstance().ka.size(); i++) {
+                        //Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
                         yy+=30;
                     }
                 }
-                for(int i=0; i<Singleton.getInstance().stack4.size(); i++) {
+                for(int i=ty; i<Singleton.getInstance().stack4.size(); i++) {
                     if(id <= i) {
                         Singleton.getInstance().stack4.get(i).x = xx;
                         Singleton.getInstance().stack4.get(i).y = yy;
@@ -1221,12 +1822,12 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             }
             else if(stackPos == 5 || pressed.equals("stack5")) {
                 if(Singleton.getInstance().stack5.size() == 0) {
-                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
-                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                    for(int i=ty; i<Singleton.getInstance().ka.size(); i++) {
+                        //Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
                         yy+=30;
                     }
                 }
-                for(int i=0; i<Singleton.getInstance().stack5.size(); i++) {
+                for(int i=ty; i<Singleton.getInstance().stack5.size(); i++) {
                     if(id <= i) {
                         Singleton.getInstance().stack5.get(i).x = xx;
                         Singleton.getInstance().stack5.get(i).y = yy;
@@ -1264,12 +1865,12 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             }
             else if(stackPos == 6 || pressed.equals("stack6")) {
                 if(Singleton.getInstance().stack6.size() == 0) {
-                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
-                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                    for(int i=ty; i<Singleton.getInstance().ka.size(); i++) {
+                        //Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
                         yy+=30;
                     }
                 }
-                for(int i=0; i<Singleton.getInstance().stack6.size(); i++) {
+                for(int i=ty; i<Singleton.getInstance().stack6.size(); i++) {
                     if(id <= i) {
                         Singleton.getInstance().stack6.get(i).x = xx;
                         Singleton.getInstance().stack6.get(i).y = yy;
@@ -1307,12 +1908,12 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             }
             else if(stackPos == 7 || pressed.equals("stack7")) {
                 if(Singleton.getInstance().stack7.size() == 0) {
-                    for(int i=0; i<Singleton.getInstance().ka.size(); i++) {
-                        Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
+                    for(int i=ty; i<Singleton.getInstance().ka.size(); i++) {
+                        //Singleton.getInstance().ka.get(i).drawCardAtLocation(xx, yy);
                         yy+=30;
                     }
                 }
-                for(int i=0; i<Singleton.getInstance().stack7.size(); i++) {
+                for(int i=ty; i<Singleton.getInstance().stack7.size(); i++) {
                     if(id <= i) {
                         Singleton.getInstance().stack7.get(i).x = xx;
                         Singleton.getInstance().stack7.get(i).y = yy;
@@ -1348,10 +1949,6 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
                     }
                 }
             }
-
-            if(rt == 0)
-                rt = 1;
-
         }
         public boolean isRegioned(MouseEvent e) {
             this.e = e;
