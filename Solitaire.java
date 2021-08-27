@@ -10,6 +10,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 import data.*;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import singleton.Singleton;
 import system.*;
 import views.Stacker;
@@ -19,6 +23,8 @@ import views.Logo;
 // www.github.com/okelykodely
 
 public class Solitaire {
+    boolean instruct = false ;
+Stacker stacker = new Stacker();
 
     Singleton singleton;
     ArrayList<Card> ka = new ArrayList<>();
@@ -184,8 +190,8 @@ public class Solitaire {
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe.setLayout(null);
         
-        jframe.setBounds(0, 0, 1070, 900);
-        jpanel.setBounds(0, 0, 1070, 900);
+        jframe.setBounds(0, 0, 1370, 900);
+        jpanel.setBounds(0, 0, 1370, 900);
         
         jframe.add(jpanel);
         jframe.setVisible(true);
@@ -255,16 +261,20 @@ public class Solitaire {
     }
     
     void startGameplay() {
-        singleton.ka = ka;
-        singleton.stack1 = stack1;
-        singleton.stack2 = stack2;
-        singleton.stack3 = stack3;
-        singleton.stack4 = stack4;
-        singleton.stack5 = stack5;
-        singleton.stack6 = stack6;
-        singleton.stack7 = stack7;
-        singleton.cas = cas;
+        Singleton.getInstance().ka = ka;
+        Singleton.getInstance().stack1 = stack1;
+        Singleton.getInstance().stack2 = stack2;
+        Singleton.getInstance().stack3 = stack3;
+        Singleton.getInstance().stack4 = stack4;
+        Singleton.getInstance().stack5 = stack5;
+        Singleton.getInstance().stack6 = stack6;
+        Singleton.getInstance().stack7 = stack7;
+        Singleton.getInstance().cas = cas;
+        final views.BottomStacks bs = new views.BottomStacks();
+        Singleton.getInstance().bs = bs;
+        
         ClickSystem cs = new ClickSystem();
+        WinnerSystem ws = new WinnerSystem();
         Thread a = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -281,13 +291,15 @@ public class Solitaire {
         a.start();
         jframe.addMouseMotionListener(cs);
         jframe.addMouseListener(cs);
-        jpanel.setBackground(new Color(123, 197, 31));
+        jframe.addMouseMotionListener(ws);
+        jframe.addMouseListener(ws);
+        jpanel.setBackground(new Color(197, 143, 130));
         Thread t = new Thread() {
             public void run() {
                 while(true) {
                     try {
                         ImageIcon i = new ImageIcon(getClass().getResource("loading-bar.gif"));
-                        gr.drawImage(i.getImage(), 0, 0, 1070, 800, null);
+                        gr.drawImage(i.getImage(), 0, 0, 1370, 900, null);
                         Thread.sleep(100);
                     } catch(Exception e) {
                         e.printStackTrace();
@@ -299,28 +311,95 @@ public class Solitaire {
             }
         };
         t.start();
+        Thread q = new Thread() {
+            public void run() {
+                while(true) {
+                    try {
+                        Thread.sleep(10);
+                        ImageIcon ii = new ImageIcon(this.getClass().getResource("howtobtn.gif"));
+                        Image howtobtn = ii.getImage();
+                        gr.drawImage(howtobtn, 50, 270, 134, 60, null);
+                    } catch(Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        q.start();
+        jframe.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                if(me.getX() > 50 && me.getX() < 184 &&
+                        me.getY() > 270 && me.getY() < 330) {
+                    instruct = true;
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+            }
+        });
+        Thread tt = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(true) {
+                    
+                    stacker.executeDrawing();
+                    
+                    try {
+                        Thread.sleep(600);
+                    } catch(Exception e) {}
+                }
+            }
+        });
+        tt.start();
+        Thread s = new Thread() {
+            public void run() {
+                while(true) {
+                    if(instruct) {
+                        gr.setColor(Color.WHITE);
+                        gr.setFont(new Font("arial", Font.PLAIN, 13));
+                        gr.drawString("PLAY NOW -- :", 660, 750);
+                        gr.drawString("Try to stack a card or group of cards from and to a top stack by dragging your mouse on the screen.", 660, 800);
+                        gr.drawString("Try to stack the bottom stacks with cards of each suit in ascending order (starting with Aces to Kings).", 660, 850);
+                    }
+                }
+            }
+        };
+        s.start();
         Thread thr = new Thread() {
             public void run() {
                 while(true) {
                     try {
                         if(play) {
-                            gr.setColor(new Color(123, 197, 31));
-                            gr.fillRect(0, 0, 1070, 800);
+                            gr.setColor(new Color(197, 143, 130));
+                            gr.fillRect(0, 0, 1370, 900);
                             initCards();
-                            gr.setColor(new Color(123, 197, 31));
-                            gr.fillRect(0, 0, 1070, 800);
+                            gr.setColor(new Color(197, 143, 130));
+                            gr.fillRect(0, 0, 1370, 900);
                             deal();
-                            gr.setColor(new Color(123, 197, 31));
-                            gr.fillRect(0, 0, 1070, 800);
+                            gr.setColor(new Color(197, 143, 130));
+                            gr.fillRect(0, 0, 1370, 900);
                             cs.drawStackCards();
                             play = false;
                         }
+                        ws.drawStackCards();
                         Logo logo = new Logo();
                         logo.drawLogoMiddle();
                         cas.draw_All_TopOfStack();   
-                        Stacker stacker = new Stacker();
-                        stacker.executeDrawing();
-                        Thread.sleep(1000);
+                        Thread.sleep(1200);
                     } catch(Exception e) {
                         e.printStackTrace();
                     }
