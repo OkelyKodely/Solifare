@@ -13,6 +13,9 @@ public class Stacker {
         Stack3 s = new Stack3();
         Stack4 t = new Stack4();
 
+        singleton.Singleton.getInstance().gr.setColor(new Color(123, 254, 81));
+        singleton.Singleton.getInstance().gr.fillRect(0, 600, 1370, 900);
+
         q.drawIt();
         r.drawIt();
         s.drawIt();
@@ -24,15 +27,15 @@ public class Stacker {
         int width = 105;
         int height = 151;
         public void drawIt() {
-            Singleton.getInstance().gr.setColor(Color.WHITE) ;
+            Singleton.getInstance().gr.setColor(new Color(215, 218, 185)) ;
             Singleton.getInstance().gr.drawRect(x, y, width, height);
-            Singleton.getInstance().gr.drawLine(200, 75, 260, 75);
-            Singleton.getInstance().gr.drawLine(300, 75, 360, 75);
-            Singleton.getInstance().gr.drawLine(400, 75, 460, 75);
-            Singleton.getInstance().gr.drawLine(500, 75, 560, 75);
-            Singleton.getInstance().gr.drawLine(600, 75, 660, 75);
-            Singleton.getInstance().gr.drawLine(700, 75, 760, 75);
-            Singleton.getInstance().gr.drawLine(800, 75, 860, 75);
+            Singleton.getInstance().gr.drawLine(200, 85, 260, 75);
+            Singleton.getInstance().gr.drawLine(300, 85, 360, 75);
+            Singleton.getInstance().gr.drawLine(400, 85, 460, 75);
+            Singleton.getInstance().gr.drawLine(500, 85, 560, 75);
+            Singleton.getInstance().gr.drawLine(600, 85, 660, 75);
+            Singleton.getInstance().gr.drawLine(700, 85, 760, 75);
+            Singleton.getInstance().gr.drawLine(800, 85, 860, 75);
             try {
                 Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
                 Singleton.getInstance().gr.drawImage(potImg, 52, 661, 80, 80, null);
@@ -40,12 +43,12 @@ public class Stacker {
         }
     }
     class Stack2 {
-        int x = 351;
+        int x = 191;
         int y = 660;
         int width = 105;
         int height = 151;
         public void drawIt() {
-            Singleton.getInstance().gr.setColor(Color.WHITE) ;
+            Singleton.getInstance().gr.setColor(new Color(215, 218, 185)) ;
             Singleton.getInstance().gr.drawRect(x, y, width, height);
             try {
                 Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
@@ -54,12 +57,12 @@ public class Stacker {
         }
     }
     class Stack3 {
-        int x = 651;
+        int x = 331;
         int y = 660;
         int width = 105;
         int height = 151;
         public void drawIt() {
-            Singleton.getInstance().gr.setColor(Color.WHITE) ;
+            Singleton.getInstance().gr.setColor(new Color(215, 218, 185)) ;
             Singleton.getInstance().gr.drawRect(x, y, width, height);
             try {
                 Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
@@ -68,12 +71,12 @@ public class Stacker {
         }
     }
     class Stack4 {
-        int x = 901;
+        int x = 471;
         int y = 660;
         int width = 105;
         int height = 151;
         public void drawIt() {
-            Singleton.getInstance().gr.setColor(Color.WHITE) ;
+            Singleton.getInstance().gr.setColor(new Color(215, 218, 185)) ;
             Singleton.getInstance().gr.drawRect(x, y, width, height);
             try {
                 Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
