@@ -1,3 +1,5 @@
+import eventsystem.WinnerSystem;
+import eventsystem.ClickSystem;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import javax.swing.JFrame;
@@ -14,8 +16,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Random;
 import singleton.Singleton;
-import system.*;
 import views.Stacker;
 import views.Logo;
 
@@ -23,8 +25,10 @@ import views.Logo;
 // www.github.com/okelykodely
 
 public class Solitaire {
-    boolean instruct = false ;
-Stacker stacker = new Stacker();
+
+    boolean instruct = false;
+    
+    Stacker stacker = new Stacker();
 
     Singleton singleton;
     ArrayList<Card> ka = new ArrayList<>();
@@ -34,7 +38,7 @@ Stacker stacker = new Stacker();
     ArrayList<Card> shuffledDeck;
     ArrayList<Card> cards = new ArrayList<>();
     
-    JFrame jframe = new JFrame("Solitaire made of Shrek");
+    JFrame jframe = new JFrame("SOLITAIRE");
     JPanel jpanel = new JPanel();
     
     Graphics gr;
@@ -55,7 +59,7 @@ Stacker stacker = new Stacker();
         stack5.clear();
         stack6.clear();
         stack7.clear();
-        ArrayList<Card> c = cas.crs;
+        ArrayList<Card> c = Singleton.getInstance().cas.crs;
         System.out.println(c.size());
         int count = 1;
         ArrayList<Card> controller = new ArrayList<>();
@@ -69,6 +73,7 @@ Stacker stacker = new Stacker();
                     int y = 100;
                     cd.x = x;
                     cd.y = y;
+                    cd.stackNeim = "stack1";
                     count++;
                     cd.drawCardAtLocation(cd.x, cd.y);
                 }
@@ -82,6 +87,7 @@ Stacker stacker = new Stacker();
                         y = y + 30;
                     cd.x = x;
                     cd.y = y;
+                    cd.stackNeim = "stack2";
                     count++;
                     cd.drawCardAtLocation(cd.x, cd.y);
                 }
@@ -97,6 +103,7 @@ Stacker stacker = new Stacker();
                         y = y + 30;
                     cd.x = x;
                     cd.y = y;
+                    cd.stackNeim = "stack3";
                     count++;
                     cd.drawCardAtLocation(cd.x, cd.y);
                 }
@@ -114,6 +121,7 @@ Stacker stacker = new Stacker();
                         y = y + 30;
                     cd.x = x;
                     cd.y = y;
+                    cd.stackNeim = "stack4";
                     count++;
                     cd.drawCardAtLocation(cd.x, cd.y);
                 }
@@ -133,6 +141,7 @@ Stacker stacker = new Stacker();
                         y = y + 30;
                     cd.x = x;
                     cd.y = y;
+                    cd.stackNeim = "stack5";
                     count++;
                     cd.drawCardAtLocation(cd.x, cd.y);
                 }
@@ -154,6 +163,7 @@ Stacker stacker = new Stacker();
                         y = y + 30;
                     cd.x = x;
                     cd.y = y;
+                    cd.stackNeim = "stack6";
                     count++;
                     cd.drawCardAtLocation(cd.x, cd.y);
                 }
@@ -177,6 +187,7 @@ Stacker stacker = new Stacker();
                         y = y + 30;
                     cd.x = x;
                     cd.y = y;
+                    cd.stackNeim = "stack7";
                     count++;
                     cd.drawCardAtLocation(cd.x, cd.y);
                 }
@@ -200,6 +211,8 @@ Stacker stacker = new Stacker();
         jframe.setBounds(0, 0, 1370, 900);
         jpanel.setBounds(0, 0, 1370, 900);
         
+        jpanel.setBackground(Color.yellow);
+        
         jframe.add(jpanel);
         jframe.setVisible(true);
         gr = jpanel.getGraphics();
@@ -212,7 +225,7 @@ Stacker stacker = new Stacker();
     
     void initCards() {
  
-        //cas.cars.clear();
+        cas.cars.clear();
  
         int DECK_SIZE = 52;
 
@@ -241,11 +254,18 @@ Stacker stacker = new Stacker();
                 id++;
             }
         }
-            
+
+        cas.crs = new ArrayList<>();
+        for(int i=0; i<24; i++) {
+            Card cc = new Card();
+            //cas.crs.add(cc);
+        }
+        
         shuffledDeck = new ArrayList<Card>();
 
+        float a = new Random().nextFloat();
         while (deck.size() > 0) {
-            int index = (int) (Math.random() * deck.size());
+            int index = (int) (Math.random() * a * deck.size());
             int v = deck.remove(index);
             Card cc = cas.getCardByID(v);
             shuffledDeck.add(cc);
@@ -254,7 +274,7 @@ Stacker stacker = new Stacker();
  
         //cas.crs.clear();
 
-        for(int i=24; i<52; i++) {
+        for(int i=0; i<52; i++) {
             cas.crs.add(cas.cars.get(i));
         }
         
@@ -265,6 +285,8 @@ Stacker stacker = new Stacker();
                 
             }
         }
+        
+        Singleton.getInstance().cas = cas;
     }
     
     void startGameplay() {
@@ -288,7 +310,7 @@ Stacker stacker = new Stacker();
                 while(true) {
                     try {
                         cs.drawStackCards();
-                        Thread.sleep(2000);
+                        Thread.sleep(200);
                     } catch(Exception e) {
                         e.printStackTrace();
                     }
@@ -300,14 +322,17 @@ Stacker stacker = new Stacker();
         jframe.addMouseListener(cs);
         jframe.addMouseMotionListener(ws);
         jframe.addMouseListener(ws);
-        jpanel.setBackground(new Color(197, 143, 130));
         Thread t = new Thread() {
             public void run() {
                 while(true) {
                     try {
                         ImageIcon i = new ImageIcon(getClass().getResource("loading-bar.gif"));
-                        gr.drawImage(i.getImage(), 0, 0, 1370, 900, null);
-                        Thread.sleep(1000);
+                        gr.drawImage(i.getImage(), 0, 0, 1300, 900, null);
+                        Thread.sleep(10);
+                        if(!play) {
+                            gr.setColor(new Color(123, 191, 81));
+                            gr.fillRect(0, 0, 1370, 900);
+                        }
                     } catch(Exception e) {
                         e.printStackTrace();
                     }
@@ -362,9 +387,15 @@ Stacker stacker = new Stacker();
                     gr.setColor(new Color(197, 143, 130));
                     gr.fillRect(0, 0, 1370, 900);
                     deal();
+                    
+                    Singleton.getInstance().bs.stackfour.stack.clear();
+                    Singleton.getInstance().bs.stackthree.stack.clear();
+                    Singleton.getInstance().bs.stacktwo.stack.clear();
+                    Singleton.getInstance().bs.stackone.stack.clear();
                     gr.setColor(new Color(197, 143, 130));
                     gr.fillRect(0, 0, 1370, 900);
                     cs.drawStackCards();
+                    
                     play = false;
                 }
             }
@@ -431,14 +462,25 @@ Stacker stacker = new Stacker();
                         gr.setColor(Color.GRAY);
                         gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
                         gr.drawString("PLAY NOW", 600, 650);
+                        gr.setColor(Color.GRAY);
+                        gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
                         gr.drawString("-------------", 600, 670);
+                        gr.setColor(Color.GRAY);
+                        gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
                         gr.drawString("Try to stack a card or group of cards from and to a top stack by dragging your mouse on the screen.", 600, 700);
+                        gr.setColor(Color.GRAY);
+                        gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
                         gr.drawString("Try to stack the bottom stacks with cards of each suit in ascending order (starting with Aces to Kings).", 600, 750);
+                        gr.setColor(Color.GRAY);
+                        gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
                         gr.drawString("To stack a card on another stack it has to be opposite in suit and minus 1 in card value, for example, ", 600, 800);
+                        gr.setColor(Color.GRAY);
+                        gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
                         gr.drawString("to stack 4 of clubs to a 5 of diamonds.", 600, 850);
                     }
                 }
             }
+            
         };
         s.start();
         Thread thr = new Thread() {
@@ -446,13 +488,13 @@ Stacker stacker = new Stacker();
                 while(true) {
                     try {
                         if(play) {
-                            gr.setColor(new Color(197, 143, 130));
+                            gr.setColor(new Color(123, 191, 81));
                             gr.fillRect(0, 0, 1370, 900);
                             initCards();
-                            gr.setColor(new Color(197, 143, 130));
+                            gr.setColor(new Color(123, 191, 81));
                             gr.fillRect(0, 0, 1370, 900);
                             deal();
-                            gr.setColor(new Color(197, 143, 130));
+                            gr.setColor(new Color(123, 191, 81));
                             gr.fillRect(0, 0, 1370, 900);
                             cs.drawStackCards();
                             play = false;

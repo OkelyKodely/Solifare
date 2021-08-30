@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package system;
+package eventsystem;
 
 import data.Card;
 import data.StackOne;
@@ -44,6 +44,8 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
     }
 
     public void mouseReleased(MouseEvent me) {
+        Singleton.getInstance().yeoyaee = "something";
+        Singleton.getInstance().themouseevent = me;
         rt = 0;
         if(1==2)return;
         int id = 0;
@@ -107,7 +109,6 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
                         singleton.Singleton.getInstance().bs.stacktwo.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
                         singleton.Singleton.getInstance().k.remove(singleton.Singleton.getInstance().k.size() - 1);
                     }
-                    
                 }
             }
             if(stackn.equals("tack3")) {
@@ -141,7 +142,6 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
                             singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).number) {
                         singleton.Singleton.getInstance().bs.stackfour.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
                         singleton.Singleton.getInstance().k.remove(singleton.Singleton.getInstance().k.size() - 1);
-                        
                     }
                 }
             }
@@ -151,10 +151,12 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
             if(retarn)
                 return;
         }
-
+        
         String st = "";
         st = singleton.Singleton.getInstance().st;
         if(st == null) st = "";
+        System.out.println("stst2234::"+st);
+        if("a".equals("b")) {
         if(st.equals("stack1")) {
             int xxxx = -1;
             int yyyy = -1;
@@ -302,6 +304,7 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
                 yyyy += 30;
             }
         }
+        }
         
         System.out.println("sss:"+Singleton.getInstance().ka.size());
 
@@ -448,8 +451,8 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
             }
         }
 
-        singleton.Singleton.getInstance().gr.setColor(new Color(123, 197, 31));
-        singleton.Singleton.getInstance().gr.fillRect(0, 0, 1070, 900);
+        singleton.Singleton.getInstance().gr.setColor(new Color(123, 197, 81));
+        singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 900);
         drawStackCards();
         Logo logo = new Logo();
         logo.drawLogoMiddle();
