@@ -7,10 +7,11 @@ import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import singleton.*;
 
 public class Stacker {
-
+    int clears = 0;
     public void executeDrawing() {
         
         Stack1 q = new Stack1();
@@ -104,361 +105,370 @@ public class Stacker {
 //            Singleton.getInstance().stack6.remove(Singleton.getInstance().stack6.size()-1);
 //            Singleton.getInstance().stack7.remove(Singleton.getInstance().stack7.size()-1);
 
-//            for(int j=0; j<Singleton.getInstance().stack1.size(); j++) {
-//                if(Singleton.getInstance().stack1.get(j).number == card.number &&
-//                        Singleton.getInstance().stack1.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack1.get(j).suit);
-//                    //Singleton.getInstance().stack1.remove(j);
-//                    Singleton.getInstance().stack1.remove(Singleton.getInstance().stack1.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack2.size(); j++) {
-//                if(Singleton.getInstance().stack2.get(j).number == card.number &&
-//                        Singleton.getInstance().stack2.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack2.get(j).suit);
-//                    //Singleton.getInstance().stack2.remove(j);
-//                    Singleton.getInstance().stack2.remove(Singleton.getInstance().stack2.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack3.size(); j++) {
-//                if(Singleton.getInstance().stack3.get(j).number == card.number &&
-//                        Singleton.getInstance().stack3.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack3.get(j).suit);
-//                    //Singleton.getInstance().stack3.remove(j);
-//                    Singleton.getInstance().stack3.remove(Singleton.getInstance().stack3.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack4.size(); j++) {
-//                if(Singleton.getInstance().stack4.get(j).number == card.number &&
-//                        Singleton.getInstance().stack4.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack4.get(j).suit);
-//                    //Singleton.getInstance().stack4.remove(j);
-//                    Singleton.getInstance().stack4.remove(Singleton.getInstance().stack4.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack5.size(); j++) {
-//                if(Singleton.getInstance().stack5.get(j).number == card.number &&
-//                        Singleton.getInstance().stack5.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack5.get(j).suit);
-//                    //Singleton.getInstance().stack5.remove(j);
-//                    Singleton.getInstance().stack5.remove(Singleton.getInstance().stack5.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack6.size(); j++) {
-//                if(Singleton.getInstance().stack6.get(j).number == card.number &&
-//                        Singleton.getInstance().stack6.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack6.get(j).suit);
-//                    //Singleton.getInstance().stack6.remove(j);
-//                    Singleton.getInstance().stack6.remove(Singleton.getInstance().stack6.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack7.size(); j++) {
-//                if(Singleton.getInstance().stack7.get(j).number == card.number &&
-//                        Singleton.getInstance().stack7.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack7.get(j).suit);
-//                    //Singleton.getInstance().stack7.remove(j);
-//                    Singleton.getInstance().stack7.remove(Singleton.getInstance().stack7.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//        }
-//        for(int i=0; i<Singleton.getInstance().bs.stacktwo.stack.size(); i++) {
-//            Singleton.getInstance().yeoyaee = "hi";
-//            Card card = singleton.Singleton.getInstance().bs.stacktwo.stack.get(i);
-//            for(int j=0; j<Singleton.getInstance().stack1.size(); j++) {
-//                if(Singleton.getInstance().stack1.get(j).number == card.number &&
-//                        Singleton.getInstance().stack1.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack1.get(j).suit);
-//                    //Singleton.getInstance().stack1.remove(j);
-//                    Singleton.getInstance().stack1.remove(Singleton.getInstance().stack1.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack2.size(); j++) {
-//                if(Singleton.getInstance().stack2.get(j).number == card.number &&
-//                        Singleton.getInstance().stack2.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack2.get(j).suit);
-//                    //Singleton.getInstance().stack2.remove(j);
-//                    Singleton.getInstance().stack2.remove(Singleton.getInstance().stack2.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack3.size(); j++) {
-//                if(Singleton.getInstance().stack3.get(j).number == card.number &&
-//                        Singleton.getInstance().stack3.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack3.get(j).suit);
-//                    //Singleton.getInstance().stack3.remove(j);
-//                    Singleton.getInstance().stack3.remove(Singleton.getInstance().stack3.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack4.size(); j++) {
-//                if(Singleton.getInstance().stack4.get(j).number == card.number &&
-//                        Singleton.getInstance().stack4.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack4.get(j).suit);
-//                    //Singleton.getInstance().stack4.remove(j);
-//                    Singleton.getInstance().stack4.remove(Singleton.getInstance().stack4.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack5.size(); j++) {
-//                if(Singleton.getInstance().stack5.get(j).number == card.number &&
-//                        Singleton.getInstance().stack5.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack5.get(j).suit);
-//                    //Singleton.getInstance().stack5.remove(j);
-//                    Singleton.getInstance().stack5.remove(Singleton.getInstance().stack5.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack6.size(); j++) {
-//                if(Singleton.getInstance().stack6.get(j).number == card.number &&
-//                        Singleton.getInstance().stack6.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack6.get(j).suit);
-//                    //Singleton.getInstance().stack6.remove(j);
-//                    Singleton.getInstance().stack6.remove(Singleton.getInstance().stack6.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack7.size(); j++) {
-//                if(Singleton.getInstance().stack7.get(j).number == card.number &&
-//                        Singleton.getInstance().stack7.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack7.get(j).suit);
-//                    //Singleton.getInstance().stack7.remove(j);
-//                    Singleton.getInstance().stack7.remove(Singleton.getInstance().stack7.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//        }
-//        for(int i=0; i<Singleton.getInstance().bs.stackthree.stack.size(); i++) {
-//            Singleton.getInstance().yeoyaee = "hi";
-//            Card card = singleton.Singleton.getInstance().bs.stackthree.stack.get(i);
-//            for(int j=0; j<Singleton.getInstance().stack1.size(); j++) {
-//                if(Singleton.getInstance().stack1.get(j).number == card.number &&
-//                        Singleton.getInstance().stack1.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack1.get(j).suit);
-//                    //Singleton.getInstance().stack1.remove(j);
-//                    Singleton.getInstance().stack1.remove(Singleton.getInstance().stack1.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack2.size(); j++) {
-//                if(Singleton.getInstance().stack2.get(j).number == card.number &&
-//                        Singleton.getInstance().stack2.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack2.get(j).suit);
-//                    //Singleton.getInstance().stack2.remove(j);
-//                    Singleton.getInstance().stack2.remove(Singleton.getInstance().stack2.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack3.size(); j++) {
-//                if(Singleton.getInstance().stack3.get(j).number == card.number &&
-//                        Singleton.getInstance().stack3.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack3.get(j).suit);
-//                    //Singleton.getInstance().stack3.remove(j);
-//                    Singleton.getInstance().stack3.remove(Singleton.getInstance().stack3.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack4.size(); j++) {
-//                if(Singleton.getInstance().stack4.get(j).number == card.number &&
-//                        Singleton.getInstance().stack4.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack4.get(j).suit);
-//                    //Singleton.getInstance().stack4.remove(j);
-//                    Singleton.getInstance().stack4.remove(Singleton.getInstance().stack4.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack5.size(); j++) {
-//                if(Singleton.getInstance().stack5.get(j).number == card.number &&
-//                        Singleton.getInstance().stack5.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack5.get(j).suit);
-//                    //Singleton.getInstance().stack5.remove(j);
-//                    Singleton.getInstance().stack5.remove(Singleton.getInstance().stack5.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack6.size(); j++) {
-//                if(Singleton.getInstance().stack6.get(j).number == card.number &&
-//                        Singleton.getInstance().stack6.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack6.get(j).suit);
-//                    //Singleton.getInstance().stack6.remove(j);
-//                    Singleton.getInstance().stack6.remove(Singleton.getInstance().stack6.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack7.size(); j++) {
-//                if(Singleton.getInstance().stack7.get(j).number == card.number &&
-//                        Singleton.getInstance().stack7.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack7.get(j).suit);
-//                    //Singleton.getInstance().stack7.remove(j);
-//                    Singleton.getInstance().stack7.remove(Singleton.getInstance().stack7.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//        }
-//        for(int i=0; i<Singleton.getInstance().bs.stackfour.stack.size(); i++) {
-//            Singleton.getInstance().yeoyaee = "hi";
-//            Card card = singleton.Singleton.getInstance().bs.stackfour.stack.get(i);
-//            for(int j=0; j<Singleton.getInstance().stack1.size(); j++) {
-//                if(Singleton.getInstance().stack1.get(j).number == card.number &&
-//                        Singleton.getInstance().stack1.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack1.get(j).suit);
-//                    //Singleton.getInstance().stack1.remove(j);
-//                    Singleton.getInstance().stack1.remove(Singleton.getInstance().stack1.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack2.size(); j++) {
-//                if(Singleton.getInstance().stack2.get(j).number == card.number &&
-//                        Singleton.getInstance().stack2.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack2.get(j).suit);
-//                    //Singleton.getInstance().stack2.remove(j);
-//                    Singleton.getInstance().stack2.remove(Singleton.getInstance().stack2.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack3.size(); j++) {
-//                if(Singleton.getInstance().stack3.get(j).number == card.number &&
-//                        Singleton.getInstance().stack3.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack3.get(j).suit);
-//                    //Singleton.getInstance().stack3.remove(j);
-//                    Singleton.getInstance().stack3.remove(Singleton.getInstance().stack3.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack4.size(); j++) {
-//                if(Singleton.getInstance().stack4.get(j).number == card.number &&
-//                        Singleton.getInstance().stack4.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack4.get(j).suit);
-//                    //Singleton.getInstance().stack4.remove(j);
-//                    Singleton.getInstance().stack4.remove(Singleton.getInstance().stack4.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack5.size(); j++) {
-//                if(Singleton.getInstance().stack5.get(j).number == card.number &&
-//                        Singleton.getInstance().stack5.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack5.get(j).suit);
-//                    //Singleton.getInstance().stack5.remove(j);
-//                    Singleton.getInstance().stack5.remove(Singleton.getInstance().stack5.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack6.size(); j++) {
-//                if(Singleton.getInstance().stack6.get(j).number == card.number &&
-//                        Singleton.getInstance().stack6.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack6.get(j).suit);
-//                    //Singleton.getInstance().stack6.remove(j);
-//                    Singleton.getInstance().stack6.remove(Singleton.getInstance().stack6.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
-//            for(int j=0; j<Singleton.getInstance().stack7.size(); j++) {
-//                if(Singleton.getInstance().stack7.get(j).number == card.number &&
-//                        Singleton.getInstance().stack7.get(j).suit == card.suit) {
-//                    System.out.println("-" + card.number + " " +
-//                        Singleton.getInstance().stack7.get(j).suit);
-//                    //Singleton.getInstance().stack7.remove(j);
-//                    Singleton.getInstance().stack7.remove(Singleton.getInstance().stack7.size()-1);
-//                    Singleton.getInstance().ka.clear();
-//                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
-//                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
-//                }
-//            }
+            for(int j=0; j<Singleton.getInstance().stack1.size(); j++) {
+                if(Singleton.getInstance().stack1.get(j).number == card.number &&
+                        Singleton.getInstance().stack1.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack1.get(j).suit);
+                    Card cd = Singleton.getInstance().stack1.remove(j);
+                    cd.x = -1000;
+                    //Singleton.getInstance().bs.stackone.stack.add(cd);
+                    //..no boro.
+                    clears++;
+                    System.out.println("clears:" + clears);
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack2.size(); j++) {
+                if(Singleton.getInstance().stack2.get(j).number == card.number &&
+                        Singleton.getInstance().stack2.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack2.get(j).suit);
+                    Card cd = Singleton.getInstance().stack2.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack3.size(); j++) {
+                if(Singleton.getInstance().stack3.get(j).number == card.number &&
+                        Singleton.getInstance().stack3.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack3.get(j).suit);
+                    Card cd = Singleton.getInstance().stack3.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack4.size(); j++) {
+                if(Singleton.getInstance().stack4.get(j).number == card.number &&
+                        Singleton.getInstance().stack4.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack4.get(j).suit);
+                    Card cd = Singleton.getInstance().stack4.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack5.size(); j++) {
+                if(Singleton.getInstance().stack5.get(j).number == card.number &&
+                        Singleton.getInstance().stack5.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack5.get(j).suit);
+                    Card cd = Singleton.getInstance().stack5.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack6.size(); j++) {
+                if(Singleton.getInstance().stack6.get(j).number == card.number &&
+                        Singleton.getInstance().stack6.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack6.get(j).suit);
+                    Card cd = Singleton.getInstance().stack6.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack7.size(); j++) {
+                if(Singleton.getInstance().stack7.get(j).number == card.number &&
+                        Singleton.getInstance().stack7.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack7.get(j).suit);
+                    Card cd = Singleton.getInstance().stack7.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+        }
+        for(int i=0; i<Singleton.getInstance().bs.stacktwo.stack.size(); i++) {
+            Singleton.getInstance().yeoyaee = "hi";
+            Card card = singleton.Singleton.getInstance().bs.stacktwo.stack.get(i);
+            for(int j=0; j<Singleton.getInstance().stack1.size(); j++) {
+                if(Singleton.getInstance().stack1.get(j).number == card.number &&
+                        Singleton.getInstance().stack1.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack1.get(j).suit);
+                    Card cd = Singleton.getInstance().stack1.remove(j);
+                    cd.x = -1000;
+                    clears++;
+                    System.out.println("clears:" + clears);
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack2.size(); j++) {
+                if(Singleton.getInstance().stack2.get(j).number == card.number &&
+                        Singleton.getInstance().stack2.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack2.get(j).suit);
+                    Card cd = Singleton.getInstance().stack2.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack3.size(); j++) {
+                if(Singleton.getInstance().stack3.get(j).number == card.number &&
+                        Singleton.getInstance().stack3.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack3.get(j).suit);
+                    Card cd = Singleton.getInstance().stack3.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack4.size(); j++) {
+                if(Singleton.getInstance().stack4.get(j).number == card.number &&
+                        Singleton.getInstance().stack4.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack4.get(j).suit);
+                    Card cd = Singleton.getInstance().stack4.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack5.size(); j++) {
+                if(Singleton.getInstance().stack5.get(j).number == card.number &&
+                        Singleton.getInstance().stack5.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack5.get(j).suit);
+                    Card cd = Singleton.getInstance().stack5.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack6.size(); j++) {
+                if(Singleton.getInstance().stack6.get(j).number == card.number &&
+                        Singleton.getInstance().stack6.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack6.get(j).suit);
+                    Card cd = Singleton.getInstance().stack6.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack7.size(); j++) {
+                if(Singleton.getInstance().stack7.get(j).number == card.number &&
+                        Singleton.getInstance().stack7.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack7.get(j).suit);
+                    Card cd = Singleton.getInstance().stack7.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+        }
+        for(int i=0; i<Singleton.getInstance().bs.stackthree.stack.size(); i++) {
+            Singleton.getInstance().yeoyaee = "hi";
+            Card card = singleton.Singleton.getInstance().bs.stackthree.stack.get(i);
+            for(int j=0; j<Singleton.getInstance().stack1.size(); j++) {
+                if(Singleton.getInstance().stack1.get(j).number == card.number &&
+                        Singleton.getInstance().stack1.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack1.get(j).suit);
+                    Card cd = Singleton.getInstance().stack1.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack2.size(); j++) {
+                if(Singleton.getInstance().stack2.get(j).number == card.number &&
+                        Singleton.getInstance().stack2.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack2.get(j).suit);
+                    Card cd = Singleton.getInstance().stack2.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack3.size(); j++) {
+                if(Singleton.getInstance().stack3.get(j).number == card.number &&
+                        Singleton.getInstance().stack3.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack3.get(j).suit);
+                    Card cd = Singleton.getInstance().stack3.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack4.size(); j++) {
+                if(Singleton.getInstance().stack4.get(j).number == card.number &&
+                        Singleton.getInstance().stack4.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack4.get(j).suit);
+                    Card cd = Singleton.getInstance().stack4.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack5.size(); j++) {
+                if(Singleton.getInstance().stack5.get(j).number == card.number &&
+                        Singleton.getInstance().stack5.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack5.get(j).suit);
+                    Card cd = Singleton.getInstance().stack5.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack6.size(); j++) {
+                if(Singleton.getInstance().stack6.get(j).number == card.number &&
+                        Singleton.getInstance().stack6.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack6.get(j).suit);
+                    Card cd = Singleton.getInstance().stack6.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack7.size(); j++) {
+                if(Singleton.getInstance().stack7.get(j).number == card.number &&
+                        Singleton.getInstance().stack7.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack7.get(j).suit);
+                    Card cd = Singleton.getInstance().stack7.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+        }
+        for(int i=0; i<Singleton.getInstance().bs.stackfour.stack.size(); i++) {
+            Singleton.getInstance().yeoyaee = "hi";
+            Card card = singleton.Singleton.getInstance().bs.stackfour.stack.get(i);
+            for(int j=0; j<Singleton.getInstance().stack1.size(); j++) {
+                if(Singleton.getInstance().stack1.get(j).number == card.number &&
+                        Singleton.getInstance().stack1.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack1.get(j).suit);
+                    Card cd = Singleton.getInstance().stack1.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack2.size(); j++) {
+                if(Singleton.getInstance().stack2.get(j).number == card.number &&
+                        Singleton.getInstance().stack2.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack2.get(j).suit);
+                    Card cd = Singleton.getInstance().stack2.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack3.size(); j++) {
+                if(Singleton.getInstance().stack3.get(j).number == card.number &&
+                        Singleton.getInstance().stack3.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack3.get(j).suit);
+                    Card cd = Singleton.getInstance().stack3.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack4.size(); j++) {
+                if(Singleton.getInstance().stack4.get(j).number == card.number &&
+                        Singleton.getInstance().stack4.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack4.get(j).suit);
+                    Card cd = Singleton.getInstance().stack4.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack5.size(); j++) {
+                if(Singleton.getInstance().stack5.get(j).number == card.number &&
+                        Singleton.getInstance().stack5.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack5.get(j).suit);
+                    Card cd = Singleton.getInstance().stack5.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack6.size(); j++) {
+                if(Singleton.getInstance().stack6.get(j).number == card.number &&
+                        Singleton.getInstance().stack6.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack6.get(j).suit);
+                    Card cd = Singleton.getInstance().stack6.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
+            for(int j=0; j<Singleton.getInstance().stack7.size(); j++) {
+                if(Singleton.getInstance().stack7.get(j).number == card.number &&
+                        Singleton.getInstance().stack7.get(j).suit == card.suit) {
+                    System.out.println("-" + card.number + " " +
+                        Singleton.getInstance().stack7.get(j).suit);
+                    Card cd = Singleton.getInstance().stack7.remove(j);
+                    cd.x = -1000;
+                    Singleton.getInstance().ka.clear();
+                    singleton.Singleton.getInstance().gr.setColor(new Color(123, 190, 81));
+                    singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 600);
+                }
+            }
          }}
 
-        singleton.Singleton.getInstance().gr.setColor(new Color(23, 90, 41));
+        singleton.Singleton.getInstance().gr.setColor(new Color(23, 191, 11));
         singleton.Singleton.getInstance().gr.fillRect(0, 600, 1370, 300);
-        singleton.Singleton.getInstance().gr.setFont(new Font("arial", Font.BOLD, 188));
-        singleton.Singleton.getInstance().gr.drawString("SOLITAIRE", 220, 500);
+        ImageIcon ia = new ImageIcon(getClass().getResource("../gradient.gif"));
+        Singleton.getInstance().gr.drawImage(ia.getImage(), 600, 600, 650, 300, null);
+        ImageIcon ia2 = new ImageIcon(getClass().getResource("../logo1.png"));
+        Singleton.getInstance().gr.drawImage(ia2.getImage(), 214, 440, 850, 96, null);
         singleton.Singleton.getInstance().gr.setFont(new Font("arial", Font.BOLD, 13));
+        singleton.Singleton.getInstance().gr.setColor(new Color(23, 191, 11));
 
         q.drawIt();
         r.drawIt();
@@ -482,7 +492,7 @@ public class Stacker {
             Singleton.getInstance().gr.drawLine(700, 70, 760, 70);
             Singleton.getInstance().gr.drawLine(800, 70, 860, 70);
             try {
-                Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
+                Image potImg = ImageIO.read(this.getClass().getResource("../pot.jpg"));
                 Singleton.getInstance().gr.drawImage(potImg, 52, 661, 80, 80, null);
             } catch(Exception e) {}
         }
@@ -496,8 +506,8 @@ public class Stacker {
             Singleton.getInstance().gr.setColor(Color.BLACK) ;
             Singleton.getInstance().gr.drawRect(x, y, width, height);
             try {
-                Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
-                Singleton.getInstance().gr.drawImage(potImg, 352, 661, 80, 80, null);
+                Image potImg = ImageIO.read(this.getClass().getResource("../pot.jpg"));
+                Singleton.getInstance().gr.drawImage(potImg, 191, 661, 80, 80, null);
             } catch(Exception e) {}
         }
     }
@@ -510,8 +520,8 @@ public class Stacker {
             Singleton.getInstance().gr.setColor(Color.BLACK) ;
             Singleton.getInstance().gr.drawRect(x, y, width, height);
             try {
-                Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
-                Singleton.getInstance().gr.drawImage(potImg, 652, 661, 80, 80, null);
+                Image potImg = ImageIO.read(this.getClass().getResource("../pot.jpg"));
+                Singleton.getInstance().gr.drawImage(potImg, 331, 661, 80, 80, null);
             } catch(Exception e) {}
         }
     }
@@ -524,8 +534,8 @@ public class Stacker {
             Singleton.getInstance().gr.setColor(Color.BLACK) ;
             Singleton.getInstance().gr.drawRect(x, y, width, height);
             try {
-                Image potImg = ImageIO.read(this.getClass().getResource("pot.jpg"));
-                Singleton.getInstance().gr.drawImage(potImg, 902, 661, 80, 80, null);
+                Image potImg = ImageIO.read(this.getClass().getResource("../pot.jpg"));
+                Singleton.getInstance().gr.drawImage(potImg, 471, 661, 80, 80, null);
             } catch(Exception e) {}
         }
     }
