@@ -1706,7 +1706,7 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
             }
         }
 
-        singleton.Singleton.getInstance().gr.setColor(new Color(224, 197, 31));
+        singleton.Singleton.getInstance().gr.setColor(new Color(123, 191, 81));
         singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 900);
         drawStackCards();
         Logo logo = new Logo();
@@ -1726,6 +1726,7 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
     }
 
     public void drawStackCards() {
+        System.out.println(Singleton.getInstance().stack1.size() + " stackONE111 SiZeeEeE");
         for(int ii=0; ii<Singleton.getInstance().stack1.size(); ii++) {
             Singleton.getInstance().stack1.get(ii).drawCardAtLocation(Singleton.getInstance().stack1.get(ii).x, Singleton.getInstance().stack1.get(ii).y);
         }
@@ -1751,7 +1752,7 @@ public class ClickSystem implements MouseMotionListener, MouseListener {
     }
 
     public void mouseDragged(MouseEvent me) {
-        singleton.Singleton.getInstance().gr.setColor(new Color(224, 197, 31));
+        singleton.Singleton.getInstance().gr.setColor(new Color(123, 191, 81));
         singleton.Singleton.getInstance().gr.fillRect(0, 0, 1370, 900);
         Logo logo = new Logo();
         logo.drawLogoMiddle();

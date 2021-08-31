@@ -77,8 +77,10 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
                 retarn = true;
             }
             
+            Singleton.getInstance().k = Singleton.getInstance().ka;
+            
             if(stackn.equals("tack1")) {
-                if(singleton.Singleton.getInstance().k.size() > 0) {
+                if(singleton.Singleton.getInstance().bs.stackone.stack.size() == 0) {
                     if(singleton.Singleton.getInstance().bs.stackone.stack.size() == 0) {
                         if(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).number == 1) {
                             singleton.Singleton.getInstance().bs.stackone.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
@@ -95,7 +97,7 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
                 }
             }
             if(stackn.equals("tack2")) {
-                if(singleton.Singleton.getInstance().k.size() > 0) {
+                if(singleton.Singleton.getInstance().bs.stacktwo.stack.size() == 0) {
                     if(singleton.Singleton.getInstance().bs.stacktwo.stack.size() == 0) {
                         if(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).number == 1) {
                             singleton.Singleton.getInstance().bs.stacktwo.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
@@ -112,7 +114,7 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
                 }
             }
             if(stackn.equals("tack3")) {
-                if(singleton.Singleton.getInstance().k.size() > 0) {
+                if(singleton.Singleton.getInstance().bs.stackthree.stack.size() == 0) {
                     if(singleton.Singleton.getInstance().bs.stackthree.stack.size() == 0) {
                         if(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).number == 1) {
                             singleton.Singleton.getInstance().bs.stackthree.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
@@ -129,7 +131,7 @@ public class WinnerSystem implements MouseMotionListener, MouseListener {
                 }
             }
             if(stackn.equals("tack4")) {
-                if(singleton.Singleton.getInstance().k.size() > 0) {
+                if(singleton.Singleton.getInstance().bs.stackfour.stack.size() == 0) {
                     if(singleton.Singleton.getInstance().bs.stackfour.stack.size() == 0) {
                         if(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1).number == 1) {
                             singleton.Singleton.getInstance().bs.stackfour.stack.add(singleton.Singleton.getInstance().k.get(singleton.Singleton.getInstance().k.size() - 1));
