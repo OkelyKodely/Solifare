@@ -19,6 +19,7 @@ public class Card {
     public int y;
     public int suit;
     public int number;
+    public String stackNeim = "steckstner1";
 
     Image image1_1;
     Image image2_1;
@@ -370,7 +371,79 @@ public class Card {
     }
 
     public void drawCardAtLocation(int x, int  y) {
-        System.out.println("x: " + x + ", " + "y: " + y);
+        for(int i=0; i<singleton.Singleton.getInstance().bs.stackone.stack.size(); i++) {
+            if(number == singleton.Singleton.getInstance().bs.stackone.stack.get(i).number &&
+                    suit == singleton.Singleton.getInstance().bs.stackone.stack.get(i).suit) {
+                System.out.println("try don't draw");
+                if(stackNeim.equals("StackOne")
+                        ||
+                        stackNeim.equals("StackTwo")
+                        ||
+                        stackNeim.equals("StackThree")
+                        ||
+                        stackNeim.equals("StackFour")
+                        ) {
+                    System.out.println("this is bottom of the screen 4 stacks 1st one!!");
+                } else {
+                 System.out.println(stackNeim + " 7&7&")           ;
+                return;
+                }
+            }
+        }
+        for(int i=0; i<singleton.Singleton.getInstance().bs.stacktwo.stack.size(); i++) {
+            if(number == singleton.Singleton.getInstance().bs.stacktwo.stack.get(i).number &&
+                    suit == singleton.Singleton.getInstance().bs.stacktwo.stack.get(i).suit) {
+                if(stackNeim.equals("StackOne")
+                        ||
+                        stackNeim.equals("StackTwo")
+                        ||
+                        stackNeim.equals("StackThree")
+                        ||
+                        stackNeim.equals("StackFour")
+                        ) {
+                    
+                } else {
+                 System.out.println(stackNeim + " 7&7&")           ;
+                return;
+                }
+            }
+        }
+        for(int i=0; i<singleton.Singleton.getInstance().bs.stackthree.stack.size(); i++) {
+            if(number == singleton.Singleton.getInstance().bs.stackthree.stack.get(i).number &&
+                    suit == singleton.Singleton.getInstance().bs.stackthree.stack.get(i).suit) {
+                if(stackNeim.equals("StackOne")
+                        ||
+                        stackNeim.equals("StackTwo")
+                        ||
+                        stackNeim.equals("StackThree")
+                        ||
+                        stackNeim.equals("StackFour")
+                        ) {
+                    
+                } else {
+                 System.out.println(stackNeim + " 7&7&")           ;
+                return;
+                }
+            }
+        }
+        for(int i=0; i<singleton.Singleton.getInstance().bs.stackfour.stack.size(); i++) {
+            if(number == singleton.Singleton.getInstance().bs.stackfour.stack.get(i).number &&
+                    suit == singleton.Singleton.getInstance().bs.stackfour.stack.get(i).suit) {
+                if(stackNeim.equals("StackOne")
+                        ||
+                        stackNeim.equals("StackTwo")
+                        ||
+                        stackNeim.equals("StackThree")
+                        ||
+                        stackNeim.equals("StackFour")
+                        ) {
+                    
+                } else {
+                 System.out.println(stackNeim + " 7&7&")           ;
+                return;
+                }
+            }
+        }
         switch(number) {
             case 1:
                 switch(suit) {
