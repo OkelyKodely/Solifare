@@ -38,7 +38,7 @@ public class Solitaire {
     ArrayList<Card> shuffledDeck;
     ArrayList<Card> cards = new ArrayList<>();
     
-    JFrame jframe = new JFrame("SOLITAIRE");
+    JFrame jframe = new JFrame("SHREK SOLITAIRE");
     JPanel jpanel = new JPanel();
     
     Graphics gr;
@@ -310,7 +310,8 @@ public class Solitaire {
                 while(true) {
                     try {
                         cs.drawStackCards();
-                        Thread.sleep(200);
+                        cas.draw_All_TopOfStack();   
+                        Thread.sleep(20);
                     } catch(Exception e) {
                         e.printStackTrace();
                     }
@@ -332,6 +333,10 @@ public class Solitaire {
                         if(!play) {
                             gr.setColor(new Color(123, 191, 81));
                             gr.fillRect(0, 0, 1370, 900);
+                            Singleton.getInstance().gr.setColor(new Color(23, 191, 11));
+                            Singleton.getInstance().gr.fillRect(0, 600, 1370, 300);
+                            ImageIcon ia = new ImageIcon(getClass().getResource("gradient.gif"));
+                            gr.drawImage(ia.getImage(), 600, 600, 650, 300, null);
                         }
                     } catch(Exception e) {
                         e.printStackTrace();
@@ -380,11 +385,11 @@ public class Solitaire {
             public void mouseClicked(MouseEvent me) {
                 if(me.getX() > 50 && me.getX() < 184 &&
                         me.getY() > 350 && me.getY() < 510) {
-                    gr.setColor(new Color(197, 143, 130));
+                    gr.setColor(new Color(123, 191, 81));
                     gr.fillRect(0, 0, 1370, 900);
                     Singleton.getInstance().cas.cars.clear();
                     initCards();
-                    gr.setColor(new Color(197, 143, 130));
+                    gr.setColor(new Color(123, 191, 81));
                     gr.fillRect(0, 0, 1370, 900);
                     deal();
                     
@@ -392,7 +397,7 @@ public class Solitaire {
                     Singleton.getInstance().bs.stackthree.stack.clear();
                     Singleton.getInstance().bs.stacktwo.stack.clear();
                     Singleton.getInstance().bs.stackone.stack.clear();
-                    gr.setColor(new Color(197, 143, 130));
+                    gr.setColor(new Color(123, 191, 81));
                     gr.fillRect(0, 0, 1370, 900);
                     cs.drawStackCards();
                     
@@ -445,11 +450,15 @@ public class Solitaire {
             @Override
             public void run() {
                 while(true) {
-                    if(!play)
+                    if(!play) {
+                        ImageIcon ia2 = new ImageIcon(getClass().getResource("fallingcardsbg.gif"));
+                        Singleton.getInstance().gr.drawImage(ia2.getImage(), 0, 0, 1370, 600, null);
                         stacker.executeDrawing();
-                    
+                        Logo logo = new Logo();
+                        logo.drawLogoMiddle();
+                    }
                     try {
-                        Thread.sleep(600);
+                        Thread.sleep(16);
                     } catch(Exception e) {}
                 }
             }
@@ -459,23 +468,23 @@ public class Solitaire {
             public void run() {
                 while(true) {
                     if(instruct) {
-                        gr.setColor(Color.GRAY);
-                        gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
+                        gr.setColor(Color.BLACK);
+                        gr.setFont(new Font("TAHOMA", Font.BOLD, 12));
                         gr.drawString("PLAY NOW", 600, 650);
-                        gr.setColor(Color.GRAY);
-                        gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
-                        gr.drawString("-------------", 600, 670);
-                        gr.setColor(Color.GRAY);
-                        gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
+                        gr.setColor(Color.BLACK);
+                        gr.setFont(new Font("TAHOMA", Font.BOLD, 12));
+                        gr.drawString("--------------", 600, 670);
+                        gr.setColor(Color.BLACK);
+                        gr.setFont(new Font("TAHOMA", Font.BOLD, 12));
                         gr.drawString("Try to stack a card or group of cards from and to a top stack by dragging your mouse on the screen.", 600, 700);
-                        gr.setColor(Color.GRAY);
-                        gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
+                        gr.setColor(Color.BLACK);
+                        gr.setFont(new Font("TAHOMA", Font.BOLD, 12));
                         gr.drawString("Try to stack the bottom stacks with cards of each suit in ascending order (starting with Aces to Kings).", 600, 750);
-                        gr.setColor(Color.GRAY);
-                        gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
+                        gr.setColor(Color.BLACK);
+                        gr.setFont(new Font("TAHOMA", Font.BOLD, 12));
                         gr.drawString("To stack a card on another stack it has to be opposite in suit and minus 1 in card value, for example, ", 600, 800);
-                        gr.setColor(Color.GRAY);
-                        gr.setFont(new Font("TAHOMA", Font.BOLD, 14));
+                        gr.setColor(Color.BLACK);
+                        gr.setFont(new Font("TAHOMA", Font.BOLD, 12));
                         gr.drawString("to stack 4 of clubs to a 5 of diamonds.", 600, 850);
                     }
                 }
@@ -500,9 +509,6 @@ public class Solitaire {
                             play = false;
                         }
                         ws.drawStackCards();
-                        Logo logo = new Logo();
-                        logo.drawLogoMiddle();
-                        cas.draw_All_TopOfStack();   
                         Thread.sleep(1200);
                     } catch(Exception e) {
                         e.printStackTrace();
